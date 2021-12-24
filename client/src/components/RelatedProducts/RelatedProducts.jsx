@@ -1,8 +1,31 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import RelatedProductsCards from './RelatedProductsCards.jsx';
 import YourOutfitCards from './YourOutfitCards.jsx'
 
-const RelatedProducts = (props) => (
+const RelatedProducts = (props) => {
+  const [defaultPhotos, setDefaultPhotos] = useState({});
+  const [photosLoaded, setPhotosLoaded] = useState(false)
+
+   useEffect(()=>{
+    let photos={};
+    if (props.relatedProductStyles.length > 0) {
+      props.relatedProductStyles.forEach(product => {
+      product.results.forEach(style => {
+        if (style['default?'] === true) {
+          let temp = {}
+          let picUrl = style.photos[0]
+          photos[product.product_id] = picUrl.url;
+        }
+      })
+    })
+    setDefaultPhotos(photos);
+    setPhotosLoaded(true);
+
+  }
+
+   }, [props.relatedProductStyles])
+
+  return(
   <div>
     <div className="relatedproducts-title">
     Related Products
@@ -13,11 +36,13 @@ const RelatedProducts = (props) => (
     relatedProducts={props.relatedProducts}
     relatedProductStyles={props.relatedProductStyles}
     relatedProductsIds={props.relatedProductsIds}
+    photosLoaded={photosLoaded}
+    relatedProductsPhotos={defaultPhotos}
     />
     <div className="youroutfit-title">Your Outfit</div>
     <YourOutfitCards/>
   </div>
-
-)
+  )
+  }
 
 export default RelatedProducts
