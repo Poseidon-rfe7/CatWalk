@@ -11,7 +11,7 @@ app.use(express.static("client/public"));
 
 
 app.get('/api/*', (req, res) => {
-    console.log(req.url, req.method)
+  console.log(req.url)
     var sub = req.url.substring(5)
   let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/${sub}`;
 
@@ -24,7 +24,8 @@ app.get('/api/*', (req, res) => {
   .then(result => {
     res.send(result.data)
   })
-  .catch(err => res.send(err));
+  .catch(err => {
+    res.send(err)});
 })
 
 app.listen(port, () => {
