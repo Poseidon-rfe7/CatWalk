@@ -5,6 +5,7 @@ import RatingsReviews from './RatingsReviews/RatingsReviews.jsx'
 import RelatedItems from './RelatedItems/RelatedItems.jsx'
 import axios from 'axios';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -30,69 +31,78 @@ class App extends React.Component {
     // also needs to trigger new related products, etc..
   }
 
-  refreshProducts (callback) {
-    axios.get('/api/products')
-      .then(result => this.setState({
-        productsList: result.data
-      }))
-      .then(()=> {callback()})
-      .catch(err => console.log(err))
+  async  refreshProducts () {
+    try{
+      let response = await fetch('/api/products');
+      let products = await response.json();
+      this.setState({productsList: products})
+    } catch(err){
+      console.log(err)
+    }
+
+  }
+  async componentDidMount() {
+    await this.refreshProducts()
+    var x = this.state.productsList[0];
+    this.setState({currentProduct: x});
+    await this.getRelatedProductsIds(x.id)
+    await this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
+    var y = await this.getProductStyles(x.id)
+    this.setState({currentProductStyles: y})
+    this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
   }
 
-  componentDidMount() {
-    this.refreshProducts(() => {
-      var x = this.state.productsList[0];
-      this.setState({currentProduct: x});
-      this.getRelatedProductsIds(x.id, ()=>{
-       this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
-        this.getProductStyles(x.id, (result) => {
-          this.setState({currentProductStyles: result.data})
-          this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
-        })
-      })
-    })
+
+
+  async getRelatedProductsIds(productId) {
+    try {
+      let response = await fetch(`api/products/${productId}/related`);
+      let ids = await response.json();
+      this.setState({currentRelatedProductsIds: ids})
+    } catch(err){
+      console.log(err)
+    }
   }
 
+  async getSingleProductInfo (productId) {
+    try {
+      let response = await fetch(`api/products/${productId}`)
+      let productInfo = await response.json();
+      return productInfo ///TODO: what do i do here
+    } catch(err){
+      console.log(err)
+    }
 
-  getRelatedProductsIds(productId, callback) {
-    axios.get(`api/products/${productId}/related`)
-      .then(result => this.setState({
-        currentRelatedProductsIds: result.data
-      }))
-      .then(()=> {callback()})
-      .catch(err => console.log(err))
   }
 
-  getSingleProductInfo (productId, callback) {
-     axios.get(`api/products/${productId}`)
-      .then(result =>  callback(result))
-      .catch(err => console.log(err))
-  }
-
-  getAllRelatedProductsInfo (productIds) {
+  async getAllRelatedProductsInfo (productIds) {
     let products = [];
     productIds.map(id => {
-      this.getSingleProductInfo(id, (result)=> {
-        products.push(result.data)
-      })
+      var x = this.getSingleProductInfo(id)
+      products.push(x)
     })
-    this.setState({currentRelatedProducts: products})
+    let results = await Promise.all(products)
+    this.setState({currentRelatedProducts: results})
   }
 
-  getProductStyles(productId, callback) {
-     axios.get(`api/products/${productId}/styles`)
-      .then(result =>  callback(result))
-      .catch(err => console.log(err))
+  async getProductStyles(productId) {
+    try {
+      let response = await fetch(`api/products/${productId}/styles`)
+      let productStyles = await response.json();
+      return productStyles
+    } catch(err){
+      console.log(err)
+    }
   }
 
-  getAllRelatedProductsStyles(productIds) {
+  async getAllRelatedProductsStyles(productIds) {
     let styles = [];
     productIds.map(id => {
-      this.getProductStyles(id, (result)=> {
-        styles.push(result.data)
-      })
+      var x = this.getProductStyles(id);
+      styles.push(x);
     })
-    this.setState({currentRelatedProductStyles: styles})
+    let results = await Promise.all(styles);
+    this.setState({currentRelatedProductStyles: results})
   }
 
   render() {
