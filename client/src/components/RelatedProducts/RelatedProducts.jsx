@@ -17,7 +17,6 @@ const RelatedProducts = (props) => {
             photos[product.product_id] = picUrl.url;
           }
         })
-
       })
     setDefaultPhotos(photos);
     setPhotosLoaded(true);
