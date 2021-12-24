@@ -1,10 +1,12 @@
 import React from 'react';
 
-const RelatedCard = (props) => (
+const RelatedProductsCard = (props) => (
   <div>
     {props.name}
+    <br/>
+    style: {props.category}
   </div>
 
 )
 
-export default RelatedCard
+export default RelatedProductsCard
