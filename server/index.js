@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(express.static("client/public"));
 
 
-app.get('/api(/*)', (req, res) => {
+app.get('/api/*', (req, res) => {
     console.log(req.url, req.method)
     var sub = req.url.substring(5)
   let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/${sub}`;
@@ -22,8 +22,7 @@ app.get('/api(/*)', (req, res) => {
     }
   })
   .then(result => {
-    console.log(result)
-    res.send(result)
+    res.send(result.data)
   })
   .catch(err => res.send(err));
 })
