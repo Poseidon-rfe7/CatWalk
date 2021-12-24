@@ -12,7 +12,8 @@ app.use(express.static("client/public"));
 
 app.get('/api(/*)', (req, res) => {
     console.log(req.url, req.method)
-  let url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products';
+    var sub = req.url.substring(5)
+  let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/${sub}`;
 
   axios.get(url, {
     headers: {
@@ -25,7 +26,6 @@ app.get('/api(/*)', (req, res) => {
     res.send(result)
   })
   .catch(err => res.send(err));
-
 })
 
 app.listen(port, () => {
