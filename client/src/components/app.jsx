@@ -2,9 +2,7 @@ import React from 'react';
 import ProductsOverview from './ProductOverview/ProductOverView.jsx'
 import QuestionsAnswers from './QuestionsAnswers/QuestionsAnswers.jsx'
 import RatingsReviews from './RatingsReviews/RatingsReviews.jsx'
-import RelatedItems from './RelatedItems/RelatedItems.jsx'
-import axios from 'axios';
-
+import RelatedProducts from './RelatedProducts/RelatedProducts.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -39,8 +37,8 @@ class App extends React.Component {
     } catch(err){
       console.log(err)
     }
-
   }
+
   async componentDidMount() {
     await this.refreshProducts()
     var x = this.state.productsList[0];
@@ -51,8 +49,6 @@ class App extends React.Component {
     this.setState({currentProductStyles: y})
     this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
   }
-
-
 
   async getRelatedProductsIds(productId) {
     try {
@@ -72,7 +68,6 @@ class App extends React.Component {
     } catch(err){
       console.log(err)
     }
-
   }
 
   async getAllRelatedProductsInfo (productIds) {
@@ -109,7 +104,16 @@ class App extends React.Component {
     return(
       <div>
         <ProductsOverview/>
-        <RelatedItems/>
+
+        <div className="related-products-container">
+        <RelatedProducts
+        currentProduct={this.state.currentProduct}
+        relatedProducts={this.state.currentRelatedProducts}
+        relatedProductStyles={this.state.currentRelatedProductStyles}
+        relatedProductsIds={this.state.currentRelatedProductsIds}
+        />
+        </div>
+
         <QuestionsAnswers />
         <RatingsReviews />
       </div>
