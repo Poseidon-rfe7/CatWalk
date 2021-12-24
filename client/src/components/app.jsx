@@ -11,9 +11,17 @@ class App extends React.Component {
     this.state={
       productsList: [],
       currentProduct: [],
+      currentProductStyles: [],
       currentRelatedProductsIds: [],
-      currentRelatedProducts: []
+      currentRelatedProducts: [],
+      currentRelatedProductStyles: []
     };
+    this.refreshProducts = this.refreshProducts.bind(this)
+    this.getRelatedProductsIds = this.getRelatedProductsIds.bind(this)
+    this.getSingleProductInfo = this.getSingleProductInfo.bind(this)
+    this.getAllRelatedProductsInfo = this.getAllRelatedProductsInfo.bind(this)
+    this.getProductStyles = this.getProductStyles.bind(this)
+    this.getAllRelatedProductsStyles = this.getAllRelatedProductsStyles.bind(this)
   }
 
   handleChangeCurrentProduct() {
@@ -34,10 +42,16 @@ class App extends React.Component {
   componentDidMount() {
     this.refreshProducts(() => {
       var x = this.state.productsList[0];
-      console.log(x.id)
       this.setState({currentProduct: x});
+
       this.getRelatedProductsIds(x.id, ()=>{
-        this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
+
+       this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
+
+        this.getProductStyles(x.id, (result) => {
+          this.setState({currentProductStyles: result.data})
+          this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
+        })
       })
     })
   }
@@ -54,15 +68,15 @@ class App extends React.Component {
   }
 
   getSingleProductInfo (productId, callback) {
-    return axios.get(`api/products/${productId}`)
+     axios.get(`api/products/${productId}`)
       .then(result =>  callback(result)) //may need to change
       .catch(err => console.log(err))
   }
 
-  getAllRelatedProductsInfo (...productIds) {
+  getAllRelatedProductsInfo (productIds) {
     //map over related product ids. calling getsingle product info handler for each one
     let products = [];
-    this.state.currentRelatedProductsIds.map(id => {
+    productIds.map(id => {
       this.getSingleProductInfo(id, (result)=> {
         products.push(result.data)
       })
@@ -70,6 +84,22 @@ class App extends React.Component {
     this.setState({currentRelatedProducts: products})
   }
 
+  getProductStyles(productId, callback) {
+     axios.get(`api/products/${productId}/styles`)
+      .then(result =>  callback(result)) //may need to change
+      .catch(err => console.log(err))
+  }
+
+  getAllRelatedProductsStyles(productIds) {
+    //map over related product ids. calling getsingle style  handler for each one
+    let styles = [];
+    productIds.map(id => {
+      this.getProductStyles(id, (result)=> {
+        styles.push(result.data)
+      })
+    })
+    this.setState({currentRelatedProductStyles: styles})
+  }
 
   render() {
     return(
