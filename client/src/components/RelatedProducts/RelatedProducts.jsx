@@ -10,19 +10,18 @@ const RelatedProducts = (props) => {
     let photos={};
     if (props.relatedProductStyles.length > 0) {
       props.relatedProductStyles.forEach(product => {
-      product.results.forEach(style => {
-        if (style['default?'] === true) {
-          let temp = {}
-          let picUrl = style.photos[0]
-          photos[product.product_id] = picUrl.url;
-        }
+        photos[product.product_id] = product.results[0].photos[0].url;
+        product.results.forEach((style, i) => {
+          if (style['default?'] === true) {
+            let picUrl = style.photos[0]
+            photos[product.product_id] = picUrl.url;
+          }
+        })
+
       })
-    })
     setDefaultPhotos(photos);
     setPhotosLoaded(true);
-
-  }
-
+    }
    }, [props.relatedProductStyles])
 
   return(

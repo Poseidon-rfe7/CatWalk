@@ -7,7 +7,7 @@ const RelatedProductsCards = (props) => {
 
    {props.relatedProducts.map(item => {
      return(
-     <div key={item.id} className="related-card">
+     <div key={item.id} className="related-card column">
      <RelatedProductsCard name={item.name} category={item.category}
      photo={props.relatedProductsPhotos[item.id]}
      loaded={props.photosLoaded}
