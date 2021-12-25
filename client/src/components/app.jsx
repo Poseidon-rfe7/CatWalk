@@ -21,10 +21,22 @@ class App extends React.Component {
     this.getAllRelatedProductsInfo = this.getAllRelatedProductsInfo.bind(this)
     this.getProductStyles = this.getProductStyles.bind(this)
     this.getAllRelatedProductsStyles = this.getAllRelatedProductsStyles.bind(this)
+    this.handleChangeCurrentProduct = this.handleChangeCurrentProduct.bind(this)
   }
 
-  handleChangeCurrentProduct() {
-    null
+  handleChangeCurrentProduct(id) {
+    try {
+      var loadProduct = this.getSingleProductInfo(id)
+      this.setState({currentProduct: loadProduct})
+      var loadStyles = this.getProductStyles(id)
+      this.setState({currentProductStyles: loadStyles})
+      this.getRelatedProductsIds(id)
+      this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
+      this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
+
+    } catch(err){
+      console.log(err)
+    }
     // set a new product ( whatever user has clicked on)
     // also needs to trigger new related products, etc..
   }
@@ -43,10 +55,10 @@ class App extends React.Component {
     await this.refreshProducts()
     var x = this.state.productsList[0];
     this.setState({currentProduct: x});
-    await this.getRelatedProductsIds(x.id)
-    await this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
     var y = await this.getProductStyles(x.id)
     this.setState({currentProductStyles: y})
+    await this.getRelatedProductsIds(x.id)
+    await this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
     this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
   }
 
@@ -64,7 +76,7 @@ class App extends React.Component {
     try {
       let response = await fetch(`api/products/${productId}`)
       let productInfo = await response.json();
-      return productInfo ///TODO: what do i do here
+      return productInfo
     } catch(err){
       console.log(err)
     }
@@ -102,17 +114,18 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="app-container">
         <ProductsOverview/>
 
-        <div className="related-products-container">
+
         <RelatedProducts
         currentProduct={this.state.currentProduct}
         relatedProducts={this.state.currentRelatedProducts}
         relatedProductStyles={this.state.currentRelatedProductStyles}
         relatedProductsIds={this.state.currentRelatedProductsIds}
+        changeProducts={this.handleChangeCurrentProduct}
         />
-        </div>
+
 
         <QuestionsAnswers />
         <RatingsReviews />

@@ -24,11 +24,9 @@ const RelatedProducts = (props) => {
    }, [props.relatedProductStyles])
 
   return(
-  <div>
-    <div className="relatedproducts-title">
-    Related Products
-    </div>
+  <div className="related-products-container">
 
+    <div className="relatedproducts-title">Related Products</div>
     <RelatedProductsCards
     currentProduct={props.currentProduct}
     relatedProducts={props.relatedProducts}
@@ -37,8 +35,10 @@ const RelatedProducts = (props) => {
     photosLoaded={photosLoaded}
     relatedProductsPhotos={defaultPhotos}
     />
+
     <div className="youroutfit-title">Your Outfit</div>
     <YourOutfitCards/>
+    
   </div>
   )
   }

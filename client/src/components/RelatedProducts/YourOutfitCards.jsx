@@ -1,7 +1,7 @@
 import React from 'react';
 
 const YourOutfitCards = (props) => (
-  <div>
+  <div className="your-outfit-cards-container">
     youroutfit cards here
   </div>
 
