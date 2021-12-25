@@ -23,6 +23,12 @@ const RelatedProducts = (props) => {
     }
    }, [props.relatedProductStyles])
 
+   const changeProducts = (e) => {
+     console.log(e.target.getAttribute('serial'))
+     var id = e.target.getAttribute('serial')
+     props.changeProducts(id)
+   }
+
   return(
   <div className="related-products-container">
 
@@ -34,11 +40,12 @@ const RelatedProducts = (props) => {
     relatedProductsIds={props.relatedProductsIds}
     photosLoaded={photosLoaded}
     relatedProductsPhotos={defaultPhotos}
+    changeProducts={changeProducts}
     />
 
     <div className="youroutfit-title">Your Outfit</div>
     <YourOutfitCards/>
-    
+
   </div>
   )
   }

@@ -4,10 +4,10 @@ import React from 'react';
 const RelatedProductsCard = (props) => (
   <div className="product-card-contents">
 
-    <div className="product-image">
+    <div className="product-image" serial={props.serial}>
 
       {props.loaded
-      ? <img className="fit-picture" src={props.photo} alt="product image"/>
+      ? <img className="fit-picture" src={props.photo} alt="product image" serial={props.serial}/>
       : <div>Loading...</div>
 
        }
@@ -15,7 +15,7 @@ const RelatedProductsCard = (props) => (
 
     </div>
 
-    <div className="product-info">
+    <div className="product-info" serial={props.serial}>
       {props.name}
       <br/>
       <div className="style-tag">

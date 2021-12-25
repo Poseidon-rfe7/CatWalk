@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state={
       productsList: [],
-      currentProduct: [],
+      currentProduct: {},
       currentProductStyles: [],
       currentRelatedProductsIds: [],
       currentRelatedProducts: [],
@@ -24,21 +24,18 @@ class App extends React.Component {
     this.handleChangeCurrentProduct = this.handleChangeCurrentProduct.bind(this)
   }
 
-  handleChangeCurrentProduct(id) {
+  async handleChangeCurrentProduct(id) {
     try {
-      var loadProduct = this.getSingleProductInfo(id)
+      var loadProduct = await this.getSingleProductInfo(id)
       this.setState({currentProduct: loadProduct})
-      var loadStyles = this.getProductStyles(id)
+      var loadStyles = await this.getProductStyles(id)
       this.setState({currentProductStyles: loadStyles})
-      this.getRelatedProductsIds(id)
-      this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
-      this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
-
+      await this.getRelatedProductsIds(id)
+      await this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
+      await this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
     } catch(err){
       console.log(err)
     }
-    // set a new product ( whatever user has clicked on)
-    // also needs to trigger new related products, etc..
   }
 
   async  refreshProducts () {
@@ -73,6 +70,7 @@ class App extends React.Component {
   }
 
   async getSingleProductInfo (productId) {
+    console.log('getsingleproductinfo')
     try {
       let response = await fetch(`api/products/${productId}`)
       let productInfo = await response.json();

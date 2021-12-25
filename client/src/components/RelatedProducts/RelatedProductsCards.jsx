@@ -4,13 +4,15 @@ import RelatedProductsCard from './RelatedProductsCard.jsx'
 const RelatedProductsCards = (props) => {
 
   const slideLeft = () => {
-    var button = document.getElementById("goLeft");
-    button.scrollLeft = button.scrollLeft + 500
+    console.log('slideleft')
+    var cardDeck = document.getElementsByClassName("related-card-deck");
+    cardDeck.scrollLeft = cardDeck.scrollLeft += 500
   }
 
   const slideRight = () => {
-    var button = document.getElementById("goRight")
-    button.scrollLeft = button.scrollLeft - 500
+    console.log('slideright')
+    var cardDeck = document.getElementsByClassName("related-card-deck")
+    cardDeck.scrollLeft = cardDeck.scrollLeft -= 500
   }
 
 
@@ -18,21 +20,22 @@ const RelatedProductsCards = (props) => {
   return(
   <div className="related-cards-container">
 
-  <i id="goLeft" className="fas fa-chevron-left" onClick={slideLeft}/>
-
+  <i className=" goLeft fas fa-chevron-left" onClick={slideLeft}/>
+   <div className="related-card-deck">
    {props.relatedProducts.map(item => {
      return(
-     <div key={item.id} className="related-card">
-     <RelatedProductsCard name={item.name} category={item.category}
+     <div key={item.id} className="related-card" onClick={props.changeProducts}>
+     <RelatedProductsCard
+     name={item.name} category={item.category} serial={item.id}
      photo={props.relatedProductsPhotos[item.id]}
      loaded={props.photosLoaded}
      />
      </div>
      )}
     )}
+    </div>
 
-
-     <i id="goRight" className="fas fa-chevron-right" onClick={slideRight}/>
+     <i className="goRight fas fa-chevron-right" onClick={slideRight}/>
 
   </div>
 

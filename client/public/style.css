@@ -20,6 +20,7 @@ body {
   text-align: center;
 }
 
+/* contains both card containers */
 .related-products-container {
   position: relative;
   width:100%;
@@ -30,23 +31,35 @@ body {
 
 }
 
+/* main slides container */
 .related-cards-container {
+  height: 400px;
+  width: 100%;
   display: flex;
   position: relative;
   align-items: center;
+
+}
+
+/* slider */
+.related-card-deck {
+
   white-space: nowrap;
   overflow-x: scroll;
   scrollbar-width: none;
   scroll-behavior: smooth;
 }
-
-.related-cards-container::-webkit-scrollbar {
+.related-cards-deck::-webkit-scrollbar {
   display: none;
+  width: 0px;
+  position:fixed;
 }
 
+/* invidiual slides */
 .related-card {
   display:inline-block;
   overflow: hidden;
+  width: 150px;
   max-height:400px;
   margin: 5px;
   padding: 2px;
@@ -55,19 +68,26 @@ body {
   border-width: 2px;
   border-color: grey;
   box-shadow: 1px 1px 1px 1px silver;
-
 }
 
-#goLeft{
+.goLeft, .goRight{
   position: absolute;
+  font-size: 25px;
+  opacity: .7;
+}
+
+.goLeft{
   left:0;
-  font-size: 25px;
 }
-#goRight{
-  position: absolute;
+
+.goRight{
   right:0;
-  font-size: 25px;
 }
+
+.goRight:hover, .goLeft:hover {
+  font-weight: 900;
+}
+
 
 .fit-picture {
   max-width:100%;
