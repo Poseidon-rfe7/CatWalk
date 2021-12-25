@@ -63,6 +63,12 @@ class App extends React.Component {
     try {
       let response = await fetch(`api/products/${productId}/related`);
       let ids = await response.json();
+      for (var i = 0; i < ids.length; i++) {
+        console.log(ids)
+        if (ids.indexOf(ids[i], i+1 ) > 0) {
+          ids.splice(i, 1)
+        }
+      }
       this.setState({currentRelatedProductsIds: ids})
     } catch(err){
       console.log(err)
