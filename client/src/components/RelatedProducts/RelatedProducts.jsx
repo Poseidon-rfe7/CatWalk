@@ -24,7 +24,6 @@ const RelatedProducts = (props) => {
    }, [props.relatedProductStyles])
 
    const changeProducts = (e) => {
-     console.log(e.target.getAttribute('serial'))
      var id = e.target.getAttribute('serial')
      props.changeProducts(id)
    }

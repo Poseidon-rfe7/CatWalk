@@ -64,7 +64,6 @@ class App extends React.Component {
       let response = await fetch(`api/products/${productId}/related`);
       let ids = await response.json();
       for (var i = 0; i < ids.length; i++) {
-        console.log(ids)
         if (ids.indexOf(ids[i], i+1 ) > 0) {
           ids.splice(i, 1)
         }
@@ -76,7 +75,6 @@ class App extends React.Component {
   }
 
   async getSingleProductInfo (productId) {
-    console.log('getsingleproductinfo')
     try {
       let response = await fetch(`api/products/${productId}`)
       let productInfo = await response.json();
