@@ -2,16 +2,14 @@ import React from 'react';
 import ProductsOverview from './ProductOverview/ProductOverView.jsx'
 import QuestionsAnswers from './QuestionsAnswers/QuestionsAnswers.jsx'
 import RatingsReviews from './RatingsReviews/RatingsReviews.jsx'
-import RelatedItems from './RelatedItems/RelatedItems.jsx'
-import axios from 'axios';
-
+import RelatedProducts from './RelatedProducts/RelatedProducts.jsx'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state={
       productsList: [],
-      currentProduct: [],
+      currentProduct: {},
       currentProductStyles: [],
       currentRelatedProductsIds: [],
       currentRelatedProducts: [],
@@ -23,12 +21,21 @@ class App extends React.Component {
     this.getAllRelatedProductsInfo = this.getAllRelatedProductsInfo.bind(this)
     this.getProductStyles = this.getProductStyles.bind(this)
     this.getAllRelatedProductsStyles = this.getAllRelatedProductsStyles.bind(this)
+    this.handleChangeCurrentProduct = this.handleChangeCurrentProduct.bind(this)
   }
 
-  handleChangeCurrentProduct() {
-    null
-    // set a new product ( whatever user has clicked on)
-    // also needs to trigger new related products, etc..
+  async handleChangeCurrentProduct(id) {
+    try {
+      var loadProduct = await this.getSingleProductInfo(id)
+      this.setState({currentProduct: loadProduct})
+      var loadStyles = await this.getProductStyles(id)
+      this.setState({currentProductStyles: loadStyles})
+      await this.getRelatedProductsIds(id)
+      await this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
+      await this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
+    } catch(err){
+      console.log(err)
+    }
   }
 
   async  refreshProducts () {
@@ -39,25 +46,28 @@ class App extends React.Component {
     } catch(err){
       console.log(err)
     }
-
   }
+
   async componentDidMount() {
     await this.refreshProducts()
     var x = this.state.productsList[0];
     this.setState({currentProduct: x});
-    await this.getRelatedProductsIds(x.id)
-    await this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
     var y = await this.getProductStyles(x.id)
     this.setState({currentProductStyles: y})
+    await this.getRelatedProductsIds(x.id)
+    await this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
     this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
   }
-
-
 
   async getRelatedProductsIds(productId) {
     try {
       let response = await fetch(`api/products/${productId}/related`);
       let ids = await response.json();
+      for (var i = 0; i < ids.length; i++) {
+        if (ids.indexOf(ids[i], i+1 ) > 0) {
+          ids.splice(i, 1)
+        }
+      }
       this.setState({currentRelatedProductsIds: ids})
     } catch(err){
       console.log(err)
@@ -68,11 +78,10 @@ class App extends React.Component {
     try {
       let response = await fetch(`api/products/${productId}`)
       let productInfo = await response.json();
-      return productInfo ///TODO: what do i do here
+      return productInfo
     } catch(err){
       console.log(err)
     }
-
   }
 
   async getAllRelatedProductsInfo (productIds) {
@@ -107,9 +116,19 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="app-container">
         <ProductsOverview/>
-        <RelatedItems/>
+
+
+        <RelatedProducts
+        currentProduct={this.state.currentProduct}
+        relatedProducts={this.state.currentRelatedProducts}
+        relatedProductStyles={this.state.currentRelatedProductStyles}
+        relatedProductsIds={this.state.currentRelatedProductsIds}
+        changeProducts={this.handleChangeCurrentProduct}
+        />
+
+
         <QuestionsAnswers />
         <RatingsReviews />
       </div>
