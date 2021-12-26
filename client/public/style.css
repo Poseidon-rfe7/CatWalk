@@ -49,9 +49,10 @@ body {
   overflow-x: scroll;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  overflow-y: hidden;
 }
 
-.related-cards-deck::-webkit-scrollbar {
+.related-card-deck::-webkit-scrollbar {
   display: none;
   width: 0px;
   position:fixed;

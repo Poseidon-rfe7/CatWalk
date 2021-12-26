@@ -5,17 +5,21 @@ const RelatedProductsCards = (props) => {
   const ref= useRef(null)
   const goRight = (offset) => {
     ref.current.scrollLeft += offset;
+    console.log('after right click', ref.current.scrollLeft)
   }
   const goLeft = (offset) => {
     ref.current.scrollLeft -= offset;
+    console.log('after left click', ref)
   }
+  console.log('outside', ref)
 
   return(
   <div className="related-cards-container">
 
-  <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(170)}/>
+  <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(170)} /> : <div/>
 
-   <div className="related-card-deck" ref={ref}>
+
+   <div id={"cardDeck"} className="related-card-deck" ref={ref}>
    {props.relatedProducts.map(item => {
      return(
      <div key={item.id} className="related-card"
