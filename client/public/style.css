@@ -6,7 +6,6 @@ body {
 
 }
 
-
 .relatedproducts-title, .youroutfit-title{
   padding-top:15px;
   font-size: 12px;
@@ -19,6 +18,8 @@ body {
   border-radius: 4px;
   text-align: center;
 }
+
+
 
 /* contains both card containers */
 .related-products-container {
@@ -87,17 +88,20 @@ body {
   right:0;
 }
 
-.goRight:hover, .goLeft:hover {
-  font-weight: 900;
-}
-
-
 .fit-picture {
   max-width:100%;
   max-height: 300px;
   border-radius: 4px;
 }
 
+#related-action {
+  position: absolute;
+  font-size: 25px;
+  align-items: right;
+}
 
+#related-action:hover{
+  font-weight: bold;
+}
 
 
