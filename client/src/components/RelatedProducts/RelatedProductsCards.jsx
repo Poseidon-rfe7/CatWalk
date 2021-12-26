@@ -1,30 +1,21 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import RelatedProductsCard from './RelatedProductsCard.jsx'
 
 const RelatedProductsCards = (props) => {
-
-  const goLeft = () => {
-    console.log('slideleft')
-    var cardDeck = document.getElementsByClassName("related-card-deck");
-    cardDeck.scrollLeft = cardDeck.scrollLeft + 500;
+  const ref= useRef(null)
+  const goRight = (offset) => {
+    ref.current.scrollLeft += offset;
   }
-
-  const goRight = () => {
-    var cardDeck = document.getElementsByClassName("related-card-deck")
-    console.log('slideright')
-    cardDeck.scrollLeft = cardDeck.scrollLeft - 500;
+  const goLeft = (offset) => {
+    ref.current.scrollLeft -= offset;
   }
-
-
-
-
 
   return(
   <div className="related-cards-container">
 
-  <i className=" goLeft fas fa-chevron-left" onClick={goLeft}/>
+  <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(170)}/>
 
-   <div className="related-card-deck">
+   <div className="related-card-deck" ref={ref}>
    {props.relatedProducts.map(item => {
      return(
      <div key={item.id} className="related-card"
@@ -42,7 +33,7 @@ const RelatedProductsCards = (props) => {
 
     </div>
 
-     <i className="goRight fas fa-chevron-right" onClick={goRight}/>
+     <i className="goRight fas fa-chevron-right" onClick={() => goRight(170)}/>
   </div>
 
   )
