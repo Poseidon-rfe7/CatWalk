@@ -1,23 +1,25 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import RelatedProductsCard from './RelatedProductsCard.jsx'
 
 const RelatedProductsCards = (props) => {
-  const ref= useRef(null)
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const ref= useRef(0)
+
   const goRight = (offset) => {
     ref.current.scrollLeft += offset;
-    console.log('after right click', ref.current.scrollLeft)
+    setScrollPosition(ref.current.scrollLeft)
+
   }
   const goLeft = (offset) => {
     ref.current.scrollLeft -= offset;
-    console.log('after left click', ref)
+    setScrollPosition(ref.current.scrollLeft)
   }
-  console.log('outside', ref)
 
   return(
   <div className="related-cards-container">
-
-  <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(170)} /> : <div/>
-
+  {scrollPosition === 0 ? <div/>
+  : <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(170)} />
+  }
 
    <div id={"cardDeck"} className="related-card-deck" ref={ref}>
    {props.relatedProducts.map(item => {
@@ -36,8 +38,9 @@ const RelatedProductsCards = (props) => {
 
 
     </div>
+   <i className="goRight fas fa-chevron-right" onClick={() => goRight(170)}/>
 
-     <i className="goRight fas fa-chevron-right" onClick={() => goRight(170)}/>
+
   </div>
 
   )
