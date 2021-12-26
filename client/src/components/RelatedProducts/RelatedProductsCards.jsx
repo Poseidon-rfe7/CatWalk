@@ -9,7 +9,6 @@ const RelatedProductsCards = (props) => {
   const goRight = (offset) => {
     ref.current.scrollLeft += offset;
     setScrollPosition(ref.current.scrollLeft)
-
   }
 
   const goLeft = (offset) => {
@@ -18,8 +17,11 @@ const RelatedProductsCards = (props) => {
   }
 
    const starHandler = (e) => {
-    console.log(e)
-
+     var id = e.target.getAttribute('serial')
+     var slot = e.target.getAttribute('slot')
+     
+     console.log('current:',props.currentProduct)
+     console.log('tocomapre:',props.relatedProducts[slot])
   }
 
   return(
@@ -32,11 +34,11 @@ const RelatedProductsCards = (props) => {
 
 
 
-   {props.relatedProducts.map(item => {
+   {props.relatedProducts.map((item, i) => {
      return(
      <div key={item.id} className="related-card">
      <RelatedProductsCard
-     name={item.name} category={item.category} serial={item.id}
+     name={item.name} category={item.category} serial={item.id} slot={i}
      photo={props.relatedProductsPhotos[item.id]}
      loaded={props.photosLoaded} starhandler={starHandler}
      changeproduct={props.changeProducts}

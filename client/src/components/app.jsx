@@ -119,7 +119,6 @@ class App extends React.Component {
       <div className="app-container">
         <ProductsOverview/>
 
-
         <RelatedProducts
         currentProduct={this.state.currentProduct}
         relatedProducts={this.state.currentRelatedProducts}
@@ -127,7 +126,6 @@ class App extends React.Component {
         relatedProductsIds={this.state.currentRelatedProductsIds}
         changeProducts={this.handleChangeCurrentProduct}
         />
-
 
         <QuestionsAnswers />
         <RatingsReviews />
