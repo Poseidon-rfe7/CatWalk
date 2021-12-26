@@ -29,6 +29,9 @@ const RelatedProductsCards = (props) => {
   }
 
    <div id={"cardDeck"} className="related-card-deck" ref={ref}>
+
+
+
    {props.relatedProducts.map(item => {
      return(
      <div key={item.id} className="related-card">
@@ -44,8 +47,8 @@ const RelatedProductsCards = (props) => {
 
 
     </div>
-
    <i className="goRight fas fa-chevron-right" onClick={() => goRight(170)}/>
+
 
 
   </div>
