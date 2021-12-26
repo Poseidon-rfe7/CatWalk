@@ -98,5 +98,39 @@ body {
 }
 
 
+/* RATINGS & REVIEWS WIDGET */
+#ratings-reviews-title {
+  background-color: #5f3dc4;
+}
 
+#ratings-reviews-container {
+  display: flex;
+  justify-content: center;
+}
+
+#ratings-reviews-sidebar {
+  background-color: #5f3dc4;
+  flex: .25;
+  min-width: 2.5vw;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#ratings-reviews-list-items {
+  background-color: #5f3dc4;
+  margin-left: 40px;
+  flex: .75;
+  justify-content: center;
+  align-items: center;
+}
+
+.individual-review-first-row-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.individual-review-reviewer-date-container {
+  display: flex;
+}
 

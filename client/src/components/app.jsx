@@ -130,7 +130,7 @@ class App extends React.Component {
 
 
         <QuestionsAnswers />
-        <RatingsReviews />
+        <RatingsReviews currentProduct={this.state.currentProduct}/>
       </div>
     )
   }
