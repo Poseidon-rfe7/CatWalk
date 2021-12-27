@@ -31,8 +31,8 @@ class App extends React.Component {
       var loadStyles = await this.getProductStyles(id)
       this.setState({currentProductStyles: loadStyles})
       await this.getRelatedProductsIds(id)
-      await this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
-      await this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
+      this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
+      this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
     } catch(err){
       console.log(err)
     }
@@ -55,7 +55,7 @@ class App extends React.Component {
     var y = await this.getProductStyles(x.id)
     this.setState({currentProductStyles: y})
     await this.getRelatedProductsIds(x.id)
-    await this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
+    this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
     this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
   }
 
@@ -119,7 +119,6 @@ class App extends React.Component {
       <div className="app-container">
         <ProductsOverview/>
 
-
         <RelatedProducts
         currentProduct={this.state.currentProduct}
         relatedProducts={this.state.currentRelatedProducts}
@@ -127,7 +126,6 @@ class App extends React.Component {
         relatedProductsIds={this.state.currentRelatedProductsIds}
         changeProducts={this.handleChangeCurrentProduct}
         />
-
 
         <QuestionsAnswers />
         <RatingsReviews />
