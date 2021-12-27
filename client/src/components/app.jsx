@@ -55,7 +55,7 @@ class App extends React.Component {
     var y = await this.getProductStyles(x.id)
     this.setState({currentProductStyles: y})
     await this.getRelatedProductsIds(x.id)
-    await this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
+    this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
     this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
   }
 
