@@ -111,7 +111,7 @@ body {
 #ratings-reviews-sidebar {
   background-color: #5f3dc4;
   flex: .25;
-  min-width: 2.5vw;
+  min-width: 25vw;
   justify-content: center;
   align-items: center;
 
@@ -121,6 +121,7 @@ body {
   background-color: #5f3dc4;
   margin-left: 40px;
   flex: .75;
+  max-width: 75vw;
   justify-content: center;
   align-items: center;
 }
@@ -132,5 +133,18 @@ body {
 
 .individual-review-reviewer-date-container {
   display: flex;
+}
+
+.individual-review-body-container {
+  /* overflow: hidden; */
+  /* word-wrap: break-word; */
+}
+
+.hide-overflow {
+  overflow: hidden;
+}
+
+.word-wrap {
+  word-wrap: break-word;
 }
 

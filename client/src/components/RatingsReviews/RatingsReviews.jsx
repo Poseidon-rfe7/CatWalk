@@ -24,6 +24,7 @@ class RatingsReviews extends React.Component {
         summary: ''
       }]
     };
+    this.showMoreClickHandler = this.showMoreClickHandler.bind(this);
   }
 
   componentDidMount() {
@@ -31,7 +32,8 @@ class RatingsReviews extends React.Component {
   };
 
   componentDidUpdate(prevProps){
-    if ( prevProps.currentProduct !== this.props.currentProduct ) {
+    // checking if current product is not undefined
+    if (prevProps.currentProduct && this.props.currentProduct && prevProps.currentProduct.id !== this.props.currentProduct.id ) {
       this.getAllProductReviews();
       this.getAllProductReviewsMeta();
       this.getAllProductNewestReviews();
@@ -41,7 +43,8 @@ class RatingsReviews extends React.Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    if (props.currentProduct.id !== state.currentProduct.id) {
+    // checking if current product is not undefined
+    if (props.currentProduct && props.currentProduct.id !== state.currentProduct.id) {
       return {
         currentProduct: props.currentProduct,
       };
@@ -79,6 +82,16 @@ class RatingsReviews extends React.Component {
     .catch(err => console.log('Error:', err));
   };
 
+  showMoreClickHandler(event) {
+    if (event.target.previousElementSibling.classList.contains('hide-overflow')) {
+      event.target.previousElementSibling.classList.remove('hide-overflow');
+      event.target.previousElementSibling.className = 'word-wrap';
+    } else {
+      event.target.previousElementSibling.classList.remove('word-wrap');
+      event.target.previousElementSibling.className = 'hide-overflow';
+    }
+  }
+
   render() {
     return (
       <div>
@@ -87,7 +100,7 @@ class RatingsReviews extends React.Component {
 
         {/* ratings and reviews container */}
       <section id="ratings-reviews-container">
-        {/* ratings and reviews left sidebar */}
+        {/* left sidebar */}
         <div id="ratings-reviews-sidebar">
           <div>
             <p>Rating Breakdown Component</p>
@@ -96,7 +109,7 @@ class RatingsReviews extends React.Component {
             <p>Product Breakdown Component</p>
           </div>
         </div>
-        {/* ratings and reviews list items */}
+        {/* list items */}
         <div id="ratings-reviews-list-items">
 
           <div>
@@ -104,7 +117,10 @@ class RatingsReviews extends React.Component {
           </div>
 
           <div>
-            <ReviewList product={this.state}/>
+            <ReviewList
+            product={this.state}
+            showMoreClickHandler={this.showMoreClickHandler}
+            />
           </div>
 
           <div>
