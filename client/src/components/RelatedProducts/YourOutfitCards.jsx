@@ -24,18 +24,17 @@ const YourOutfitCards = (props) => {
   <div className="your-outfit-container">
 
     {scrollPosition === 0 ? <div className="placeholder"/>
-  : <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(170)} />
+  : <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(216)} />
   }
 
   <div id="youroutfitdeck" className="your-outfit-deck" ref={ref}>
-  youroutfitdeck
   <AddToOutfit handleadd={handleAddToOutfits}/>
 
   </div>
 
 
 
-  <i className="goRight fas fa-chevron-right" onClick={() => goRight(170)}/>
+  <i className="goRight fas fa-chevron-right" onClick={() => goRight(216)}/>
 
   </div>
   )

@@ -27,15 +27,17 @@ body {
   margin-bottom: 40px;
   margin-right: 0px;
   padding: 0;
+  justify-content: center;
 }
 
 /* main slides container */
 .related-cards-container, .your-outfit-container{
   height: 400px;
-  width: 100%;
+  width: 904px;
   display: flex;
   position: relative;
   align-items: center;
+  margin-left: 80px;
 }
 
 /* slider */
@@ -59,7 +61,7 @@ body {
   overflow: hidden;
   width: 200px;
   height: 300px;
-  margin: 5px;
+  margin-right: 8px;
   padding: 2px;
   border: solid;
   border-radius: 4px;
@@ -117,7 +119,7 @@ body {
   font-weight: bold;
 }
 
-.placeholder{
+.placeholder, .scroll-button{
   width: 25px
 }
 

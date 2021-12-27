@@ -26,10 +26,12 @@ const RelatedProductsCards = (props) => {
 
   return(
   <div className="related-cards-container">
-    
+
+   <div className ="scroll-button">
   {scrollPosition === 0 ? <div className="placeholder"/>
-  : <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(170)} />
+  : <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(216)} />
   }
+  </div>
 
    <div id="cardDeck" className="related-card-deck" ref={ref}>
    {props.relatedProducts.map((item, i) => {
@@ -46,8 +48,9 @@ const RelatedProductsCards = (props) => {
     )}
     </div>
 
-   <i className="goRight fas fa-chevron-right" onClick={() => goRight(170)}/>
-
+    <div className ="scroll-button">
+   <i className="goRight fas fa-chevron-right" onClick={() => goRight(216)}/>
+    </div>
 
 
   </div>
