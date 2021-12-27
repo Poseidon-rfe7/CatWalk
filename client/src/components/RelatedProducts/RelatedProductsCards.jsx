@@ -1,48 +1,55 @@
-import React, {useState} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import RelatedProductsCard from './RelatedProductsCard.jsx'
 
 const RelatedProductsCards = (props) => {
+  const ref = useRef(0)
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [hideRight, setHideRight] = useState(false)
 
-  const goLeft = () => {
-    console.log('slideleft')
-    var cardDeck = document.getElementsByClassName("related-card-deck");
-    cardDeck.scrollLeft = cardDeck.scrollLeft + 500;
+  const goRight = (offset) => {
+    ref.current.scrollLeft += offset;
+    setScrollPosition(ref.current.scrollLeft)
   }
 
-  const goRight = () => {
-    var cardDeck = document.getElementsByClassName("related-card-deck")
-    console.log('slideright')
-    cardDeck.scrollLeft = cardDeck.scrollLeft - 500;
+  const goLeft = (offset) => {
+    ref.current.scrollLeft -= offset;
+    setScrollPosition(ref.current.scrollLeft)
   }
 
+   const starHandler = (e) => {
+     var id = e.target.getAttribute('serial')
+     var slot = e.target.getAttribute('slot')
 
-
-
+     console.log('current:',props.currentProduct)
+     console.log('tocomapre:',props.relatedProducts[slot])
+  }
 
   return(
   <div className="related-cards-container">
+    
+  {scrollPosition === 0 ? <div className="placeholder"/>
+  : <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(170)} />
+  }
 
-  <i className=" goLeft fas fa-chevron-left" onClick={goLeft}/>
-
-   <div className="related-card-deck">
-   {props.relatedProducts.map(item => {
+   <div id="cardDeck" className="related-card-deck" ref={ref}>
+   {props.relatedProducts.map((item, i) => {
      return(
-     <div key={item.id} className="related-card"
-     onClick={props.changeProducts}
-     >
+     <div key={item.id} className="related-card">
      <RelatedProductsCard
-     name={item.name} category={item.category} serial={item.id}
+     name={item.name} category={item.category} serial={item.id} slot={i}
      photo={props.relatedProductsPhotos[item.id]}
-     loaded={props.photosLoaded}
+     loaded={props.photosLoaded} starhandler={starHandler}
+     changeproduct={props.changeProducts}
      />
      </div>
      )}
     )}
-
-
     </div>
 
-     <i className="goRight fas fa-chevron-right" onClick={goRight}/>
+   <i className="goRight fas fa-chevron-right" onClick={() => goRight(170)}/>
+
+
+
   </div>
 
   )
