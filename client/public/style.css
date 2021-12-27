@@ -121,6 +121,56 @@ body {
   width: 25px
 }
 
+/* RATINGS & REVIEWS WIDGET */
+#ratings-reviews-title {
+  background-color: #5f3dc4;
+}
+
+#ratings-reviews-container {
+  display: flex;
+  justify-content: center;
+}
+
+#ratings-reviews-sidebar {
+  background-color: #5f3dc4;
+  flex: .25;
+  min-width: 25vw;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#ratings-reviews-list-items {
+  background-color: #5f3dc4;
+  margin-left: 40px;
+  flex: .75;
+  max-width: 75vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.individual-review-first-row-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.individual-review-reviewer-date-container {
+  display: flex;
+}
+
+.individual-review-body-container {
+  /* overflow: hidden; */
+  /* word-wrap: break-word; */
+}
+
+.hide-overflow {
+  overflow: hidden;
+}
+
+.word-wrap {
+  word-wrap: break-word;
+}
+
 #add-to-outfit-button {
   font-size: 200px;
   align-items: center;
