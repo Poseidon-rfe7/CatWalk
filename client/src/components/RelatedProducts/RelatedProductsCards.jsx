@@ -19,21 +19,19 @@ const RelatedProductsCards = (props) => {
    const starHandler = (e) => {
      var id = e.target.getAttribute('serial')
      var slot = e.target.getAttribute('slot')
-     
+
      console.log('current:',props.currentProduct)
      console.log('tocomapre:',props.relatedProducts[slot])
   }
 
   return(
   <div className="related-cards-container">
-  {scrollPosition === 0 ? <div/>
+    
+  {scrollPosition === 0 ? <div className="placeholder"/>
   : <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(170)} />
   }
 
-   <div id={"cardDeck"} className="related-card-deck" ref={ref}>
-
-
-
+   <div id="cardDeck" className="related-card-deck" ref={ref}>
    {props.relatedProducts.map((item, i) => {
      return(
      <div key={item.id} className="related-card">
@@ -46,9 +44,8 @@ const RelatedProductsCards = (props) => {
      </div>
      )}
     )}
-
-
     </div>
+
    <i className="goRight fas fa-chevron-right" onClick={() => goRight(170)}/>
 
 

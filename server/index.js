@@ -24,7 +24,7 @@ app.get('/api/*', (req, res) => {
     res.send(result.data)
   })
   .catch(err => {
-    res.send(err)});
+    res.status(400).send(err)});
 })
 
 app.listen(port, () => {

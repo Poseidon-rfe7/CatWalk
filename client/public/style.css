@@ -5,7 +5,8 @@ body {
   color: black;
 
 }
-
+/*///////////RELATED ITEMS CSS \\\\\\\\\\\\\\\\\\\\ */
+/* text styling */
 .relatedproducts-title, .youroutfit-title{
   padding-top:15px;
   font-size: 12px;
@@ -13,13 +14,10 @@ body {
 .style-tag{
   font-size: 9px;
 }
-
 .product-info {
   border-radius: 4px;
   text-align: center;
 }
-
-
 
 /* contains both card containers */
 .related-products-container {
@@ -32,7 +30,7 @@ body {
 }
 
 /* main slides container */
-.related-cards-container {
+.related-cards-container, .your-outfit-container{
   height: 400px;
   width: 100%;
   display: flex;
@@ -41,7 +39,7 @@ body {
 }
 
 /* slider */
-.related-card-deck {
+.related-card-deck, .your-outfit-deck {
   white-space: nowrap;
   overflow-x: scroll;
   scrollbar-width: none;
@@ -49,14 +47,14 @@ body {
   overflow-y: hidden;
 }
 
-.related-card-deck::-webkit-scrollbar {
+.related-card-deck::-webkit-scrollbar,.your-outfit-deck::-webkit-scrollbar {
   display: none;
   width: 0px;
   position:fixed;
 }
 
 /* invidiual slides */
-.related-card {
+.related-card, .your-outfit-card {
   display:inline-block;
   overflow: hidden;
   width: 200px;
@@ -71,7 +69,6 @@ body {
   background-color: silver;
   font-weight: bold;
 
-
 }
 
 .product-card-contents{
@@ -80,10 +77,16 @@ body {
   font-size: 15px;
 }
 
+.add-to-outfit-card{
+  display: grid;
+  grid-template-rows: 250px 50px;
+  justify-content: center;
+}
+
+/* left right scroll buttons */
 .goLeft, .goRight{
   position: relative;
   font-size: 25px;
-  color:red;
 }
 
 .goLeft{
@@ -95,12 +98,12 @@ body {
 }
 
 .fit-picture {
-
   max-width:200%;
   max-height: 300px;
   border-radius: 4px;
 }
 
+/* compare modal button*/
 #related-action {
   position: sticky;
   margin-left: 80%;
@@ -114,4 +117,18 @@ body {
   font-weight: bold;
 }
 
+.placeholder{
+  width: 25px
+}
 
+#add-to-outfit-button {
+  font-size: 200px;
+  align-items: center;
+}
+
+#add-to-outfit-button:hover,
+.goLeft:hover, .goRight:hover {
+  color: red;
+}
+
+/* /////////END OF RELATED ITEMS\\\\\\\\\\\\\\*/
