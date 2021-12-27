@@ -2,6 +2,7 @@ import React, {useState, useRef} from 'react';
 import AddToOutfit from './AddToOutfit.jsx'
 
 const YourOutfitCards = (props) => {
+  const outfitStorage = window.localStorage;
   const ref = useRef(0)
   const [scrollPosition, setScrollPosition] = useState(0);
   const [hideRight, setHideRight] = useState(false)
@@ -16,10 +17,8 @@ const YourOutfitCards = (props) => {
     setScrollPosition(ref.current.scrollLeft)
   }
 
-  const handleAddToOutfits = (e) => {
-    console.log('do somthing ')
-  }
 
+ 
   return(
   <div className="your-outfit-container">
 
@@ -28,7 +27,7 @@ const YourOutfitCards = (props) => {
   }
 
   <div id="youroutfitdeck" className="your-outfit-deck" ref={ref}>
-  <AddToOutfit handleadd={handleAddToOutfits}/>
+  <AddToOutfit currentproduct={props.currentproduct} currentproductstyles={props.currentproductstyles}/>
 
   </div>
 
