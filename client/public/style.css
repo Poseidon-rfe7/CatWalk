@@ -121,6 +121,19 @@ body {
   width: 25px
 }
 
+
+#add-to-outfit-button {
+  font-size: 200px;
+  align-items: center;
+}
+
+#add-to-outfit-button:hover,
+.goLeft:hover, .goRight:hover {
+  color: red;
+}
+
+/* /////////END OF RELATED ITEMS\\\\\\\\\\\\\\*/
+
 /* RATINGS & REVIEWS WIDGET */
 #ratings-reviews-title {
   background-color: #5f3dc4;
@@ -170,15 +183,3 @@ body {
 .word-wrap {
   word-wrap: break-word;
 }
-
-#add-to-outfit-button {
-  font-size: 200px;
-  align-items: center;
-}
-
-#add-to-outfit-button:hover,
-.goLeft:hover, .goRight:hover {
-  color: red;
-}
-
-/* /////////END OF RELATED ITEMS\\\\\\\\\\\\\\*/
