@@ -6,7 +6,7 @@ const OutfitCard = (props) => {
   const removeFromOutfits = () => {
     outfitStorage.removeItem(props.id)
   }
- 
+ console.log(props.photo)
 
 
   return (

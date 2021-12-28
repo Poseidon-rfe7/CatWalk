@@ -94,7 +94,7 @@ const YourOutfitCards = (props) => {
   parseStorage.map(outfit => {
     return(
     <div className="your-outfit-card" key={outfit.id} >
-    <OutfitCard id={outfit.id} name={outfit.name} pic={outfit.url} category={outfit.category}/>
+    <OutfitCard id={outfit.id} name={outfit.name} photo={outfit.url} category={outfit.category}/>
     </div>
     )
   })
