@@ -20,10 +20,8 @@ const AddToOutfit = (props) => {
 
   const addToOutfits = () => {
     var store = {url: currentPhoto, name: props.currentproduct.name , category: props.currentproduct.category, id: props.currentproduct.id}
-
-
     outfitStorage.setItem(props.currentproduct.id, JSON.stringify(store))
-    console.log(outfitStorage)
+    props.trigger()
   }
 
 

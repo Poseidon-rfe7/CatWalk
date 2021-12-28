@@ -9,6 +9,7 @@ const YourOutfitCards = (props) => {
   const [showCards, setShowCards] = useState([])
   const ref = useRef(0)
   const [updateCards, setUpdateCards] = useState(false)
+  const [trigger, setTrigger] = useState(0)
 
   useEffect(() => {
     var temp = []
@@ -21,20 +22,24 @@ const YourOutfitCards = (props) => {
     }
     setParseStorage(temp)
     setUpdateCards(true)
-  },[outfitStorage])
+  },[trigger])
 
   useEffect(()=> {
+    console.log(parseStorage)
     var cardstates = [];
-    for (var i = 0; i < outfitStorage.length; i++) {
-      if (i < 4) {
+    for (var i = 0; i < parseStorage.length; i++) {
+      if (i < 3) {
         cardstates[i] = true
       }
-      if (i >= 4) {
+      if (i >= 3) {
         cardstates[i] = false
       }
-    setShowCards(cardstates)
+    setShowCards([true].concat(cardstates))
     }
-  }, [props.relatedProducts])
+    if(parseStorage.length=== 0) {
+      setShowCards([true])
+    }
+  }, [parseStorage])
 
   const goRight = (offset) => {
     ref.current.scrollLeft += offset;
@@ -75,6 +80,11 @@ const YourOutfitCards = (props) => {
     setShowCards(temp)
   }
 
+  const triggerRender = () => {
+    var random = Math.random() * 10
+    setTrigger(random)
+  }
+
   return(
   <div className="your-outfit-container">
 
@@ -87,14 +97,14 @@ const YourOutfitCards = (props) => {
   <div id="youroutfitdeck" className="your-outfit-deck" ref={ref}>
    <div className="your-outfit-card" >
 
-  <AddToOutfit currentproduct={props.currentproduct} currentproductstyles={props.currentproductstyles}/>
+  <AddToOutfit currentproduct={props.currentproduct} currentproductstyles={props.currentproductstyles} trigger={triggerRender}/>
    </div>
 
   {updateCards ?
   parseStorage.map(outfit => {
     return(
     <div className="your-outfit-card" key={outfit.id} >
-    <OutfitCard id={outfit.id} name={outfit.name} photo={outfit.url} category={outfit.category}/>
+    <OutfitCard id={outfit.id} name={outfit.name} photo={outfit.url} category={outfit.category} trigger={triggerRender}/>
     </div>
     )
   })

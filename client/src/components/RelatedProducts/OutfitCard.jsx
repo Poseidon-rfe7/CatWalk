@@ -5,14 +5,14 @@ const OutfitCard = (props) => {
 
   const removeFromOutfits = () => {
     outfitStorage.removeItem(props.id)
+    props.trigger()
   }
- console.log(props.photo)
 
 
   return (
     <div className="outfit-card-contents">
 
-     <i id="outfit-action" className=" outfit-action fas fa-times" onClick={removeFromOutfits} />
+     <i id="outfit-action" className="outfit-action fas fa-times" onClick={removeFromOutfits} />
 
 
     <div className="product-image" >

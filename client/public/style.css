@@ -107,7 +107,7 @@ body {
 }
 
 /* compare modal button*/
-#related-action {
+#related-action, #outfit-action{
   position: sticky;
   margin-left: 80%;
   margin-top: 5%;
@@ -116,8 +116,11 @@ body {
   padding-bottom:6px;
 }
 
-#related-action:hover,#outfit-action:hover{
+#related-action:hover{
   font-weight: bold;
+}
+#outfit-action:hover {
+  font-size: 40px;
 }
 
 
