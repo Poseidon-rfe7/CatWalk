@@ -121,6 +121,7 @@ class App extends React.Component {
 
         <RelatedProducts
         currentProduct={this.state.currentProduct}
+        currentproductstyles={this.state.currentProductStyles}
         relatedProducts={this.state.currentRelatedProducts}
         relatedProductStyles={this.state.currentRelatedProductStyles}
         relatedProductsIds={this.state.currentRelatedProductsIds}

@@ -105,3 +105,4 @@ dist
 
 bundle.js
 .env
+.DS_Store

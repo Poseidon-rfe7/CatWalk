@@ -27,15 +27,17 @@ body {
   margin-bottom: 40px;
   margin-right: 0px;
   padding: 0;
+  justify-content: center;
 }
 
 /* main slides container */
 .related-cards-container, .your-outfit-container{
   height: 400px;
-  width: 100%;
+  width: 904px;
   display: flex;
   position: relative;
   align-items: center;
+  margin-left: 80px;
 }
 
 /* slider */
@@ -59,7 +61,8 @@ body {
   overflow: hidden;
   width: 200px;
   height: 300px;
-  margin: 5px;
+  margin-right: 8px;
+
   padding: 2px;
   border: solid;
   border-radius: 4px;
@@ -71,7 +74,7 @@ body {
 
 }
 
-.product-card-contents{
+.product-card-contents, .outfit-card-contents{
   display: grid;
   grid-template-rows: 0px 250px 20px;
   font-size: 15px;
@@ -104,7 +107,7 @@ body {
 }
 
 /* compare modal button*/
-#related-action {
+#related-action, #outfit-action{
   position: sticky;
   margin-left: 80%;
   margin-top: 5%;
@@ -116,9 +119,13 @@ body {
 #related-action:hover{
   font-weight: bold;
 }
+#outfit-action:hover {
+  font-size: 40px;
+}
 
-.placeholder{
-  width: 25px
+
+.placeholder {
+  width: 15.63px;
 }
 
 

@@ -5,6 +5,7 @@ import YourOutfitCards from './YourOutfitCards.jsx'
 const RelatedProducts = (props) => {
   const [defaultPhotos, setDefaultPhotos] = useState({});
   const [photosLoaded, setPhotosLoaded] = useState(false)
+  const [currentPhotoUrl, setCurrentPhotoUrl] = useState('');
 
    useEffect(()=>{
     let photos={};
@@ -43,7 +44,9 @@ const RelatedProducts = (props) => {
     />
 
     <div className="youroutfit-title">Your Outfit</div>
-    <YourOutfitCards/>
+    <YourOutfitCards
+     currentproductstyles={props.currentproductstyles} currentproduct={props.currentProduct}
+    />
 
   </div>
   )
