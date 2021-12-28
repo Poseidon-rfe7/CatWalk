@@ -3,31 +3,63 @@ import RelatedProductsCard from './RelatedProductsCard.jsx'
 
 const RelatedProductsCards = (props) => {
   const ref = useRef(0)
-  const [scrollPosition, setScrollPosition] = useState(0);
+  // const [scrollPosition, setScrollPosition] = useState(0);
   const [hideRight, setHideRight] = useState(false)
   const [showCards, setShowCards] = useState([])
 
   useEffect(()=> {
     var cardstates = [];
     for (var i = 0; i < props.relatedProducts.length; i++) {
-      if (i <= 4) {
+      if (i < 4) {
         cardstates[i] = true
       }
-      if (i > 4) {
+      if (i >= 4) {
         cardstates[i] = false
       }
+      console.log(cardstates)
     setShowCards(cardstates)
     }
   }, [props.relatedProducts])
 
   const goRight = (offset) => {
     ref.current.scrollLeft += offset;
-
-    setScrollPosition(ref.current.scrollLeft)
+    // setScrollPosition(ref.current.scrollLeft)
+    var temp = showCards.slice()
+    for (var i = 0; i < showCards.length; i++) {
+      if (showCards[i] === true && showCards[i+4] === false) {
+        temp[i] = false;
+        break;
+      }
+    }
+    for (var i = showCards.length; i > 0; i--) {
+      if (showCards[i] === true) {
+        temp[i+1] = true;
+        break;
+      }
+    }
+    setShowCards(temp)
+    console.log(showCards)
   }
+
   const goLeft = (offset) => {
     ref.current.scrollLeft -= offset;
-    setScrollPosition(ref.current.scrollLeft)
+    // setScrollPosition(ref.current.scrollLeft)
+    var temp = showCards.slice()
+    for (var i = showCards.length; i > 0; i--) {
+      if (showCards[i] === true && showCards[i-4] === false) {
+        temp[i] = false;
+        break;
+      }
+
+    }
+    for (var i = 0; i < showCards.length; i++) {
+      if (showCards[i] === true) {
+        temp[i-1] = true;
+        break;
+      }
+    }
+    setShowCards(temp)
+    console.log(showCards)
   }
 
    const starHandler = (e) => {
