@@ -19,13 +19,16 @@ const AddToOutfit = (props) => {
   }, [props.currentproductstyles])
 
   const addToOutfits = () => {
-    outfitStorage.setItem(props.currentproduct.id, JSON.stringify({'url': currentPhoto }))
+    var store = {url: currentPhoto, name: props.currentproduct.name , category: props.currentproduct.category, id: props.currentproduct.id}
+
+
+    outfitStorage.setItem(props.currentproduct.id, JSON.stringify(store))
     console.log(outfitStorage)
   }
 
 
   return (
-    <div className="add-to-outfit-card your-outfit-card">
+    <div className="add-to-outfit-card">
       <div>
       <i id="add-to-outfit-button" className="fas fa-plus" onClick={addToOutfits}/>
       </div>

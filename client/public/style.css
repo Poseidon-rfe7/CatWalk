@@ -74,7 +74,7 @@ body {
 
 }
 
-.product-card-contents{
+.product-card-contents, .outfit-card-contents{
   display: grid;
   grid-template-rows: 0px 250px 20px;
   font-size: 15px;
@@ -116,7 +116,7 @@ body {
   padding-bottom:6px;
 }
 
-#related-action:hover{
+#related-action:hover,#outfit-action:hover{
   font-weight: bold;
 }
 
