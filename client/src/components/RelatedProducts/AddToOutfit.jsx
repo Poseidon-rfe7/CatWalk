@@ -5,7 +5,6 @@ const AddToOutfit = (props) => {
   const [currentPhoto, setCurrentPhoto] = useState('')
 
   useEffect(()=>{
-    console.log('addtooutfit:::',props.currentproductstyles)
       if (props.currentproductstyles.results) {
         const styles = props.currentproductstyles.results
         for ( var i = 0; i < styles.length; i++) {
