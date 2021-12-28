@@ -1,10 +1,12 @@
 import React, {useState, useRef, useEffect} from 'react';
 import RelatedProductsCard from './RelatedProductsCard.jsx'
+import CompareModal from './CompareModal.jsx'
 
 const RelatedProductsCards = (props) => {
   const ref = useRef(0)
   // const [scrollPosition, setScrollPosition] = useState(0);
   const [showCards, setShowCards] = useState([])
+  const [showModal, setShowModal] = useState(false)
 
   useEffect(()=> {
     var cardstates = [];
@@ -64,7 +66,14 @@ const RelatedProductsCards = (props) => {
      var slot = e.target.getAttribute('slot')
      console.log('current:',props.currentProduct)
      console.log('tocomapre:',props.relatedProducts[slot])
+     //trigger a modal with these product
+     setShowModal(true)
+
   }
+  const closeModal = () => {
+    setShowModal(false)
+  }
+
 
   return(
   <div className="related-cards-container">
@@ -76,6 +85,7 @@ const RelatedProductsCards = (props) => {
   }
   </div>
 
+  <CompareModal show={showModal} closemodal={closeModal}/>
 
 
    <div id="cardDeck" className="related-card-deck" ref={ref}>
