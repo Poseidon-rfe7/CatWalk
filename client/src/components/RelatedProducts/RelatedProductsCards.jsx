@@ -4,7 +4,6 @@ import RelatedProductsCard from './RelatedProductsCard.jsx'
 const RelatedProductsCards = (props) => {
   const ref = useRef(0)
   // const [scrollPosition, setScrollPosition] = useState(0);
-  const [hideRight, setHideRight] = useState(false)
   const [showCards, setShowCards] = useState([])
 
   useEffect(()=> {
@@ -16,7 +15,6 @@ const RelatedProductsCards = (props) => {
       if (i >= 4) {
         cardstates[i] = false
       }
-      console.log(cardstates)
     setShowCards(cardstates)
     }
   }, [props.relatedProducts])
@@ -38,7 +36,6 @@ const RelatedProductsCards = (props) => {
       }
     }
     setShowCards(temp)
-    console.log(showCards)
   }
 
   const goLeft = (offset) => {
