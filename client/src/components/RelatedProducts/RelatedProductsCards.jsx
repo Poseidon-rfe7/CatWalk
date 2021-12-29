@@ -19,6 +19,7 @@ const RelatedProductsCards = (props) => {
       }
     setShowCards(cardstates)
     }
+    ref.current.scrollLeft = 0
   }, [props.relatedProducts])
 
   const goRight = (offset) => {

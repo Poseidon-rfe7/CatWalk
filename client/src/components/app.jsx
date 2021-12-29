@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      productsList: [],
+
       currentProduct: {},
       currentProductRating: 0,
       currentProductStyles: [],
@@ -16,7 +16,7 @@ class App extends React.Component {
       currentRelatedProducts: [],
       currentRelatedProductStyles: []
     };
-    this.refreshProducts = this.refreshProducts.bind(this)
+
     this.getRelatedProductsIds = this.getRelatedProductsIds.bind(this)
     this.getSingleProductInfo = this.getSingleProductInfo.bind(this)
     this.getAllRelatedProductsInfo = this.getAllRelatedProductsInfo.bind(this)
@@ -25,6 +25,7 @@ class App extends React.Component {
     this.handleChangeCurrentProduct = this.handleChangeCurrentProduct.bind(this)
     this.getRating = this.getRating.bind(this)
   }
+
 
   async handleChangeCurrentProduct(id) {
     try {
@@ -41,27 +42,15 @@ class App extends React.Component {
     }
   }
 
-  async  refreshProducts () {
-    try{
-      let response = await fetch('/api/products');
-      let products = await response.json();
-      this.setState({productsList: products})
-    } catch(err){
-      console.log(err)
-    }
+  async componentDidMount() {
+    let response = await fetch('/api/products');
+    let products = await response.json();
+    let x = products[0];
+    this.handleChangeCurrentProduct(x.id)
+
   }
 
-  async componentDidMount() {
-    await this.refreshProducts()
-    let x = this.state.productsList[0];
-    this.setState({currentProduct: x});
-    let y = await this.getProductStyles(x.id)
-    this.setState({currentProductStyles: y})
-    this.getRating(x.id)
-    await this.getRelatedProductsIds(x.id)
-    this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
-    this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
-  }
+
 
   async getRelatedProductsIds(productId) {
     try {
