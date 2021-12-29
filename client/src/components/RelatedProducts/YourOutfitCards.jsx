@@ -25,7 +25,6 @@ const YourOutfitCards = (props) => {
   },[trigger])
 
   useEffect(()=> {
-    console.log(parseStorage)
     var cardstates = [];
     for (var i = 0; i < parseStorage.length; i++) {
       if (i < 3) {
