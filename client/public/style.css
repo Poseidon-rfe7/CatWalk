@@ -142,8 +142,13 @@ body {
 /* /////////END OF RELATED ITEMS\\\\\\\\\\\\\\*/
 
 /* RATINGS & REVIEWS WIDGET */
+
+#ratings-reviews-main-container {
+  width: 80%;
+  margin: 0 auto;
+}
 #ratings-reviews-title {
-  background-color: #5f3dc4;
+  /* background-color: #5f3dc4; */
 }
 
 #ratings-reviews-container {
@@ -152,7 +157,7 @@ body {
 }
 
 #ratings-reviews-sidebar {
-  background-color: #5f3dc4;
+  /* background-color: #5f3dc4; */
   flex: .25;
   min-width: 25vw;
   justify-content: center;
@@ -161,7 +166,7 @@ body {
 }
 
 #ratings-reviews-list-items {
-  background-color: #5f3dc4;
+  /* background-color: #5f3dc4; */
   margin-left: 40px;
   flex: .75;
   max-width: 75vw;
@@ -174,13 +179,25 @@ body {
   justify-content: space-between;
 }
 
+.individual-review-first-row-container p{
+  margin: 0;
+}
+
 .individual-review-reviewer-date-container {
   display: flex;
 }
 
-.individual-review-body-container {
-  /* overflow: hidden; */
-  /* word-wrap: break-word; */
+.individual-review-body-container p{
+  margin: 0;
+}
+
+.individual-review-summary-container {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.individual-review-summary-container p{
+  margin: 0;
 }
 
 .hide-overflow {
@@ -189,4 +206,138 @@ body {
 
 .word-wrap {
   word-wrap: break-word;
+}
+
+.hideEl {
+  display: none;
+}
+
+.showEl {
+  display: block;
+}
+
+.showEl p{
+  margin: 0;
+}
+
+.hideEl p{
+  margin: 0;
+}
+
+/* IndividualReviewThumbnails */
+.thumbnail-container div:not(:first-child) {
+  margin-left: 10px;
+}
+
+.thumbnail-container img:hover{
+  opacity: 0.7;
+}
+
+.thumbnail-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* modal */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modalOn {
+  display: block;
+}
+
+.modalOff {
+  display: none;
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.individual-review-body-container a:link {
+  /* text-decoration: none; */
+  color: black;
+}
+
+.recommend-container {
+  /* background-color: #EBEBEB !important; */
+}
+
+.response-container {
+  background-color: #EBEBEB !important;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.response-container h3,p{
+  margin-left: 15px;
+}
+
+.helpfulness-container p {
+  margin: 0;
+}
+
+
+
+#sort-options-container {
+  display: flex;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#sort-options-container p{
+  margin: 0;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  outline: none;
+  /* appearance: none; */
+  background-color: transparent;
+  border: none;
+  /* padding: 0 1em 0 0; */
+  margin: 0;
+  /* width: 100%; */
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 16px;
 }

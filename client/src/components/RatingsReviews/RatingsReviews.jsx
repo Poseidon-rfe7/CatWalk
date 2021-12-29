@@ -1,5 +1,7 @@
 import React from "react";
 import ReviewList from './ReviewList.jsx';
+import IndividualReviewThumbnailModal from './IndividualReviewThumbnailModal.jsx';
+import SortOptions from './SortOptions.jsx';
 import axios from 'axios';
 
 class RatingsReviews extends React.Component {
@@ -7,6 +9,7 @@ class RatingsReviews extends React.Component {
     super(props);
     this.state = {
       currentProduct: {id: 0},
+      reviewCount: 0,
       allProductReviews: [],
       allProductReviewsMeta: [],
       allProductNewestReviews: [],
@@ -22,9 +25,24 @@ class RatingsReviews extends React.Component {
         review_id: 0,
         reviewer_name: '',
         summary: ''
-      }]
+      }],
+      currentReviews: [{
+        body: '',
+        date: '',
+        helpfulness: 0,
+        photos: [],
+        rating: 0,
+        recommend: true,
+        response: null,
+        review_id: 0,
+        reviewer_name: '',
+        summary: ''
+      }],
+      modifiedReviews: [],
+      moreReviewsButtonStatus: 'showEl'
     };
-    this.showMoreClickHandler = this.showMoreClickHandler.bind(this);
+    this.sortChangeHandler = this.sortChangeHandler.bind(this);
+    this.moreReviewsClickHandler = this.moreReviewsClickHandler.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +57,7 @@ class RatingsReviews extends React.Component {
       this.getAllProductNewestReviews();
       this.getAllProductHelpfulReviews();
       this.getAllProductRelevantReviews();
+      this.getCurrentAllProductRelevantReviews();
     }
   };
 
@@ -65,70 +84,96 @@ class RatingsReviews extends React.Component {
   };
 
   getAllProductNewestReviews() {
-    axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id}, sort: 'newest'})
+    axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id, sort: 'newest'}})
     .then(result => this.setState({allProductNewestReviews: result.data.results}))
     .catch(err => console.log('Error:', err));
   };
 
   getAllProductHelpfulReviews() {
-    axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id}, sort: 'helpful'})
+    axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id, sort: 'helpful'}})
     .then(result => this.setState({allProductHelpfulReviews: result.data.results}))
     .catch(err => console.log('Error:', err));
   };
 
   getAllProductRelevantReviews() {
-    axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id}, sort: 'relevant'})
+    axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id, sort: 'relevant'}})
     .then(result => this.setState({allProductRelevantReviews: result.data.results}))
     .catch(err => console.log('Error:', err));
   };
 
-  showMoreClickHandler(event) {
-    if (event.target.previousElementSibling.classList.contains('hide-overflow')) {
-      event.target.previousElementSibling.classList.remove('hide-overflow');
-      event.target.previousElementSibling.className = 'word-wrap';
+  getCurrentAllProductRelevantReviews() {
+    axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id, sort: 'relevant'}})
+    .then(result => {
+      if (result.data.results.length > 2) {
+        this.setState({currentReviews: result.data.results, modifiedReviews: result.data.results.slice(0, 2), moreReviewsButtonStatus: 'showEl'})
+      } else {
+        this.setState({currentReviews: result.data.results, modifiedReviews: result.data.results.slice(0, 2), moreReviewsButtonStatus: 'hideEl'})
+      }
+    })
+    .catch(err => console.log('Error:', err));
+  };
+
+  sortChangeHandler(event) {
+    if (this.state.currentReviews.length > 2) {
+      this.setState({moreReviewsButtonStatus: 'showEl'})
+    }
+    let text = event.target.options[event.target.selectedIndex].text;
+    if (text === 'relevance') {
+      this.setState({currentReviews: this.state.allProductRelevantReviews, modifiedReviews: this.state.allProductRelevantReviews.slice(0, 2)});
+    } else if (text === 'helpful') {
+      this.setState({currentReviews: this.state.allProductHelpfulReviews, modifiedReviews: this.state.allProductHelpfulReviews.slice(0, 2)});
     } else {
-      event.target.previousElementSibling.classList.remove('word-wrap');
-      event.target.previousElementSibling.className = 'hide-overflow';
+      this.setState({currentReviews: this.state.allProductNewestReviews, modifiedReviews: this.state.allProductNewestReviews.slice(0, 2)});
+    }
+  }
+
+  moreReviewsClickHandler() {
+    if (this.state.currentReviews.length > this.state.modifiedReviews.length) {
+      return new Promise((resolve, reject) => {
+        this.setState({modifiedReviews: this.state.currentReviews.slice(0, this.state.modifiedReviews.length + 2)})
+        resolve()
+      }).then(() => {
+        if (this.state.modifiedReviews.length === this.state.currentReviews.length) {
+          this.setState({moreReviewsButtonStatus: 'hideEl'})
+        }
+      })
     }
   }
 
   render() {
     return (
-      <div>
+      <div id="ratings-reviews-main-container">
         {/* title section */}
         <p id="ratings-reviews-title">RATINGS &#38; REVIEWS</p>
 
         {/* ratings and reviews container */}
-      <section id="ratings-reviews-container">
-        {/* left sidebar */}
-        <div id="ratings-reviews-sidebar">
-          <div>
-            <p>Rating Breakdown Component</p>
+        <section id="ratings-reviews-container">
+          {/* left sidebar */}
+          <div id="ratings-reviews-sidebar">
+            <div>
+              <p>Rating Breakdown Component</p>
+            </div>
+            <div>
+              <p>Product Breakdown Component</p>
+            </div>
           </div>
-          <div>
-            <p>Product Breakdown Component</p>
-          </div>
-        </div>
-        {/* list items */}
-        <div id="ratings-reviews-list-items">
+          {/* list items */}
+          <div id="ratings-reviews-list-items">
 
-          <div>
-            <p>Sorting Component</p>
-          </div>
+            <div>
+              <SortOptions sortChangeHandler={this.sortChangeHandler}/>
+            </div>
 
-          <div>
-            <ReviewList
-            product={this.state}
-            showMoreClickHandler={this.showMoreClickHandler}
-            />
-          </div>
+            <div>
+              <ReviewList product={this.state.modifiedReviews} meta={this.state.allProductReviewsMeta}/>
+              <IndividualReviewThumbnailModal />
+            </div>
 
-          <div>
-            <p>Buttons Section</p>
+            <div id="more-reviews-button-container" className={this.state.moreReviewsButtonStatus}>
+              <button onClick={this.moreReviewsClickHandler}>More Reviews</button>
+            </div>
           </div>
-        </div>
-      </section>
-
+        </section>
       </div>
     )
   }
