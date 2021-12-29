@@ -31,7 +31,7 @@ const AddToOutfit = (props) => {
       <i id="add-to-outfit-button" className="fas fa-plus" onClick={addToOutfits}/>
       </div>
 
-      <div className="product-info">
+      <div className="product-info add-info">
       Add Current Item To Your Outfit!
       </div>
     </div>

@@ -12,12 +12,16 @@ body {
   padding-top:15px;
   font-size: 12px;
 }
-.style-tag{
+
+.style-tag {
   font-size: 9px;
+
 }
+
 .product-info {
   border-radius: 4px;
   text-align: center;
+  color: white;
 }
 
 /* contains both card containers */
@@ -78,6 +82,7 @@ body {
   display: grid;
   grid-template-rows: 0px 250px 20px;
   font-size: 15px;
+  color: white;
 }
 
 .add-to-outfit-card{

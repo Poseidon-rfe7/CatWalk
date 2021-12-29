@@ -5,7 +5,18 @@ const CompareModal = (props) => {
   return (
     <div className={className}>
       <div className="modal-main">
-
+        <table>
+          <thead>
+            <tr>
+              <th>Current Item</th>
+              <th>Feature</th>
+              <th>Related Item</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+          </tbody>
+        </table>
 
 
        <button type="button" onClick={props.closemodal} value="close"> Close </button>
