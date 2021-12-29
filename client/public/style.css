@@ -143,7 +143,7 @@ body {
   color: red;
 }
 /* COMPARE MODAL */
-.modal {
+.compare-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -152,7 +152,7 @@ body {
   background: rgba(0, 0, 0, 0.6);
 }
 
-.modal-main {
+.compare-modal-main {
   position: fixed;
   background: white;
   width: 80%;
@@ -162,10 +162,10 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.display-block {
+.compare-display-block {
   display: block;
 }
-.display-none {
+.compare-display-none {
   display: none;
 }
 

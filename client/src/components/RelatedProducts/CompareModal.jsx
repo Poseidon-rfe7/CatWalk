@@ -1,10 +1,10 @@
 import React from 'react'
 
 const CompareModal = (props) => {
-  const className = props.show ? "modal display-block" : "modal display-none"
+  const className = props.show ? "compare-modal compare-display-block" : "compare-modal compare-display-none"
   return (
     <div className={className}>
-      <div className="modal-main">
+      <div className="compare-modal-main">
         <table>
           <thead>
             <tr>
@@ -14,7 +14,7 @@ const CompareModal = (props) => {
             </tr>
           </thead>
           <tbody>
-            
+
           </tbody>
         </table>
 
