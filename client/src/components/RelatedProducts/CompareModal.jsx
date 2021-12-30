@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import CompareTable from './CompareTable.jsx'
 
 const CompareModal = ({show, closemodal, compareinfo}) => {
   const [compareThese, setCompareThese] = useState([{name: 'item1', category: 'category', default_price: 0}, {name: 'item2', category: 'category', default_price: 0}])

@@ -1,13 +1,12 @@
 import React, {useState, useRef, useEffect} from 'react';
 import RelatedProductsCard from './RelatedProductsCard.jsx'
-import CompareModal from './CompareModal.jsx'
+
 
 const RelatedProductsCards = (props) => {
   const ref = useRef(0)
   // const [scrollPosition, setScrollPosition] = useState(0);
   const [showCards, setShowCards] = useState([])
-  const [showModal, setShowModal] = useState(false)
-  const [compareInfo, setCompareInfo] = useState([])
+
 
   useEffect(()=> {
     var cardstates = [];
@@ -62,16 +61,12 @@ const RelatedProductsCards = (props) => {
     setShowCards(temp)
   }
 
-   const starHandler = (e) => {
-     var id = e.target.getAttribute('serial')
-     var slot = e.target.getAttribute('slot')
-     setCompareInfo([props.currentProduct, props.relatedProducts[slot]])
-     setShowModal(true)
+  const starHandler = (e) => {
+    var id = e.target.getAttribute('serial')
+    var slot = e.target.getAttribute('slot')
+    props.modalhandler(props.currentProduct, props.relatedProducts[slot])
 
-  }
-  const closeModal = () => {
-    setShowModal(false)
-  }
+ }
 
 
   return(
@@ -83,10 +78,6 @@ const RelatedProductsCards = (props) => {
   : <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(216)} />
   }
   </div>
-
-  <CompareModal show={showModal} closemodal={closeModal}
-  compareinfo={compareInfo}
-  />
 
 
    <div id="cardDeck" className="related-card-deck" ref={ref}>
