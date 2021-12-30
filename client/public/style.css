@@ -38,7 +38,7 @@ body {
   height: 400px;
   width: 904px;
   display: flex;
-  position: relative;
+
   align-items: center;
   justify-content: center;
   margin-left: 80px;
@@ -156,12 +156,17 @@ body {
 .compare-modal-main {
   position: fixed;
   background: white;
+  border-radius: 4px;
+  border-color: red;
+  border-style: solid;
+  border-width: 2px;
   width: 80%;
   height: auto;
   top:50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
+  overflow-y:scroll;
+
 }
 
 .compare-display-block {
@@ -169,6 +174,20 @@ body {
 }
 .compare-display-none {
   display: none;
+}
+
+table{
+margin:0 auto;
+}
+
+th{
+  font-size: 20px;
+  text-align: center;
+}
+
+td{
+  font-size: 15px;
+  text-align: center;
 }
 
 
