@@ -7,6 +7,7 @@ const RelatedProductsCards = (props) => {
   // const [scrollPosition, setScrollPosition] = useState(0);
   const [showCards, setShowCards] = useState([])
   const [showModal, setShowModal] = useState(false)
+  const [compareInfo, setCompareInfo] = useState([])
 
   useEffect(()=> {
     var cardstates = [];
@@ -59,15 +60,12 @@ const RelatedProductsCards = (props) => {
       }
     }
     setShowCards(temp)
-    console.log(showCards)
   }
 
    const starHandler = (e) => {
      var id = e.target.getAttribute('serial')
      var slot = e.target.getAttribute('slot')
-     console.log('current:',props.currentProduct)
-     console.log('tocomapre:',props.relatedProducts[slot])
-     //trigger a modal with these product
+     setCompareInfo([props.currentProduct, props.relatedProducts[slot]])
      setShowModal(true)
 
   }
@@ -86,7 +84,9 @@ const RelatedProductsCards = (props) => {
   }
   </div>
 
-  <CompareModal show={showModal} closemodal={closeModal}/>
+  <CompareModal show={showModal} closemodal={closeModal}
+  compareinfo={compareInfo}
+  />
 
 
    <div id="cardDeck" className="related-card-deck" ref={ref}>

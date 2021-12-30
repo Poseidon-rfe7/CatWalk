@@ -3,11 +3,11 @@ import AddToOutfit from './AddToOutfit.jsx'
 import OutfitCard from './OutfitCard.jsx'
 
 const YourOutfitCards = (props) => {
+  const ref = useRef(0)
   const outfitStorage = window.localStorage;
   const [parseStorage, setParseStorage] = useState([])
-  const [scrollPosition, setScrollPosition] = useState(0);
+  //const [scrollPosition, setScrollPosition] = useState(0);
   const [showCards, setShowCards] = useState([])
-  const ref = useRef(0)
   const [updateCards, setUpdateCards] = useState(false)
   const [trigger, setTrigger] = useState(0)
 
@@ -38,6 +38,7 @@ const YourOutfitCards = (props) => {
     if(parseStorage.length=== 0) {
       setShowCards([true])
     }
+    ref.current.scrollLeft = 0
   }, [parseStorage])
 
   const goRight = (offset) => {
