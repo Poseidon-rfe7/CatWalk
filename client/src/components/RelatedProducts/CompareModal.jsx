@@ -10,20 +10,29 @@ const CompareModal = ({show, closemodal, compareinfo}) => {
                       //  { char2: c: 'whatever' r: ''} ]
 
   useEffect(()=>{
+
     if (compareinfo.length > 0) {
       setCompareThese(compareinfo)
 
-      let currentfeatures = {}
-      let relatedfeatures = {}
+      let f = {}
+
       for (let i = 0; i < compareinfo[0].features.length; i++) {
-        let currentfeature = compareinfo[0].features[i]
-        currentfeatures[currentfeature.feature] = currentfeature['value']
+        let currentfeature = compareinfo[0].features[i];
+        f[currentfeature.feature] = {item1: currentfeature['value']};
+        f[currentfeature.feature].item2 = '';
       }
       for (let i = 0; i < compareinfo[1].features.length; i++) {
-        let currentfeature = compareinfo[1].features[i]
-        relatedfeatures[currentfeature.feature] = currentfeature['value']
-      }
-      setCompareFeatures([currentfeatures, relatedfeatures])
+        let currentfeature = compareinfo[1].features[i];
+        if(f[currentfeature.feature] === undefined) {
+          f[currentfeature.feature] = {item2: currentfeature['value']};
+         f[currentfeature.feature].item1 = '';
+          } else if (f[currentfeature.feature].item2 === '') {
+            f[currentfeature.feature].item2 = currentfeature['value'];
+          }
+
+        }
+
+      setCompareFeatures(Object.entries(f))
     }
 
 
@@ -54,6 +63,18 @@ const CompareModal = ({show, closemodal, compareinfo}) => {
             <td>Price</td>
             <td>{compareThese[1].default_price}</td>
           </tr>
+          {compareFeatures.length > 0 ?
+
+          compareFeatures.map((item, i) => {
+            return (
+            <tr key={i}>
+              <td>{item[1].item1}</td>
+              <td>{item[0]}</td>
+              <td>{item[1].item2}</td>
+            </tr>
+            )
+          })
+        :<tr/>}
 
 
         </tbody>
