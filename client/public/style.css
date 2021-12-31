@@ -12,39 +12,26 @@ body {
   position: relative;
   font-size: 15px;
   display: inline-block;
-}
-
-.empty-star {
-  font-size: 15px;
-  position: absolute;
-  display: inline-block;
-  overflow: hidden;
 
 }
 
-.single-star-fill {
-  position: relative;
-  display: inline-block;
-  background-color: red;
 
-  /* font-weight: bold; */
+
+.stars-outer::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: 'Font Awesome 5 Free';
+  font-size: 2em;
+  color: #ccc
 }
 
-.single-star-50{
-  overflow: hidden;
-  background: linear-gradient(to right, red 50%, transparent 50%);
+.stars-outer::after {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: 'Font Awesome 5 Free';
+  font-size: 2em;
+  font-weight: 900;
+  color: red;
+  
 }
-
-.single-star-75{
-  background: linear-gradient(to right, red 65%, transparent 35%);
-  /* font-weight: bold; */
-
-}
-
-.single-star-25{
-  background: linear-gradient(to right, red 25%, transparent 75%);
-}
-
 
 /*///////////RELATED ITEMS CSS \\\\\\\\\\\\\\\\\\\\ */
 /* text styling */
