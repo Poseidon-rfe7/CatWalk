@@ -4,7 +4,10 @@ const OutfitCard = (props) => {
   const outfitStorage = window.localStorage;
 
   const removeFromOutfits = () => {
-    outfitStorage.removeItem(props.id)
+    var parsed = JSON.parse(outfitStorage.getItem('yourOutfits'))
+    console.log(parsed, props.id)
+    delete parsed[props.id]
+    outfitStorage.setItem('yourOutfits', JSON.stringify(parsed))
     props.trigger()
   }
 

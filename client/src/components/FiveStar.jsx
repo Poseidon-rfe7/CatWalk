@@ -9,11 +9,11 @@ const FiveStar = ({rating}) => {
     let dec = parseFloat((rating - whole).toFixed(1));
     let emptyStar = <i className="single-star far fa-star"/>
     let fullStar = <i className="single-star single-star-fill far fa-star"/>
-    let halfStar = <i className="single-star single-star-50 far fa-star"/>
+    let halfStar = <i className="single-star single-star-50  far fa-star"/>
     let quarterStar = <i className="single-star single-star-25 far fa-star"/>
     let threeQuarterStar = <i className="single-star single-star-75 far fa-star"/>
 
-   
+
     let temp = [];
     while(whole > 0) {
       temp.push(fullStar)
@@ -41,10 +41,22 @@ const FiveStar = ({rating}) => {
   return (
     <div className="star-container">
     {stars.map((star, i) => {
-      return <div className="star-container" key={i} >{star}</div>
+      return (
+      <div className="star-container" key={i} >
+        {star}
+        {/* <i className="empty-star far fa-star"/> */}
+      </div>
+      );
     })}
     </div>
   )
+
+
+
+
+
+
+
 }
 
 export default FiveStar
