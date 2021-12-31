@@ -1,5 +1,6 @@
 import React from 'react';
 import IndividualReviewBody from './IndividualReviewBody.jsx';
+import IndividualReviewHelpfulness from './IndividualReviewHelpfulness.jsx';
 
 function IndividualReviewTile(props) {
   let months = {
@@ -22,7 +23,6 @@ function IndividualReviewTile(props) {
   let day = timeArr[2];
   let year = timeArr[0];
   let currentSummary = props.review.summary;
-
 
   return (
     <div>
@@ -53,8 +53,7 @@ function IndividualReviewTile(props) {
           <p>{props.review.response}</p>
         </div>
         <div className='helpfulness-container'>
-          <p>Helpful? Yes(9) No(3) | Report</p>
-          <p>{props.review.helpfulness}</p>
+          <IndividualReviewHelpfulness review={props.review} helpfulClickHandler={props.helpfulClickHandler}/>
         </div>
       </div>
     </div>
