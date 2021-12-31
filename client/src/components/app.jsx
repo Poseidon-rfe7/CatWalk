@@ -3,6 +3,7 @@ import ProductsOverview from './ProductOverview/ProductOverView.jsx'
 import QuestionsAnswers from './QuestionsAnswers/QuestionsAnswers.jsx'
 import RatingsReviews from './RatingsReviews/RatingsReviews.jsx'
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx'
+import FiveStar from './FiveStar.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -136,7 +137,7 @@ class App extends React.Component {
         relatedProductsIds={this.state.currentRelatedProductsIds}
         changeProducts={this.handleChangeCurrentProduct}
         />
-
+        <FiveStar rating={3.8}/>
         <QuestionsAnswers />
         <RatingsReviews />
       </div>

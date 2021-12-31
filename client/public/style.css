@@ -6,6 +6,33 @@ body {
 
 }
 
+/*STARS*/
+.single-star, .star-container {
+  position: sticky;
+  font-size: 15px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.single-star-fill {
+  position: relative;
+  display: inline-block;
+  background-color: red;
+}
+
+.single-star-50{
+  background: linear-gradient(to right, red 50%, transparent 50%);
+}
+
+.single-star-75{
+  background: linear-gradient(to right, red 65%, transparent 35%);
+}
+
+.single-star-25{
+  background: linear-gradient(to right, red 25%, transparent 75%);
+}
+
+
 /*///////////RELATED ITEMS CSS \\\\\\\\\\\\\\\\\\\\ */
 /* text styling */
 .relatedproducts-title, .youroutfit-title{
