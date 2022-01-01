@@ -133,6 +133,11 @@ class App extends React.Component {
       for ( let i = 0; i < ids.length; i++) {
         ratings[ids[i]] = await this.getRating(ids[i])
       }
+      for (var key in ratings) {
+        if (ratings[key] === undefined) {
+          ratings[key] = 0
+        }
+      }
       this.setState({currentRelatedProductRatings: ratings})
   }
 
