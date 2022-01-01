@@ -6,71 +6,72 @@ import CompareModal from './CompareModal.jsx'
 const RelatedProducts = (props) => {
   const [defaultPhotos, setDefaultPhotos] = useState({});
   const [photosLoaded, setPhotosLoaded] = useState(false)
-  const [currentPhotoUrl, setCurrentPhotoUrl] = useState('');
-
   const [showModal, setShowModal] = useState(false)
   const [compareInfo, setCompareInfo] = useState([])
 
-   useEffect(()=>{
-    let photos={};
-    if (props.relatedProductStyles.length > 0) {
-      props.relatedProductStyles.forEach(product => {
-        photos[product.product_id] = product.results[0].photos[0].url;
-        product.results.forEach((style, i) => {
-          if (style['default?'] === true) {
-            let picUrl = style.photos[0]
-            photos[product.product_id] = picUrl.url;
-          }
-        })
+
+
+  useEffect(()=>{
+  let photos={};
+  if (props.relatedProductStyles.length > 0) {
+    props.relatedProductStyles.forEach(product => {
+      photos[product.product_id] = product.results[0].photos[0].url;
+      product.results.forEach((style, i) => {
+        if (style['default?'] === true) {
+          let picUrl = style.photos[0]
+          photos[product.product_id] = picUrl.url;
+        }
       })
-    setDefaultPhotos(photos);
-    setPhotosLoaded(true);
-    }
-   }, [props.relatedProductStyles])
+    })
+  setDefaultPhotos(photos);
+  setPhotosLoaded(true);
+  }
+  }, [props.relatedProductStyles])
 
-   const changeProducts = (e) => {
-     var id = e.target.getAttribute('serial')
-     props.changeProducts(id)
-   }
+  const changeProducts = (e) => {
+    var id = e.target.getAttribute('serial')
+    props.changeProducts(id)
+  }
 
-   const starHandler = (current, related) => {
+  const starHandler = (current, related) => {
 
-    setCompareInfo([current, related])
-    setShowModal(true)
+  setCompareInfo([current, related])
+  setShowModal(true)
 
  }
 
- const closeModal = () => {
-   setShowModal(false)
- }
+  const closeModal = () => {
+    setShowModal(false)
+  }
 
   return(
-  <div className="related-products-container">
+    <div className="related-products-container">
 
-    <div className="relatedproducts-title">Related Products</div>
-    <RelatedProductsCards
-    modalhandler={starHandler}
-    currentProduct={props.currentProduct}
-    relatedProducts={props.relatedProducts}
-    relatedProductStyles={props.relatedProductStyles}
-    relatedProductsIds={props.relatedProductsIds}
-    photosLoaded={photosLoaded}
-    relatedProductsPhotos={defaultPhotos}
-    changeProducts={changeProducts}
+      <div className="relatedproducts-title">Related Products</div>
+      <RelatedProductsCards
+      modalhandler={starHandler}
+      currentProduct={props.currentProduct}
+      relatedProducts={props.relatedProducts}
+      relatedProductStyles={props.relatedProductStyles}
+      relatedProductsIds={props.relatedProductsIds}
+      relatedratings={props.relatedratings}
+      photosLoaded={photosLoaded}
+      relatedProductsPhotos={defaultPhotos}
+      changeProducts={changeProducts}
+      />
+
+    <CompareModal show={showModal} closemodal={closeModal}
+    compareinfo={compareInfo}
     />
-
-  <CompareModal show={showModal} closemodal={closeModal}
-  compareinfo={compareInfo}
-  />
 
 
     <div className="youroutfit-title">Your Outfit</div>
-    <YourOutfitCards
-     currentproductstyles={props.currentproductstyles} currentproduct={props.currentProduct}
-    />
+      <YourOutfitCards
+      currentproductstyles={props.currentproductstyles} currentproduct={props.currentProduct}
+      />
 
   </div>
   )
-  }
+}
 
 export default RelatedProducts
