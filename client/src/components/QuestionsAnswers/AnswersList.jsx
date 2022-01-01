@@ -3,9 +3,10 @@ import Answer from './Answer.jsx';
 
 const AnswersList = (props) => {
   return (
-    <div>
+    <div className='answers-list'>
       {/* map over answers in list */}
-      <Answer />
+      <div>A:</div>
+      <div>{props.answers.map((answer) => <Answer key={answer.id} answer={answer} />)}</div>
     </div>
   )
 };
