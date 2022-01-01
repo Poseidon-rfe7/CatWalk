@@ -423,3 +423,110 @@ select {
   overflow: hidden;
   max-height: 100vh;
 }
+
+
+/* ============= Questions and Answers ============= */
+
+/* resets */
+.qa-button {
+  background-color: transparent;
+  border-width: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  padding: 0;
+}
+
+.reset-margins {
+  margin: 0;
+}
+
+
+/* ----Custom Styles---- */
+
+.questions-answers {
+  width: 700px;
+  margin: 15px auto 50px 80px;
+  font-size: 12px;
+}
+
+.qa-helpful {
+  font-weight: normal;
+  font-size: 10px;
+}
+
+
+/* answers */
+.answers-list {
+  display: flex;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.answer {
+  margin-left: 5px;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.a-helpful {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.photos-thumbnail {
+  margin-top: 5px;
+  margin-right: 10px;
+  width: 60px;
+  height: auto;
+}
+
+
+/* Questions */
+.search-bar {
+  width: 600px;
+  padding: 10px;
+  padding-right: auto;
+}
+
+.search-questions {
+  margin: 10px 0;
+}
+
+.single-question {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.q-helpful {
+  float: right;
+}
+
+
+/* buttons */
+.qa-button:hover {
+  cursor: pointer;
+}
+
+.submit-search {
+  font-size: 15px;
+  padding: 9px 10px 11px 10px;
+  border-width: 1px 1px 1px 0;
+  border-color: black;
+}
+
+.helpful-button {
+  margin: 0 5px;
+  text-decoration: underline;
+}
+
+.more-questions {
+  border-color: black;
+  border-width: 1px;
+  margin-right: 10px;
+  padding: 10px;
+}
