@@ -1,23 +1,27 @@
 import React, {useState, useEffect} from 'react'
 
 const FiveStar = ({rating}) => {
-  const [star, setStar] = useState([]);
+  const [star, setStar] = useState(0);
 
   useEffect(()=> {
-  const percent = `${(rating / 5) * 100}%`;
+  const percent = (rating / 5) * 100;
   setStar(percent)
-  
-  }, [])
-
+  console.log(percent)
+  }, [rating])
 
   return (
+    <div className="stars-container">
       <div className="stars-outer">
-        <div className="stars-inner" style={{width: star}}/>
+        <div className="stars-inner" style={{width: `${star}%`}}/>
+      </div>
       </div>
   )
-
-
 
 }
 
 export default FiveStar
+
+/*
+To Use: just pass down the rating as a prop rating={'rating'}
+ex: <FiveStar rating={2.7}/>
+*/
