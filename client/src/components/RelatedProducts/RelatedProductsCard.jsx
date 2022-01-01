@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import FiveStar from '../FiveStar.jsx'
 
 
 const RelatedProductsCard = (props) => (
@@ -24,6 +25,7 @@ const RelatedProductsCard = (props) => (
       <div className="style-tag">
       style: {props.category}
       </div>
+      <FiveStar rating={props.rating}/>
     </div>
 
   </div>

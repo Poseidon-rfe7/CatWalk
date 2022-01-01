@@ -7,9 +7,6 @@ body {
 }
 
 /*STARS*/
-/* .stars-container{
-display: flex;
-} */
 .stars-outer {
   position: relative;
   display: inline-block;
@@ -25,23 +22,16 @@ display: flex;
 }
 
 .stars-outer::before {
-  /* position: absolute; */
   content: "\f005 \f005 \f005 \f005 \f005";
   font-family: 'Font Awesome 5 Free';
-  font-size: 2em;
   color: #ccc
 }
 
 .stars-inner::after {
-
   content: "\f005 \f005 \f005 \f005 \f005";
   font-family: 'Font Awesome 5 Free';
-  font-size: 2em;
   font-weight: 900;
   color: red;
-
-
-
 }
 
 /*///////////RELATED ITEMS CSS \\\\\\\\\\\\\\\\\\\\ */

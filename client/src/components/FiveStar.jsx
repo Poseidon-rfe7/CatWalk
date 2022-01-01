@@ -6,7 +6,6 @@ const FiveStar = ({rating}) => {
   useEffect(()=> {
   const percent = (rating / 5) * 100;
   setStar(percent)
-  console.log(percent)
   }, [rating])
 
   return (
@@ -22,6 +21,6 @@ const FiveStar = ({rating}) => {
 export default FiveStar
 
 /*
-To Use: just pass down the rating as a prop rating={'rating'}
+To Use: import and place where you need, just pass down the rating as a prop rating={'rating'}
 ex: <FiveStar rating={2.7}/>
 */

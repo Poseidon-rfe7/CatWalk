@@ -1,12 +1,10 @@
 import React, {useState, useRef, useEffect} from 'react';
 import RelatedProductsCard from './RelatedProductsCard.jsx'
 
-
 const RelatedProductsCards = (props) => {
   const ref = useRef(0)
   // const [scrollPosition, setScrollPosition] = useState(0);
   const [showCards, setShowCards] = useState([])
-
 
   useEffect(()=> {
     var cardstates = [];
@@ -19,7 +17,6 @@ const RelatedProductsCards = (props) => {
       }
     setShowCards(cardstates)
     }
-    ref.current.scrollLeft = 0
   }, [props.relatedProducts])
 
   const goRight = (offset) => {
@@ -59,15 +56,15 @@ const RelatedProductsCards = (props) => {
       }
     }
     setShowCards(temp)
+    console.log(showCards)
   }
 
-  const starHandler = (e) => {
-    var id = e.target.getAttribute('serial')
-    var slot = e.target.getAttribute('slot')
-    props.modalhandler(props.currentProduct, props.relatedProducts[slot])
-
- }
-
+   const starHandler = (e) => {
+     var id = e.target.getAttribute('serial')
+     var slot = e.target.getAttribute('slot')
+     console.log('current:',props.currentProduct)
+     console.log('tocomapre:',props.relatedProducts[slot])
+  }
 
   return(
   <div className="related-cards-container">
@@ -80,6 +77,7 @@ const RelatedProductsCards = (props) => {
   </div>
 
 
+
    <div id="cardDeck" className="related-card-deck" ref={ref}>
    {props.relatedProducts.map((item, i) => {
      return(
@@ -88,6 +86,7 @@ const RelatedProductsCards = (props) => {
      name={item.name} category={item.category} serial={item.id} slot={i}
      photo={props.relatedProductsPhotos[item.id]}
      loaded={props.photosLoaded} starhandler={starHandler}
+     rating={props.relatedratings[item.id]}
      changeproduct={props.changeProducts}
      />
      </div>
