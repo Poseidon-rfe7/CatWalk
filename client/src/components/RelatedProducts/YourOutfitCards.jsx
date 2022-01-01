@@ -4,7 +4,6 @@ import OutfitCard from './OutfitCard.jsx'
 
 const YourOutfitCards = (props) => {
   const ref = useRef(0)
-  const outfitStorage = window.localStorage;
   const [parseStorage, setParseStorage] = useState([])
   //const [scrollPosition, setScrollPosition] = useState(0);
   const [showCards, setShowCards] = useState([])
@@ -13,15 +12,15 @@ const YourOutfitCards = (props) => {
 
   useEffect(() => {
     var temp = []
-    if (outfitStorage.length > 0){
-      for (var key in outfitStorage) {
-        if (typeof outfitStorage[key] === 'string' ){
-          temp.push( JSON.parse(outfitStorage[key]))
-        }
+    if (window.localStorage['yourOutfits'] !== undefined) {
+      let outfits = JSON.parse(window.localStorage.getItem('yourOutfits'))
+      for (var key in outfits) {
+          temp.push(outfits[key])
       }
     }
     setParseStorage(temp)
     setUpdateCards(true)
+
   },[trigger])
 
   useEffect(()=> {

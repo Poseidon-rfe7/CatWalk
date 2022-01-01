@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
 const AddToOutfit = (props) => {
-  const outfitStorage = window.localStorage;
   const [currentPhoto, setCurrentPhoto] = useState('')
 
   useEffect(()=>{
@@ -19,8 +18,18 @@ const AddToOutfit = (props) => {
   }, [props.currentproductstyles])
 
   const addToOutfits = () => {
-    var store = {url: currentPhoto, name: props.currentproduct.name , category: props.currentproduct.category, id: props.currentproduct.id}
-    outfitStorage.setItem(props.currentproduct.id, JSON.stringify(store))
+    var currentStored = window.localStorage.getItem('yourOutfits');
+    currentStored = JSON.parse(currentStored);
+    if (currentStored === null) {
+      currentStored = {}
+    }
+
+    var toStore =  {url: currentPhoto, name: props.currentproduct.name , category: props.currentproduct.category, id: props.currentproduct.id}
+
+    currentStored[props.currentproduct.id] = toStore
+
+
+    window.localStorage.setItem('yourOutfits', JSON.stringify(currentStored))
     props.trigger()
   }
 

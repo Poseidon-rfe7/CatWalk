@@ -3,6 +3,7 @@ import ProductsOverview from './ProductOverview/ProductOverView.jsx'
 import QuestionsAnswers from './QuestionsAnswers/QuestionsAnswers.jsx'
 import RatingsReviews from './RatingsReviews/RatingsReviews.jsx'
 import RelatedProducts from './RelatedProducts/RelatedProducts.jsx'
+import FiveStar from './FiveStar.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class App extends React.Component {
       currentProductStyles: [],
       currentRelatedProductsIds: [],
       currentRelatedProducts: [],
-      currentRelatedProductStyles: []
+      currentRelatedProductStyles: [],
+      currentRelatedProductRatings: {}
     };
 
     this.getRelatedProductsIds = this.getRelatedProductsIds.bind(this)
@@ -24,6 +26,7 @@ class App extends React.Component {
     this.getAllRelatedProductsStyles = this.getAllRelatedProductsStyles.bind(this)
     this.handleChangeCurrentProduct = this.handleChangeCurrentProduct.bind(this)
     this.getRating = this.getRating.bind(this)
+    this.getRelatedRatings = this.getRelatedRatings.bind(this)
   }
 
 
@@ -33,10 +36,12 @@ class App extends React.Component {
       this.setState({currentProduct: loadProduct})
       let loadStyles = await this.getProductStyles(id)
       this.setState({currentProductStyles: loadStyles})
-      this.getRating(id)
+      var rating = await this.getRating(id)
+      this.setState({currentProductRating: rating})
       await this.getRelatedProductsIds(id)
       this.getAllRelatedProductsStyles(this.state.currentRelatedProductsIds)
       this.getAllRelatedProductsInfo(this.state.currentRelatedProductsIds)
+      this.getRelatedRatings(this.state.currentRelatedProductsIds)
     } catch(err){
       console.log(err)
     }
@@ -117,10 +122,18 @@ class App extends React.Component {
        rating += reviews[i].rating
      }
      rating = rating / reviews.length
-     this.setState({currentProductRating: rating})
+     return rating;
    } catch (err) {
      console.log(err)
    }
+  }
+
+  async getRelatedRatings (ids) {
+      var ratings = {}
+      for ( let i = 0; i < ids.length; i++) {
+        ratings[ids[i]] = await this.getRating(ids[i])
+      }
+      this.setState({currentRelatedProductRatings: ratings})
   }
 
   render() {
@@ -129,6 +142,7 @@ class App extends React.Component {
         <ProductsOverview/>
 
         <RelatedProducts
+        relatedratings={this.state.currentRelatedProductRatings}
         currentProduct={this.state.currentProduct}
         currentproductstyles={this.state.currentProductStyles}
         relatedProducts={this.state.currentRelatedProducts}
@@ -136,7 +150,6 @@ class App extends React.Component {
         relatedProductsIds={this.state.currentRelatedProductsIds}
         changeProducts={this.handleChangeCurrentProduct}
         />
-
         <QuestionsAnswers />
         <RatingsReviews currentProduct={this.state.currentProduct}/>
       </div>
