@@ -34,7 +34,7 @@ const RelatedProducts = (props) => {
   }
 
   const starHandler = (current, related) => {
-
+console.log(current, related)
   setCompareInfo([current, related])
   setShowModal(true)
 

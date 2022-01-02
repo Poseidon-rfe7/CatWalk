@@ -62,8 +62,7 @@ const RelatedProductsCards = (props) => {
    const starHandler = (e) => {
      var id = e.target.getAttribute('serial')
      var slot = e.target.getAttribute('slot')
-     console.log('current:',props.currentProduct)
-     console.log('tocomapre:',props.relatedProducts[slot])
+     props.modalhandler(props.currentProduct, props.relatedProducts[slot])
   }
 
   return(
