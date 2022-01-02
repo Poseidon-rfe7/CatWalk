@@ -155,7 +155,8 @@ class App extends React.Component {
         relatedProductsIds={this.state.currentRelatedProductsIds}
         changeProducts={this.handleChangeCurrentProduct}
         />
-        <QuestionsAnswers />
+
+        <QuestionsAnswers currentProduct={this.state.currentProduct} />
         <RatingsReviews currentProduct={this.state.currentProduct}/>
       </div>
     )
