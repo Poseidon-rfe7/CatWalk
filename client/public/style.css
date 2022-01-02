@@ -140,8 +140,8 @@ body {
 }
 
 /* compare modal button*/
-#related-action, #outfit-action{
-  position: sticky;
+ #outfit-action, #related-action{
+  position: static;
   margin-left: 80%;
   margin-top: 5%;
   font-size: 25px;
