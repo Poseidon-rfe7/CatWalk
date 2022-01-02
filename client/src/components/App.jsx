@@ -117,6 +117,7 @@ class App extends React.Component {
      let response = await fetch(`api/reviews/?product_id=${id}`)
      let reviews = await response.json()
      reviews = reviews.results
+     console.log(reviews)
      let rating = reviews[0].rating;
      for (let i = 1; i < reviews.length; i++) {
        rating += reviews[i].rating
