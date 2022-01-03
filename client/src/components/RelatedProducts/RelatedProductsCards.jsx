@@ -56,7 +56,6 @@ const RelatedProductsCards = (props) => {
       }
     }
     setShowCards(temp)
-    console.log(showCards)
   }
 
    const starHandler = (e) => {
