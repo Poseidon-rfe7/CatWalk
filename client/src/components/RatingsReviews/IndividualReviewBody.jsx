@@ -9,8 +9,8 @@ class IndividualReviewBody extends React.Component {
       firstChars: props.body.substring(0, 250),
       lastChars: props.body.substring(250),
       isLong: false,
-      photos: props.photos,
-      // photos: ['https://picsum.photos/300/200', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200'],
+      // photos: props.photos,
+      photos: ['https://picsum.photos/300/200', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200'],
       reviewId: props.reviewId,
       show: 'Show more',
       body: props.body.substring(0, 250)
