@@ -2,6 +2,9 @@ import React from "react";
 import ReviewList from './ReviewList.jsx';
 import IndividualReviewThumbnailModal from './IndividualReviewThumbnailModal.jsx';
 import SortOptions from './SortOptions.jsx';
+import ProductBreakdown from './ProductBreakdown.jsx';
+import RatingsBreakdown from './RatingsBreakdown.jsx';
+
 import axios from 'axios';
 
 class RatingsReviews extends React.Component {
@@ -167,17 +170,17 @@ class RatingsReviews extends React.Component {
       <div id="ratings-reviews-main-container">
         <div id='child-ratings-reviews'>
           {/* title section */}
-          <p id="ratings-reviews-title">RATINGS &#38; REVIEWS</p>
+          <h3 id="ratings-reviews-title">RATINGS &#38; REVIEWS</h3>
 
           {/* ratings and reviews container */}
           <section id="ratings-reviews-container">
             {/* left sidebar */}
             <div id="ratings-reviews-sidebar">
               <div>
-                <p>Rating Breakdown Component</p>
+                <RatingsBreakdown product={this.state.modifiedReviews} meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct}/>
               </div>
               <div>
-                <p>Product Breakdown Component</p>
+                <ProductBreakdown product={this.state.modifiedReviews} meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct}/>
               </div>
             </div>
             {/* list items */}
@@ -193,7 +196,9 @@ class RatingsReviews extends React.Component {
               </div>
 
               <div id="more-reviews-button-container" className={this.state.moreReviewsButtonStatus}>
-                <button onClick={this.moreReviewsClickHandler}>More Reviews</button>
+                <button onClick={this.moreReviewsClickHandler} className={'qa-button more-questions'}>More Reviews</button>
+                <button className={'qa-button more-questions'}>Add A Review</button>
+
               </div>
             </div>
           </section>
