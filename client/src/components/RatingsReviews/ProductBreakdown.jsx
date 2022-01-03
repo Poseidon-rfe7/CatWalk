@@ -13,7 +13,7 @@ class ProductBreakdown extends React.Component {
   render() {
     return (
       <div>
-        {console.log(this.props.meta)}
+        {/* {console.log(this.props.meta)} */}
       <ProductBreakdownProgressBar characteristics={this.props.meta.characteristics} characteristic={'Comfort'}/>
 
       </div>
