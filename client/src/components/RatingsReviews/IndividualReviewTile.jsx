@@ -1,6 +1,12 @@
 import React from 'react';
 import IndividualReviewBody from './IndividualReviewBody.jsx';
 import IndividualReviewHelpfulness from './IndividualReviewHelpfulness.jsx';
+import FiveStar from '../FiveStar.jsx';
+
+/*
+To Use: import and place where you need, just pass down the rating as a prop rating={'rating'}
+ex: <FiveStar rating={2.7}/>
+*/
 
 function IndividualReviewTile(props) {
   let months = {
@@ -28,7 +34,7 @@ function IndividualReviewTile(props) {
     <div>
       <div className="individual-review-first-row-container">
         <div>
-          <p>star rating component</p>
+          <FiveStar rating={props.review.rating}/>
         </div>
         <div className="individual-review-reviewer-date-container">
           <p>{`${props.review.reviewer_name}, ${month} ${day}, ${year}`}</p>

@@ -5,7 +5,7 @@ import FiveStar from '../FiveStar.jsx'
 const RelatedProductsCard = (props) => (
   <div className="product-card-contents">
 
-     <i id="related-action" className="related-action far fa-star" onClick={props.starhandler} serial={props.serial} slot={props.slot}/>
+
 
     <div className="product-image" serial={props.serial}
     onClick={props.changeproduct}>
@@ -17,6 +17,8 @@ const RelatedProductsCard = (props) => (
        }
 
     </div>
+    
+    <i id="related-action" className="related-action far fa-star" onClick={props.starhandler} serial={props.serial} slot={props.slot}/>
 
 
     <div className="product-info" serial={props.serial} onClick={props.changeproduct}>

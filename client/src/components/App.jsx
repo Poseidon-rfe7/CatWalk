@@ -55,8 +55,6 @@ class App extends React.Component {
 
   }
 
-
-
   async getRelatedProductsIds(productId) {
     try {
       let response = await fetch(`api/products/${productId}/related`);
@@ -117,11 +115,17 @@ class App extends React.Component {
      let response = await fetch(`api/reviews/?product_id=${id}`)
      let reviews = await response.json()
      reviews = reviews.results
+     if (reviews.length === 0) {
+       return 0
+     }
+     if (reviews[0].rating === undefined) {
+       return 0;
+     }
      let rating = reviews[0].rating;
      for (let i = 1; i < reviews.length; i++) {
        rating += reviews[i].rating
-     }
-     rating = rating / reviews.length
+      }
+      rating = rating / reviews.length
      return rating;
    } catch (err) {
      console.log(err)
