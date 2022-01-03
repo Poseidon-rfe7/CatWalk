@@ -6,7 +6,7 @@ const AnswersList = (props) => {
     <div className='answers-list'>
       {/* map over answers in list */}
       <div>A:</div>
-      <div>{props.answers.map((answer) => <Answer key={answer.id} answer={answer} />)}</div>
+      <div>{props.answers.map((answer) => <Answer key={answer.answer_id} answer={answer} />)}</div>
     </div>
   )
 };

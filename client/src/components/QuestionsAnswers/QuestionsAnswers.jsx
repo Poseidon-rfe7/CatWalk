@@ -7,71 +7,58 @@ class QuestionsAnswers extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showHideMoreQuestions: true,
-      questions: [{
-        answers: [{
-          answerer_name: "williamsmith",
-          body: "Cool Answer 123ad9na",
-          date: "2021-12-26T00:00:00.000Z",
-          helpfulness: 0,
-          id: 5269122,
-          photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/200px-Generic_Camera_Icon.svg.png"]
-        },
-        {
-          answerer_name: "coolNameBro",
-          body: "Sick answer bro",
-          date: "2021-12-22T00:00:00.000Z",
-          helpfulness: 7,
-          id: 5269125,
-          photos: [
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/200px-Generic_Camera_Icon.svg.png",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/200px-Generic_Camera_Icon.svg.png",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/200px-Generic_Camera_Icon.svg.png",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/200px-Generic_Camera_Icon.svg.png",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/200px-Generic_Camera_Icon.svg.png"
-          ]
-        },
-        {
-          answerer_name: "wonderfulName",
-          body: "Amazing answer",
-          date: "2021-12-12T00:00:00.000Z",
-          helpfulness: 6,
-          id: 5269135,
-          photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/200px-Generic_Camera_Icon.svg.png"]
-        }],
-        asker_name: "James L Plier",
-        question_body: "Testing a sample question",
-        question_date: "2021-11-08T00:00:00.000Z",
-        question_helpfulness: 2,
-        question_id: 543286,
-        reported: false
-      },
-      {
-        answers: [],
-        asker_name: "asfdasdfasdf",
-        question_body: "asfasfdsadf",
-        question_date: "2021-11-02T00:00:00.000Z",
-        question_helpfulness: 1,
-        question_id: 542892,
-        reported: false
-      },
-      {
-        answers: [{
-          answerer_name: "funnyName",
-          body: "Serious answer",
-          date: "2021-11-22T00:00:00.000Z",
-          helpfulness: 16,
-          id: 5269131,
-          photos: []
-        }],
-        asker_name: "randomUser",
-        question_body: "??????===??????",
-        question_date: "2021-11-08T00:00:00.000Z",
-        question_helpfulness: 5,
-        question_id: 543289,
-        reported: false
-      }]
+      currentProduct: { id: 0 },
+      allQuestions: ['placeholder'],
+      renderedQuestions: [],
+      count: 1,
+      questionsToRender: 2,
+      showHideMoreQuestions: true
     };
+
+    this.handleMoreQuestionsClick.bind(this);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    let sameProduct = prevState.currentProduct.id === this.state.currentProduct.id;
+    let sameNumOfQuestions = prevState.questionsToRender === this.state.questionsToRender;
+    // console.log(prevState.currentProduct);
+
+    if (!sameProduct) {
+      this.setState({count: 1});
+      this.getQuestions();
+    } else if (!sameNumOfQuestions) {
+      this.getQuestions();
+    }
+  };
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.currentProduct.id && props.currentProduct.id !== state.currentProduct.id) {
+      return {
+        currentProduct: props.currentProduct
+      };
+    }
+    return null;
+  };
+
+  getQuestions() {
+    axios.get(`/api/qa/questions/?product_id=${this.state.currentProduct.id}&count=${this.state.count}`)
+      .then((response) => {
+        this.setState({ renderedQuestions: response.data.results });
+        return response.data.results[response.data.results.length -1]
+      })
+      .then((lastQuestion) => {
+        if (this.state.renderedQuestions.length !== this.state.questionsToRender) {
+          let newCount = this.state.count + 1;
+          this.setState({count: newCount});
+          this.getQuestions();
+        }
+      })
+      .catch(err => console.log(err));
+  };
+
+  handleMoreQuestionsClick() {
+    let newQuestionsAmount = this.state.questionsToRender + 2;
+    this.setState({questionsToRender: newQuestionsAmount});
   }
 
   render() {
@@ -79,12 +66,13 @@ class QuestionsAnswers extends React.Component {
       <div className='questions-answers'>
         <h3 className='reset-margins qa-header'>QUESTIONS & ANSWERS</h3>
         <Search />
-        <QuestionsList questions={this.state.questions} />
-        {this.state.showHideMoreQuestions && <button className='qa-button more-questions'>More Answered Questions</button>}
+        <QuestionsList questions={this.state.renderedQuestions} />
+        {this.state.showHideMoreQuestions && <button className='qa-button more-questions'
+        onClick={this.handleMoreQuestionsClick.bind(this)}>More Answered Questions</button>}
         <button className='qa-button more-questions'>Add a Question +</button>
       </div>
     )
-  }
+  };
 }
 
 export default QuestionsAnswers
