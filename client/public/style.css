@@ -147,6 +147,7 @@ body {
   font-size: 25px;
   color: red;
   padding-bottom:6px;
+  height: 25px;
 }
 
 #related-action:hover{
