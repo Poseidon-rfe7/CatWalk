@@ -273,6 +273,12 @@ td{
   /* flex-wrap: wrap; */
 }
 
+#more-reviews-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .individual-review-first-row-container {
   display: flex;
   justify-content: space-between;
@@ -450,6 +456,74 @@ select {
   flex-direction: column;
   overflow: hidden;
   max-height: 100vh;
+}
+
+/* ratings breakdown */
+
+.ratings-breakdown-container {
+  width: 100%;
+}
+
+.average-rating-stars-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+
+
+.star-progress-bar-container {
+  /* flex-direction: column; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 100%; */
+  /* background-color: green; */
+}
+
+.star-progress-bar-container p{
+  flex: .5
+}
+
+.star-progress-bar-container p, progress{
+  width: 60%;
+  margin: 0;
+  /* align-self: flex-start; */
+
+  /* background-color: rgb(226, 0, 196); */
+}
+
+.star-progress-bar-container-total-ratings {
+  text-align: right;
+}
+
+/* product breakdown */
+
+.product-progress-bar-container {
+  /* background-color: red; */
+}
+
+.product-progress-bar-container progress{
+  width: 100%;
+}
+
+.characteristic-container{
+  width: 100%;
+  /* background-color: green; */
+  display: flex;
+  justify-content: space-between;
+  /* margin: 0; */
+}
+
+.characteristic-container p{
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.characteristic-container div{
+  width: 100%;
+  margin: 0;
 }
 
 
