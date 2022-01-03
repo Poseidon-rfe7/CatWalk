@@ -8,35 +8,31 @@ class QuestionsAnswers extends React.Component {
     super(props)
     this.state = {
       currentProduct: { id: 0 },
-      questions: [],
+      allQuestions: ['placeholder'],
+      renderedQuestions: [],
+      count: 1,
+      questionsToRender: 2,
       showHideMoreQuestions: true
     };
+
+    this.handleMoreQuestionsClick.bind(this);
   }
 
-  //testing api calls
-  componentDidMount() {
-    // console.log(this.props)
-    // axios.get(`/api/qa/questions/543286/answers`)
-    //   .then((result) => { console.log('Answers api call: ', result.data) });
-    // axios.get(`/api/products`)
-    // .then((result) => { console.log('All products: ', result.data) });
-    // axios.get('/api/qa/questions/?product_id=37313')
-    //   .then((result) => {console.log('Questions for specific product: ', result.data)});
-  };
-
   componentDidUpdate(prevProps, prevState) {
-    let samePropsId = prevProps.currentProduct.id === this.props.currentProduct.id;
-    let sameStateId = prevState.currentProduct.id === this.state.currentProduct.id;
+    let sameProduct = prevState.currentProduct.id === this.state.currentProduct.id;
+    let sameNumOfQuestions = prevState.questionsToRender === this.state.questionsToRender;
+    // console.log(prevState.currentProduct);
 
-    if (prevProps.currentProduct && this.props.currentProduct && !samePropsId && !sameStateId) {
-      console.log('Previous state: ', prevState.currentProduct.id);
-      console.log('Current state: ', this.state.currentProduct.id);
+    if (!sameProduct) {
+      this.setState({count: 1});
+      this.getQuestions();
+    } else if (!sameNumOfQuestions) {
       this.getQuestions();
     }
   };
 
   static getDerivedStateFromProps(props, state) {
-    if (props.currentProduct && props.currentProduct.id !== state.currentProduct.id) {
+    if (props.currentProduct.id && props.currentProduct.id !== state.currentProduct.id) {
       return {
         currentProduct: props.currentProduct
       };
@@ -45,21 +41,34 @@ class QuestionsAnswers extends React.Component {
   };
 
   getQuestions() {
-    axios.get(`/api/qa/questions/?product_id=${this.state.currentProduct.id}`)
+    axios.get(`/api/qa/questions/?product_id=${this.state.currentProduct.id}&count=${this.state.count}`)
       .then((response) => {
-        this.setState({questions: response.data.results});
+        this.setState({ renderedQuestions: response.data.results });
+        return response.data.results[response.data.results.length -1]
+      })
+      .then((lastQuestion) => {
+        if (this.state.renderedQuestions.length !== this.state.questionsToRender) {
+          let newCount = this.state.count + 1;
+          this.setState({count: newCount});
+          this.getQuestions();
+        }
       })
       .catch(err => console.log(err));
   };
 
+  handleMoreQuestionsClick() {
+    let newQuestionsAmount = this.state.questionsToRender + 2;
+    this.setState({questionsToRender: newQuestionsAmount});
+  }
 
   render() {
     return (
       <div className='questions-answers'>
         <h3 className='reset-margins qa-header'>QUESTIONS & ANSWERS</h3>
         <Search />
-        <QuestionsList questions={this.state.questions} />
-        {this.state.showHideMoreQuestions && <button className='qa-button more-questions'>More Answered Questions</button>}
+        <QuestionsList questions={this.state.renderedQuestions} />
+        {this.state.showHideMoreQuestions && <button className='qa-button more-questions'
+        onClick={this.handleMoreQuestionsClick.bind(this)}>More Answered Questions</button>}
         <button className='qa-button more-questions'>Add a Question +</button>
       </div>
     )
