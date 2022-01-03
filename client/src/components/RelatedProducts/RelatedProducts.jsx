@@ -25,7 +25,7 @@ const RelatedProducts = (props) => {
     })
     for (var key in photos) {
       if (photos[key] === null) {
-        photos[key] = 'https://i.imgflip.com/4zad0q.jpg'
+        photos[key] = 'https://pbs.twimg.com/media/E62GAl7VoAMjE4Z?format=jpg&name=medium'
       }
     }
   setDefaultPhotos(photos);
