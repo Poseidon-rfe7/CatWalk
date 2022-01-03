@@ -5,9 +5,9 @@ import OutfitCard from './OutfitCard.jsx'
 const YourOutfitCards = (props) => {
   const ref = useRef(0)
   const [parseStorage, setParseStorage] = useState([])
+  const [updateCards, setUpdateCards] = useState(false)
   //const [scrollPosition, setScrollPosition] = useState(0);
   const [showCards, setShowCards] = useState([])
-  const [updateCards, setUpdateCards] = useState(false)
   const [trigger, setTrigger] = useState(0)
 
   useEffect(() => {

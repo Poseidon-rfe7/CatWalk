@@ -112,7 +112,7 @@ class App extends React.Component {
 
   async getRating (id) {
    try {
-     let response = await fetch(`api/reviews/?product_id=${id}`)
+     let response = await fetch(`api/reviews?product_id=${id}`)
      let reviews = await response.json()
      reviews = reviews.results
      if (reviews.length === 0) {

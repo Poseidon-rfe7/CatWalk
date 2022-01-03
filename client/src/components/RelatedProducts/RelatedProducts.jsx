@@ -23,6 +23,11 @@ const RelatedProducts = (props) => {
         }
       })
     })
+    for (var key in photos) {
+      if (photos[key] === null) {
+        photos[key] = 'https://i.imgflip.com/4zad0q.jpg'
+      }
+    }
   setDefaultPhotos(photos);
   setPhotosLoaded(true);
   }
