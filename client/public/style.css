@@ -605,6 +605,30 @@ select {
   margin: 5px;
 }
 
+
+.star-rating-container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.star-rating-radio {
+  display: none;
+}
+
+.star-rating-icon {
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.yellow {
+  color: #ffc107;
+}
+
+.gray {
+  color: #e4e5e9;
+}
+
 /* ///////// END RATINGS & REVIEWS ///////// */
 
 
