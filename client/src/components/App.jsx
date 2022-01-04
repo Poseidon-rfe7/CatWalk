@@ -69,28 +69,6 @@ class App extends React.Component {
   }
 
   async getSingleProductInfo (productId) {
-
-    // caches.open(this.state.cacheName).then((cache)=> {
-    //   let url = `api/products/${productId}`
-    //   caches.match(url)
-    //     .then(response => {
-    //       if(response && response.status === 200) {
-    //         return response
-    //       } else {
-    //         console.log('2', response.body)
-    //         return fetch(url).then(fetched => {
-    //           if (!fetched.ok) {
-    //             throw fetched.statusText;
-    //           } else {
-    //             cache.put(url, response.clone())
-    //             return response.body
-    //           }
-    //         })
-    //       }
-    //     })
-    // })
-
-
     try {
       let response = await fetch(`api/products/${productId}`)
       let productInfo = await response.json();
