@@ -91,6 +91,7 @@ class RatingsReviews extends React.Component {
     axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id, sort: 'relevant', count: count}})
     .then(result => {
       if (this.state.modifiedReviews.length + 1 === result.data.results.length && !isHelpful) {
+        console.log('in here')
         this.setState({modifiedReviews: result.data.results, moreReviewsButtonStatus: 'hideEl'})
       } else {
         this.setState({modifiedReviews: result.data.results.slice(0, result.data.results.length - 1)})
@@ -148,6 +149,7 @@ class RatingsReviews extends React.Component {
     }).then(() => {
       let newLength = this.state.allProductRelevantReviews.length;
       let oldLength = this.state.modifiedReviews.length;
+      // console.log('>>>>', oldLength, this.state.reviewCount)
     })
   }
 
@@ -196,9 +198,8 @@ class RatingsReviews extends React.Component {
               </div>
 
               <div id="more-reviews-button-container" className={this.state.moreReviewsButtonStatus}>
-                <button onClick={this.moreReviewsClickHandler} className={'qa-button more-questions'}>More Reviews</button>
-                <button className={'qa-button more-questions'}>Add A Review</button>
-
+                <button onClick={this.moreReviewsClickHandler} className={this.state.moreReviewsButtonStatus}>More Reviews</button>
+                <button >Add A Review</button>
               </div>
             </div>
           </section>
@@ -209,6 +210,3 @@ class RatingsReviews extends React.Component {
 };
 
 export default RatingsReviews;
-
-
-

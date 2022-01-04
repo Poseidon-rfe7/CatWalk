@@ -227,7 +227,7 @@ td{
 
 /* /////////END OF RELATED ITEMS\\\\\\\\\\\\\\*/
 
-/* RATINGS & REVIEWS WIDGET */
+/* /////////RATINGS & REVIEWS WIDGET /////////*/
 
 #child-ratings-reviews {
   /* width: fit-content; */
@@ -402,6 +402,11 @@ td{
   color: black;
 }
 
+.helpful-yes {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .recommend-container {
   /* background-color: #EBEBEB !important; */
 }
@@ -531,6 +536,8 @@ select {
   width: 100%;
   margin: 0;
 }
+
+/* ///////// END RATINGS & REVIEWS ///////// */
 
 
 /* ============= Questions and Answers ============= */
