@@ -1,7 +1,8 @@
 
 #app {
-  width:80%;
+
   margin: 0 auto;
+  width: 80vw;
 }
 
 body {
@@ -70,15 +71,16 @@ body {
 /* main slides container */
 .related-cards-container, .your-outfit-container{
   height: 400px;
-  width: 904px;
+  width: 80vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 80px;
+  /* margin-left: 80px; */
 }
 
 /* slider */
 .related-card-deck, .your-outfit-deck {
+  width: 80vw;
   white-space: nowrap;
   overflow-x: scroll;
   scrollbar-width: none;
@@ -98,6 +100,8 @@ body {
   overflow: hidden;
   width: 200px;
   height: 300px;
+
+
   margin-right: 8px;
 
   padding: 2px;

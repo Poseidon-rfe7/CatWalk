@@ -3,9 +3,7 @@ import RelatedProductsCard from './RelatedProductsCard.jsx'
 
 const RelatedProductsCards = (props) => {
   const ref = useRef(0)
-  // const [scrollPosition, setScrollPosition] = useState(0);
   const [showCards, setShowCards] = useState([])
-  
 
   useEffect(()=> {
     var cardstates = [];
