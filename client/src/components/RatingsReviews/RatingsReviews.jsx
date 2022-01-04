@@ -4,6 +4,7 @@ import IndividualReviewThumbnailModal from './IndividualReviewThumbnailModal.jsx
 import SortOptions from './SortOptions.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
 import RatingsBreakdown from './RatingsBreakdown.jsx';
+import AddAReview from './AddAReview/AddAReview.jsx'
 
 import axios from 'axios';
 
@@ -27,10 +28,6 @@ class RatingsReviews extends React.Component {
     this.moreReviewsClickHandler = this.moreReviewsClickHandler.bind(this);
     this.helpfulClickHandler = this.helpfulClickHandler.bind(this);
   }
-
-  componentDidMount() {
-    console.log('mounting now');
-  };
 
   componentDidUpdate(prevProps){
     // checking if current product is not undefined
@@ -201,6 +198,7 @@ class RatingsReviews extends React.Component {
                 <button onClick={this.moreReviewsClickHandler} className={this.state.moreReviewsButtonStatus}>More Reviews</button>
                 <button >Add A Review</button>
               </div>
+              <AddAReview />
             </div>
           </section>
         </div>
