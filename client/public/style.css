@@ -1,3 +1,9 @@
+
+#app {
+  width:80%;
+  margin: 0 auto;
+}
+
 body {
   padding: 10px;
   font-family:  Helvetica, sans-serif;
@@ -66,7 +72,6 @@ body {
   height: 400px;
   width: 904px;
   display: flex;
-
   align-items: center;
   justify-content: center;
   margin-left: 80px;

@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-
+      cacheName: 'catWalk',
       currentProduct: {},
       currentProductRating: 0,
       currentProductStyles: [],
@@ -48,10 +48,8 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    let response = await fetch('/api/products');
-    let products = await response.json();
-    let x = products[0];
-    this.handleChangeCurrentProduct(x.id)
+
+    this.handleChangeCurrentProduct('37311')
 
   }
 
@@ -71,6 +69,28 @@ class App extends React.Component {
   }
 
   async getSingleProductInfo (productId) {
+
+    // caches.open(this.state.cacheName).then((cache)=> {
+    //   let url = `api/products/${productId}`
+    //   caches.match(url)
+    //     .then(response => {
+    //       if(response && response.status === 200) {
+    //         return response
+    //       } else {
+    //         console.log('2', response.body)
+    //         return fetch(url).then(fetched => {
+    //           if (!fetched.ok) {
+    //             throw fetched.statusText;
+    //           } else {
+    //             cache.put(url, response.clone())
+    //             return response.body
+    //           }
+    //         })
+    //       }
+    //     })
+    // })
+
+
     try {
       let response = await fetch(`api/products/${productId}`)
       let productInfo = await response.json();
