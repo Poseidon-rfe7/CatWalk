@@ -1,7 +1,30 @@
 import React from 'react';
-import FiveStar from '../../FiveStar.jsx'
+import StarRating from './StarRating.jsx';
 
 class AddAReview extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      rating: null,
+      hover: null,
+    }
+    this.starClickHandler = this.starClickHandler.bind(this);
+    this.starMouseEnter = this.starMouseEnter.bind(this);
+    this.starMouseLeave = this.starMouseLeave.bind(this);
+  }
+
+  starClickHandler(ratingValue) {
+    this.setState({rating: ratingValue})
+  }
+
+  starMouseEnter(ratingValue) {
+    this.setState({hover: ratingValue})
+  }
+
+  starMouseLeave() {
+    this.setState({hover: null})
+  }
+
   render() {
     return (
       <div className="add-review-container">
@@ -24,7 +47,13 @@ class AddAReview extends React.Component {
             <div className="col-26">
               <div className='row-inner-container'>
                 <label htmlFor="review-summary" >*Overall rating</label>
-                <FiveStar rating={2.5}/>
+                <StarRating
+                rating={this.state.rating}
+                hover={this.state.hover}
+                starClickHandler={this.starClickHandler}
+                starMouseEnter={this.starMouseEnter}
+                starMouseLeave={this.starMouseLeave}
+                />
                 <label>1-Poor 2-Fair 3-Average 4-Good 5-Great</label>
               </div>
 
@@ -112,6 +141,11 @@ class AddAReview extends React.Component {
           <div className="row">
             <input type="submit" value="Submit" />
           </div>
+
+          <div className="row">
+            <StarRating />
+          </div>
+
         </form>
       </div>
     )
