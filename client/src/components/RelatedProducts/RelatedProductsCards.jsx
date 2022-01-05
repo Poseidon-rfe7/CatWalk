@@ -13,6 +13,10 @@ const RelatedProductsCards = (props) => {
   const [hideLeft, setHideLeft] = useState(true);
   const [hideRight, setHideRight] = useState(false);
 
+  useEffect(()=> {
+    setActiveSlide(0)
+  }, [props.relatedProducts])
+
   useEffect(() => {
     // *** After render, don't do anything, just remember we've seen the render
     if (inst.first) {
@@ -39,17 +43,6 @@ const RelatedProductsCards = (props) => {
 
   const moveLeft = Math.max(0, activeSlide - 1);
   const moveRight = Math.min(props.relatedProducts.length - 1, activeSlide + 1);
-
-  // const goRight = (offset) => {
-  //   ref.current.scrollLeft += offset;
-  //   setScrollPosition(ref.current.scrollLeft);
-
-  // };
-
-  // const goLeft = (offset) => {
-  //   ref.current.scrollLeft -= offset;
-  //   setScrollPosition(ref.current.scrollLeft);
-  // };
 
   const starHandler = (e) => {
     var id = e.target.getAttribute("serial");
