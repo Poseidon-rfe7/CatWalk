@@ -238,38 +238,3 @@ class AddAReview extends React.Component {
 }
 
   export default AddAReview;
-
-
-/*
-To Use: import and place where you need, just pass down the rating as a prop rating={'rating'}
-ex: <FiveStar rating={2.7}/>
-*/
-
-
-/*
-
-    product_id: review.product_id,
-    rating: review.rating,
-    summary: review.summary,
-    body: review.body,
-    recommend: review.recommend,
-    name: review.name,
-    email: review.email,
-    photos: review.photos,
-    characteristics: review.characteristics,
-
-
-    {
-    "Size": {
-      "id": 14,
-      "value": "4.0000"
-    },
-     "Width": {
-      "id": 15,
-      "value": "3.5000"
-    },
-    "Comfort": {
-      "id": 16,
-      "value": "4.0000"
-    },
-*/
