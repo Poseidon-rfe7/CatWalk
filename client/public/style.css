@@ -110,6 +110,7 @@ body {
   font-weight: bold;
   position: relative;
 }
+
 .active {
   border: solid;
   border-radius: 4px;
@@ -140,9 +141,6 @@ body {
   justify-content: center;
 }
 
-.card-5star {
-}
-/* left right scroll buttons */
 .goLeft,
 .goRight {
   position: relative;
@@ -162,6 +160,10 @@ body {
   max-width: 200%;
   max-height: 300px;
   border-radius: 4px;
+}
+.active-pic{
+  width: 100%;
+  max-height: 400px;
 }
 
 /* compare modal button*/

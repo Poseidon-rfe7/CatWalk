@@ -72,13 +72,14 @@ const RelatedProductsCards = (props) => {
               className={`related-card slide ${active ? "active" : "deactive"}`}
               ref={active ? activeSlideRef : null}
               id={`slide-${i}`}
-             
+
             >
               <RelatedProductsCard
                 name={item.name}
                 category={item.category}
                 serial={item.id}
                 slot={i}
+                active={i === activeSlide ? true : false}
                 photo={props.relatedProductsPhotos[item.id]}
                 loaded={props.photosLoaded}
                 starhandler={starHandler}

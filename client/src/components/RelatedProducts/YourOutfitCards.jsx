@@ -104,6 +104,7 @@ const YourOutfitCards = (props) => {
                 <OutfitCard
                   id={outfit.id}
                   name={outfit.name}
+                  active={i === activeSlide ? true : false}
                   photo={outfit.url}
                   category={outfit.category}
                   trigger={triggerRender}
