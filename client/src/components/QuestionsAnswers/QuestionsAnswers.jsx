@@ -67,7 +67,7 @@ class QuestionsAnswers extends React.Component {
   render() {
     return (
       <div className='questions-answers'>
-        <h3 className='reset-margins qa-header'>QUESTIONS & ANSWERS</h3>
+        
         <Search />
         <QuestionsList questions={this.state.renderedQuestions} />
         {this.state.showHideMoreQuestions && <button className='qa-button more-questions'

@@ -22,14 +22,14 @@ function ProductBreakdownProgressBar(props) {
       {  keys.map((characteristic) => {
           return (
             <div className='product-progress-bar-container' key={props.characteristics[characteristic].id}>
-              <div><h4>{characteristic}</h4></div>
+              <div className="characteristic-titles">{characteristic}</div>
               <progress value={props.characteristics[characteristic].value} max={5}>{100}%</progress>
               <div className='characteristic-container'>
-                <p>{characteristicSelection[characteristic]['1']}</p>
-                <p>{characteristicSelection[characteristic]['2']}</p>
-                <p>{characteristicSelection[characteristic]['3']}</p>
-                <p>{characteristicSelection[characteristic]['4']}</p>
-                <div className='last-characteristic'><p>{characteristicSelection['Size']['5']}</p></div>
+                <p className='tiny-font'>{characteristicSelection[characteristic]['1']}</p>
+                <p className='tiny-font'>{characteristicSelection[characteristic]['2']}</p>
+                <p className='tiny-font'>{characteristicSelection[characteristic]['3']}</p>
+                <p className='tiny-font'>{characteristicSelection[characteristic]['4']}</p>
+                <div className='last-characteristic tiny-font'><p>{characteristicSelection['Size']['5']}</p></div>
               </div>
           </div>
           )

@@ -193,6 +193,7 @@ class RatingsReviews extends React.Component {
               <div>
                 <RatingsBreakdown product={this.state.modifiedReviews} meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct}/>
               </div>
+              <div className="spacer"></div>
               <div>
                 <ProductBreakdown product={this.state.modifiedReviews} meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct}/>
               </div>

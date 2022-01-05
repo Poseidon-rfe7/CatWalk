@@ -1,19 +1,17 @@
 #app {
   margin: 0 auto;
   width: 85vw;
-
+  margin-bottom: 150px;
 }
 
 body {
-  padding: 10px;
   font-family: 'Vujahday Script', cursive;
   font-size: 30px;
   color: black;
-
 }
 
 #main-title{
-  
+  margin: 0;
  }
 
 /*STARS*/
@@ -115,6 +113,7 @@ body {
   background-color: silver;
   font-weight: bold;
 }
+
 .related-card{
   position: relative;
 }
@@ -266,6 +265,12 @@ td {
 /* /////////END OF RELATED ITEMS\\\\\\\\\\\\\\*/
 
 /* /////////RATINGS & REVIEWS WIDGET /////////*/
+.recommend-percentage {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 900;
+
+}
 
 #child-ratings-reviews {
   /* width: fit-content; */
@@ -277,8 +282,7 @@ td {
   max-width: 80%;
   min-width: 80%;
   margin: auto; */
-  max-width: 80%;
-  min-width: 80%;
+  width:100%;
   margin: 0 auto;
 }
 
@@ -287,10 +291,10 @@ td {
 }
 
 #ratings-reviews-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   justify-content: center;
-  max-width: 80%;
-  min-width: 80%;
+  width: 90%;
   /* overflow: hidden; */
   font-family:  Helvetica, sans-serif;
   font-size: 12px;
@@ -301,10 +305,22 @@ td {
   /* background-color: #5f3dc4; */
   flex: 0.25;
   flex: auto;
-  min-width: 25vw;
+  min-width: 250px;
+  max-height: 450px;
   justify-content: center;
   align-items: center;
   /* flex-wrap: wrap; */
+  border: solid;
+  border-color: grey;
+  border-width: 1px;
+  padding : 10px;
+  overflow: hidden;
+}
+.tiny-font {
+  font-size: 10px;
+}
+.spacer{
+  height:30px;
 }
 
 #ratings-reviews-list-items {
@@ -550,7 +566,15 @@ progress {
 /* product breakdown */
 
 .product-progress-bar-container {
-  /* background-color: red; */
+
+
+
+}
+
+.characteristic-titles{
+  font-size: 16px;
+  font-style: italic;
+
 }
 
 .product-progress-bar-container progress {
