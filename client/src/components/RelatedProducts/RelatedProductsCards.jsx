@@ -1,27 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
 import RelatedProductsCard from "./RelatedProductsCard.jsx";
 
-const useInstance = (instance = {}) => {
-  const ref = useRef(instance);
-  return ref.current;
-};
-
 const RelatedProductsCards = (props) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const activeSlideRef = useRef(null);
-  const inst = useInstance({ first: true });
   const [hideLeft, setHideLeft] = useState(true);
   const [hideRight, setHideRight] = useState(false);
 
-  useEffect(()=> {
-    setActiveSlide(0)
-  }, [props.relatedProducts])
+  useEffect(() => {
+    setActiveSlide(0);
+  }, [props.relatedProducts]);
 
   useEffect(() => {
-    // *** After render, don't do anything, just remember we've seen the render
-    if (inst.first) {
-      inst.first = false;
-    } else if (activeSlideRef.current) {
+    if (activeSlideRef.current) {
       activeSlideRef.current.scrollIntoView({
         behavior: "smooth",
         block: "nearest",
@@ -56,11 +47,11 @@ const RelatedProductsCards = (props) => {
         {hideLeft ? (
           <div className="placeholder" />
         ) : (
-        <i
-          className=" goLeft fas fa-chevron-left"
-          onClick={() => setActiveSlide(moveLeft)}
-        />
-          )}
+          <i
+            className=" goLeft fas fa-chevron-left"
+            onClick={() => setActiveSlide(moveLeft)}
+          />
+        )}
       </div>
 
       <div id="cardDeck" className="related-card-deck">
@@ -72,7 +63,6 @@ const RelatedProductsCards = (props) => {
               className={`related-card slide ${active ? "active" : "deactive"}`}
               ref={active ? activeSlideRef : null}
               id={`slide-${i}`}
-
             >
               <RelatedProductsCard
                 name={item.name}
@@ -95,11 +85,11 @@ const RelatedProductsCards = (props) => {
         {hideRight ? (
           <div className="placeholder" />
         ) : (
-        <i
-          className="goRight fas fa-chevron-right"
-          onClick={() => setActiveSlide(moveRight)}
-        />
-          )}
+          <i
+            className="goRight fas fa-chevron-right"
+            onClick={() => setActiveSlide(moveRight)}
+          />
+        )}
       </div>
     </div>
   );

@@ -2,19 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 import AddToOutfit from "./AddToOutfit.jsx";
 import OutfitCard from "./OutfitCard.jsx";
 
-const useInstance = (instance = {}) => {
-  const ref = useRef(instance);
-  return ref.current;
-};
-
 const YourOutfitCards = (props) => {
   const [parseStorage, setParseStorage] = useState([]);
   const [updateCards, setUpdateCards] = useState(false);
   const [trigger, setTrigger] = useState(0);
-
   const [activeSlide, setActiveSlide] = useState(0);
   const activeSlideRef = useRef(null);
-  const inst = useInstance({ first: true });
   const [hideLeft, setHideLeft] = useState(true);
   const [hideRight, setHideRight] = useState(false);
 
@@ -40,10 +33,7 @@ const YourOutfitCards = (props) => {
   }, [parseStorage]);
 
   useEffect(() => {
-    // *** After render, don't do anything, just remember we've seen the render
-    if (inst.first) {
-      inst.first = false;
-    } else if (activeSlideRef.current) {
+    if (activeSlideRef.current) {
       activeSlideRef.current.scrollIntoView({
         behavior: "smooth",
         block: "nearest",
@@ -99,7 +89,6 @@ const YourOutfitCards = (props) => {
                 key={outfit.id}
                 ref={active ? activeSlideRef : null}
                 id={`slide-${i}`}
-
               >
                 <OutfitCard
                   id={outfit.id}
