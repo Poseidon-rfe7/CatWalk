@@ -9,8 +9,6 @@ const RelatedProducts = (props) => {
   const [showModal, setShowModal] = useState(false)
   const [compareInfo, setCompareInfo] = useState([])
 
-
-
   useEffect(()=>{
   let photos={};
   if (props.relatedProductStyles.length > 0) {

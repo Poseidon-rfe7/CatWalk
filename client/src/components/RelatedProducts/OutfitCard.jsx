@@ -18,7 +18,7 @@ const OutfitCard = (props) => {
 
 
     <div className="product-image" >
-    <img className="fit-picture" src={props.photo} alt="product image"/>
+    <img className={`fit-picture ${props.active ? "active-pic": "deactive-pic"}`}src={props.photo} alt="product image"/>
     </div>
 
      <i id="outfit-action" className="outfit-action fas fa-times" onClick={removeFromOutfits} />

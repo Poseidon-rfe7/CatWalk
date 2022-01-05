@@ -49,6 +49,9 @@ class QuestionsAnswers extends React.Component {
       })
       .then((lastQuestion) => {
         if (this.state.renderedQuestions.length !== this.state.questionsToRender) {
+          if (this.state.count > 5 && this.state.renderedQuestions.length <= 1){
+            return
+          }
           let newCount = this.state.count + 1;
           this.setState({count: newCount});
           this.getQuestions();

@@ -41,7 +41,9 @@ const AddToOutfit = (props) => {
       </div>
 
       <div className="product-info add-info">
-      Add Current Item To Your Outfit!
+      Add This Item
+      {<br></br>}
+      To Your Outfit!
       </div>
     </div>
   )

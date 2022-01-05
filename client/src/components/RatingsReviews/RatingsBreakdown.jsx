@@ -37,21 +37,24 @@ class RatingsBreakdown extends React.Component {
     let ratingsArray = Object.values(this.props.meta.ratings);
     ratingsArray.forEach(el => total += Number(el));
 
-    let fiveStars = Number(this.props.meta.ratings['5'])
-    let fourStars = Number(this.props.meta.ratings['4'])
-    let threeStars = Number(this.props.meta.ratings['3'])
-    let twoStars = Number(this.props.meta.ratings['2'])
-    let oneStars = Number(this.props.meta.ratings['1'])
+    let fiveStars = Number(this.props.meta.ratings['5']) || 0
+    let fourStars = Number(this.props.meta.ratings['4']) || 0
+    let threeStars = Number(this.props.meta.ratings['3']) || 0
+    let twoStars = Number(this.props.meta.ratings['2']) || 0
+    let oneStars = Number(this.props.meta.ratings['1']) || 0
     let weightedAverage = (5 * fiveStars + 4 * fourStars + 3 * threeStars + 2 * twoStars + 1 * oneStars) / (fiveStars + fourStars + threeStars + twoStars + oneStars)
 
-    let weightedAverageRounded = Math.round(weightedAverage * 100) / 100;
+    // let weightedAverageRounded = Math.round(weightedAverage * 100) / 100;
+    let weightedAverageRounded = Math.round(weightedAverage * 10) / 10;
+
     let weightedAverageRoundedStarComponent = (Math.round(weightedAverageRounded * 4) / 4).toFixed(2);
 
-    let dontRecommend = Number(this.props.meta.recommended.false);
-    let doRecommend = Number(this.props.meta.recommended.true);
+    let dontRecommend = Number(this.props.meta.recommended.false) || 0;
+    let doRecommend = Number(this.props.meta.recommended.true) || 0;
 
     let recommend = (doRecommend / (dontRecommend + doRecommend)) * 100
-    let recommendedAverage = Math.round(recommend * 100) / 100;
+    // let recommendedAverage = Math.round(recommend * 100) / 100;
+    let recommendedAverage = Math.round(recommend);
 
     if (this.props.meta.ratings) {
       this.setState({ratings: this.props.meta.ratings, totalRatings: total, roundedAvg: weightedAverageRounded, roundedAvgStarComponent: weightedAverageRoundedStarComponent, recommend: recommendedAverage})

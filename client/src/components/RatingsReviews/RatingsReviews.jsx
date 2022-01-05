@@ -4,6 +4,7 @@ import IndividualReviewThumbnailModal from './IndividualReviewThumbnailModal.jsx
 import SortOptions from './SortOptions.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
 import RatingsBreakdown from './RatingsBreakdown.jsx';
+import AddAReview from './AddAReview/AddAReview.jsx'
 
 import axios from 'axios';
 
@@ -26,11 +27,8 @@ class RatingsReviews extends React.Component {
     this.sortChangeHandler = this.sortChangeHandler.bind(this);
     this.moreReviewsClickHandler = this.moreReviewsClickHandler.bind(this);
     this.helpfulClickHandler = this.helpfulClickHandler.bind(this);
+    this.addReviewClickHandler = this.addReviewClickHandler.bind(this);
   }
-
-  componentDidMount() {
-    console.log('mounting now');
-  };
 
   componentDidUpdate(prevProps){
     // checking if current product is not undefined
@@ -167,6 +165,12 @@ class RatingsReviews extends React.Component {
     })
   }
 
+  addReviewClickHandler(event) {
+    let modal = document.getElementById('modal-form');
+    modal.classList.remove('modalOff-form')
+    modal.classList.add('modalOn-form')
+  }
+
   render() {
     return (
       <div id="ratings-reviews-main-container">
@@ -199,8 +203,9 @@ class RatingsReviews extends React.Component {
 
               <div id="more-reviews-button-container" className={this.state.moreReviewsButtonStatus}>
                 <button onClick={this.moreReviewsClickHandler} className={this.state.moreReviewsButtonStatus}>More Reviews</button>
-                <button >Add A Review</button>
+                <button onClick={this.addReviewClickHandler}>Add A Review</button>
               </div>
+              <AddAReview meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct} />
             </div>
           </section>
         </div>
