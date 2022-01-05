@@ -67,7 +67,7 @@ class RatingsBreakdown extends React.Component {
         {/* {console.log(this.props.meta)} */}
 
         <div className='recommend-percentage'>
-          <h2>{this.state.recommend || 0}% Recommend this product</h2>
+          {this.state.recommend || 0}% Recommend this product
 
         </div>
 

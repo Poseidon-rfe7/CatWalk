@@ -158,6 +158,7 @@ class App extends React.Component {
           relatedProductsIds={this.state.currentRelatedProductsIds}
           changeProducts={this.handleChangeCurrentProduct}
         />
+        <h3 className='reset-margins qa-header'>QUESTIONS & ANSWERS</h3>
 
         <QuestionsAnswers currentProduct={this.state.currentProduct} />
         <RatingsReviews currentProduct={this.state.currentProduct} />
