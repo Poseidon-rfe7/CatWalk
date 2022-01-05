@@ -1,107 +1,84 @@
-import React, {useState, useRef, useEffect} from 'react';
-import RelatedProductsCard from './RelatedProductsCard.jsx'
+import React, { useState, useRef, useEffect } from "react";
+import RelatedProductsCard from "./RelatedProductsCard.jsx";
 
 const RelatedProductsCards = (props) => {
-  const ref = useRef(0)
-  const [showCards, setShowCards] = useState([])
+  const ref = useRef(0);
+  // const [showCards, setShowCards] = useState([])
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [hideLeft, setHideLeft] = useState(true);
+  const [hideRight, setHideRight] = useState(false);
 
-  useEffect(()=> {
-    var cardstates = [];
-    for (var i = 0; i < props.relatedProducts.length; i++) {
-      if (i < 4) {
-        cardstates[i] = true
-      }
-      if (i >= 4) {
-        cardstates[i] = false
-      }
-    setShowCards(cardstates)
-    }
-  }, [props.relatedProducts])
+  useEffect(() => {
+    console.log(ref.current);
+    console.log(window.innerWidth);
+    console.log(ref.innerWidth);
+    // console.log(ref.current);
+    window.addEventListener('scroll', )
+  }, [props.relatedProducts]);
 
   const goRight = (offset) => {
     ref.current.scrollLeft += offset;
-    // setScrollPosition(ref.current.scrollLeft)
-    var temp = showCards.slice()
-    for (var i = 0; i < showCards.length; i++) {
-      if (showCards[i] === true && showCards[i+4] === false) {
-        temp[i] = false;
-        break;
-      }
-    }
-    for (var i = showCards.length; i > 0; i--) {
-      if (showCards[i] === true) {
-        temp[i+1] = true;
-        break;
-      }
-    }
-    setShowCards(temp)
-  }
+    setScrollPosition(ref.current.scrollLeft);
+
+    
+  };
 
   const goLeft = (offset) => {
     ref.current.scrollLeft -= offset;
-    // setScrollPosition(ref.current.scrollLeft)
-    var temp = showCards.slice()
-    for (var i = showCards.length; i > 0; i--) {
-      if (showCards[i] === true && showCards[i-4] === false) {
-        temp[i] = false;
-        break;
-      }
+    setScrollPosition(ref.current.scrollLeft);
+  };
 
-    }
-    for (var i = 0; i < showCards.length; i++) {
-      if (showCards[i] === true) {
-        temp[i-1] = true;
-        break;
-      }
-    }
-    setShowCards(temp)
-  }
+  const starHandler = (e) => {
+    var id = e.target.getAttribute("serial");
+    var slot = e.target.getAttribute("slot");
+    props.modalhandler(props.currentProduct, props.relatedProducts[slot]);
+  };
 
-   const starHandler = (e) => {
-     var id = e.target.getAttribute('serial')
-     var slot = e.target.getAttribute('slot')
-     props.modalhandler(props.currentProduct, props.relatedProducts[slot])
-  }
+  return (
+    <div className="related-cards-container">
+      <div className="scroll-button">
+        {hideLeft ? (
+          <div className="placeholder" />
+        ) : (
+          <i
+            className=" goLeft fas fa-chevron-left"
+            onClick={() => goLeft(216)}
+          />
+        )}
+      </div>
 
-  return(
-  <div className="related-cards-container">
+      <div id="cardDeck" className="related-card-deck" ref={ref}>
+        {props.relatedProducts.map((item, i) => {
+          return (
+            <div key={item.id} className="related-card">
+              <RelatedProductsCard
+                name={item.name}
+                category={item.category}
+                serial={item.id}
+                slot={i}
+                photo={props.relatedProductsPhotos[item.id]}
+                loaded={props.photosLoaded}
+                starhandler={starHandler}
+                rating={props.relatedratings[item.id]}
+                changeproduct={props.changeProducts}
+              />
+            </div>
+          );
+        })}
+      </div>
 
-
-   <div className ="scroll-button">
-  {showCards[0] === true ? <div className="placeholder"/>
-  : <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(216)} />
-  }
-  </div>
-
-
-
-   <div id="cardDeck" className="related-card-deck" ref={ref}>
-   {props.relatedProducts.map((item, i) => {
-     return(
-     <div key={item.id} className="related-card">
-     <RelatedProductsCard
-     name={item.name} category={item.category} serial={item.id} slot={i}
-     photo={props.relatedProductsPhotos[item.id]}
-     loaded={props.photosLoaded} starhandler={starHandler}
-     rating={props.relatedratings[item.id]}
-     changeproduct={props.changeProducts}
-     />
-     </div>
-     )}
-    )}
+      <div className="scroll-button">
+        {hideRight ? (
+          <div className="placeholder" />
+        ) : (
+          <i
+            className="goRight fas fa-chevron-right"
+            onClick={() => goRight(216)}
+          />
+        )}
+      </div>
     </div>
+  );
+};
 
-
-    <div className ="scroll-button">
-      {showCards[showCards.length -1] === true ? <div className="placeholder"/> : <i className="goRight fas fa-chevron-right" onClick={() => goRight(216)}/>
-      }
-
-    </div>
-
-
-  </div>
-
-  )
-}
-
-export default RelatedProductsCards
+export default RelatedProductsCards;
