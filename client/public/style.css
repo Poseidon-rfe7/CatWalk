@@ -5,15 +5,13 @@
 }
 
 body {
-  padding: 10px;
   font-family: 'Vujahday Script', cursive;
   font-size: 30px;
   color: black;
-
 }
 
 #main-title{
-  
+  margin: 0;
  }
 
 /*STARS*/
