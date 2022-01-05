@@ -1,125 +1,134 @@
-import React, {useState, useRef, useEffect} from 'react';
-import AddToOutfit from './AddToOutfit.jsx'
-import OutfitCard from './OutfitCard.jsx'
+import React, { useState, useRef, useEffect } from "react";
+import AddToOutfit from "./AddToOutfit.jsx";
+import OutfitCard from "./OutfitCard.jsx";
+
+const useInstance = (instance = {}) => {
+  const ref = useRef(instance);
+  return ref.current;
+};
 
 const YourOutfitCards = (props) => {
-  const ref = useRef(0)
-  const [parseStorage, setParseStorage] = useState([])
-  const [updateCards, setUpdateCards] = useState(false)
-  //const [scrollPosition, setScrollPosition] = useState(0);
-  const [showCards, setShowCards] = useState([])
-  const [trigger, setTrigger] = useState(0)
+  const [parseStorage, setParseStorage] = useState([]);
+  const [updateCards, setUpdateCards] = useState(false);
+  const [trigger, setTrigger] = useState(0);
+
+  const [activeSlide, setActiveSlide] = useState(0);
+  const activeSlideRef = useRef(null);
+  const inst = useInstance({ first: true });
+  const [hideLeft, setHideLeft] = useState(true);
+  const [hideRight, setHideRight] = useState(false);
 
   useEffect(() => {
-    var temp = []
-    if (window.localStorage['yourOutfits'] !== undefined) {
-      let outfits = JSON.parse(window.localStorage.getItem('yourOutfits'))
+    var temp = [];
+    if (window.localStorage["yourOutfits"] !== undefined) {
+      let outfits = JSON.parse(window.localStorage.getItem("yourOutfits"));
       for (var key in outfits) {
-          temp.push(outfits[key])
+        temp.push(outfits[key]);
       }
     }
-    setParseStorage(temp)
-    setUpdateCards(true)
-
-  },[trigger])
-
-  useEffect(()=> {
-    var cardstates = [];
-    for (var i = 0; i < parseStorage.length; i++) {
-      if (i < 3) {
-        cardstates[i] = true
-      }
-      if (i >= 3) {
-        cardstates[i] = false
-      }
-    setShowCards([true].concat(cardstates))
-    }
-    if(parseStorage.length=== 0) {
-      setShowCards([true])
-    }
-    ref.current.scrollLeft = 0
-  }, [parseStorage])
-
-  const goRight = (offset) => {
-    ref.current.scrollLeft += offset;
-    // setScrollPosition(ref.current.scrollLeft)
-    var temp = showCards.slice()
-    for (var i = 0; i < showCards.length; i++) {
-      if (showCards[i] === true && showCards[i+4] === false) {
-        temp[i] = false;
-        break;
-      }
-    }
-    for (var i = showCards.length; i > 0; i--) {
-      if (showCards[i] === true) {
-        temp[i+1] = true;
-        break;
-      }
-    }
-    setShowCards(temp)
-  }
-
-  const goLeft = (offset) => {
-    ref.current.scrollLeft -= offset;
-    // setScrollPosition(ref.current.scrollLeft)
-    var temp = showCards.slice()
-    for (var i = showCards.length; i > 0; i--) {
-      if (showCards[i] === true && showCards[i-4] === false) {
-        temp[i] = false;
-        break;
-      }
-
-    }
-    for (var i = 0; i < showCards.length; i++) {
-      if (showCards[i] === true) {
-        temp[i-1] = true;
-        break;
-      }
-    }
-    setShowCards(temp)
-  }
+    setParseStorage(temp);
+    setUpdateCards(true);
+  }, [trigger]);
 
   const triggerRender = () => {
-    var random = Math.random() * 10
-    setTrigger(random)
-  }
+    var random = Math.random() * 10;
+    setTrigger(random);
+  };
 
-  return(
-  <div className="your-outfit-container">
+  useEffect(() => {
+    setActiveSlide(0);
+  }, [parseStorage]);
 
-  <div className ="scroll-button">
-  {showCards[0] === true ? <div className="placeholder"/>
-  : <i className=" goLeft fas fa-chevron-left" onClick={() => goLeft(216)} />
-  }
-  </div>
+  useEffect(() => {
+    // *** After render, don't do anything, just remember we've seen the render
+    if (inst.first) {
+      inst.first = false;
+    } else if (activeSlideRef.current) {
+      activeSlideRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "nearest",
+      });
+    }
 
-  <div id="youroutfitdeck" className="your-outfit-deck" ref={ref}>
-   <div className="your-outfit-card" >
+    if (activeSlide === 0) {
+      setHideLeft(true);
+    } else {
+      setHideLeft(false);
+    }
+    if (activeSlide === parseStorage.length - 1) {
+      setHideRight(true);
+    } else {
+      setHideRight(false);
+    }
+  }, [activeSlide]);
 
-  <AddToOutfit currentproduct={props.currentproduct} currentproductstyles={props.currentproductstyles} trigger={triggerRender}/>
-   </div>
+  const moveLeft = Math.max(0, activeSlide - 1);
+  const moveRight = Math.min(parseStorage.length - 1, activeSlide + 1);
 
-  {updateCards ?
-  parseStorage.map(outfit => {
-    return(
-    <div className="your-outfit-card" key={outfit.id} >
-    <OutfitCard id={outfit.id} name={outfit.name} photo={outfit.url} category={outfit.category} trigger={triggerRender}/>
-    </div>
-    )
-  })
-  : <div/>
-}
-
-
-  </div>
-
-  <div className ="scroll-button">
-      {showCards[showCards.length -1] === true ? <div className="placeholder"/> : <i className="goRight fas fa-chevron-right" onClick={() => goRight(216)}/>
-      }
+  return (
+    <div className="your-outfit-container">
+      <div className="scroll-button">
+        {hideLeft ? (
+          <div className="placeholder" />
+        ) : (
+          <i
+            className=" goLeft fas fa-chevron-left"
+            onClick={() => setActiveSlide(moveLeft)}
+          />
+        )}
       </div>
 
-  </div>
-  )
-}
+      <div id="youroutfitdeck" className="your-outfit-deck">
+        <div className="your-outfit-card">
+          <AddToOutfit
+            currentproduct={props.currentproduct}
+            currentproductstyles={props.currentproductstyles}
+            trigger={triggerRender}
+          />
+        </div>
 
-export default YourOutfitCards
+        {updateCards ? (
+          parseStorage.map((outfit, i) => {
+            const active = i === activeSlide;
+            return (
+              <div
+                className={`your-outfit-card slide ${
+                  active ? "active" : "deactive"
+                }`}
+                key={outfit.id}
+                ref={active ? activeSlideRef : null}
+                id={`slide-${i}`}
+
+              >
+                <OutfitCard
+                  id={outfit.id}
+                  name={outfit.name}
+                  active={i === activeSlide ? true : false}
+                  photo={outfit.url}
+                  category={outfit.category}
+                  trigger={triggerRender}
+                />
+              </div>
+            );
+          })
+        ) : (
+          <div />
+        )}
+      </div>
+
+      <div className="scroll-button">
+        {hideRight ? (
+          <div className="placeholder" />
+        ) : (
+          <i
+            className="goRight fas fa-chevron-right"
+            onClick={() => setActiveSlide(moveRight)}
+          />
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default YourOutfitCards;

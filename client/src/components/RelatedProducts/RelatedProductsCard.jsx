@@ -11,13 +11,13 @@ const RelatedProductsCard = (props) => (
     onClick={props.changeproduct}>
 
       {props.loaded
-      ? <img className="fit-picture" src={props.photo} alt="product image" serial={props.serial} onClick={props.changeproduct}/>
+      ? <img className={`fit-picture ${props.active ? "active-pic": "deactive-pic"}`} src={props.photo} alt="product image" serial={props.serial} onClick={props.changeproduct}/>
       : <div>Loading...</div>
 
        }
 
     </div>
-    
+
     <i id="related-action" className="related-action far fa-star" onClick={props.starhandler} serial={props.serial} slot={props.slot}/>
 
 
@@ -27,7 +27,10 @@ const RelatedProductsCard = (props) => (
       <div className="style-tag">
       style: {props.category}
       </div>
-      <FiveStar rating={props.rating}/>
+      <div className="card-5star" >
+      <FiveStar  rating={props.rating}/>
+
+      </div>
     </div>
 
   </div>
