@@ -27,6 +27,7 @@ class RatingsReviews extends React.Component {
     this.sortChangeHandler = this.sortChangeHandler.bind(this);
     this.moreReviewsClickHandler = this.moreReviewsClickHandler.bind(this);
     this.helpfulClickHandler = this.helpfulClickHandler.bind(this);
+    this.addReviewClickHandler = this.addReviewClickHandler.bind(this);
   }
 
   componentDidUpdate(prevProps){
@@ -164,6 +165,12 @@ class RatingsReviews extends React.Component {
     })
   }
 
+  addReviewClickHandler(event) {
+    let modal = document.getElementById('modal-form');
+    modal.classList.remove('modalOff-form')
+    modal.classList.add('modalOn-form')
+  }
+
   render() {
     return (
       <div id="ratings-reviews-main-container">
@@ -196,9 +203,9 @@ class RatingsReviews extends React.Component {
 
               <div id="more-reviews-button-container" className={this.state.moreReviewsButtonStatus}>
                 <button onClick={this.moreReviewsClickHandler} className={this.state.moreReviewsButtonStatus}>More Reviews</button>
-                <button >Add A Review</button>
+                <button onClick={this.addReviewClickHandler}>Add A Review</button>
               </div>
-              <AddAReview />
+              <AddAReview meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct} />
             </div>
           </section>
         </div>
