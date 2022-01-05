@@ -1,6 +1,7 @@
 import React from 'react';
 import StarRating from './StarRating.jsx';
 import Characteristics from './Characteristics.jsx';
+import axios from 'axios';
 
 class AddAReview extends React.Component {
   constructor(props) {
@@ -84,7 +85,7 @@ class AddAReview extends React.Component {
     let id = event.target.getAttribute('charid');
     let rating = event.target.getAttribute('rating');
     let current = this.state.characteristics
-    this.setState({characteristics: {...current, [id]: rating}})
+    this.setState({characteristics: {...current, [id]: Number(rating)}})
   }
 
   submitClickHandler(event) {
@@ -100,8 +101,13 @@ class AddAReview extends React.Component {
       photos: this.state.photos,
       characteristics: this.state.characteristics,
     }
-
-    console.log(params)
+    axios.post(`api/reviews`, params)
+    .then((result) => {
+      console.log('>>>>good', result)
+    })
+    .catch((result) => {
+      console.log('>>>bad', result)
+    })
   }
 
   onImageChange(event) {
@@ -122,8 +128,6 @@ class AddAReview extends React.Component {
     modal.classList.remove('modalOn-form')
     modal.classList.add('modalOff-form')
   }
-
-
 
   render() {
     return (
