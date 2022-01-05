@@ -72,7 +72,7 @@ const RelatedProductsCards = (props) => {
               className={`related-card slide ${active ? "active" : "deactive"}`}
               ref={active ? activeSlideRef : null}
               id={`slide-${i}`}
-              key={`slide-${i}`}
+             
             >
               <RelatedProductsCard
                 name={item.name}
