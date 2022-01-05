@@ -102,7 +102,6 @@ class AddAReview extends React.Component {
     }
 
     console.log(params)
-
   }
 
   onImageChange(event) {
