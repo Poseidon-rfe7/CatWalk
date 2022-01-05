@@ -17,7 +17,7 @@ const RelatedProductsCard = (props) => (
        }
 
     </div>
-    
+
     <i id="related-action" className="related-action far fa-star" onClick={props.starhandler} serial={props.serial} slot={props.slot}/>
 
 
@@ -27,7 +27,10 @@ const RelatedProductsCard = (props) => (
       <div className="style-tag">
       style: {props.category}
       </div>
-      <FiveStar rating={props.rating}/>
+      <div className="card-5star" >
+      <FiveStar  rating={props.rating}/>
+
+      </div>
     </div>
 
   </div>

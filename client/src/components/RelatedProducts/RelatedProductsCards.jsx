@@ -28,7 +28,7 @@ const RelatedProductsCards = (props) => {
         inline: "nearest",
       });
     }
-    console.log(activeSlide);
+
     if (activeSlide === 0) {
       setHideLeft(true);
     } else {
