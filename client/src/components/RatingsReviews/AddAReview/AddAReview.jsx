@@ -14,10 +14,14 @@ class AddAReview extends React.Component {
       characteristics: {},
       summary: '',
       body: '',
-      name: '',
+      nickname: '',
       email: '',
       photos: [],
-      images: []
+      summaryValid: false,
+      bodyValid: false,
+      nicknameValid: false,
+      emailValid: false,
+
     }
     this.starClickHandler = this.starClickHandler.bind(this);
     this.starMouseEnter = this.starMouseEnter.bind(this);
@@ -32,6 +36,9 @@ class AddAReview extends React.Component {
     this.submitClickHandler = this.submitClickHandler.bind(this);
     this.onImageChange = this.onImageChange.bind(this);
     this.formModalCloseClickHandler = this.formModalCloseClickHandler.bind(this);
+    this.resetForm = this.resetForm.bind(this);
+    this.radioTracker = this.radioTracker.bind(this);
+
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -60,24 +67,43 @@ class AddAReview extends React.Component {
   }
 
   noRadioClickHandler() {
-    console.log('here', this)
     this.setState({recommend: false})
   }
 
   summaryChangeHandler(event) {
-    this.setState({summary: event.target.value})
+    let text = event.target.value;
+    if (text.length > 60) {
+      this.setState({summary: event.target.value, summaryValid: false})
+    } else {
+      this.setState({summary: event.target.value, summaryValid: true})
+    }
   }
 
   bodyChangeHandler(event) {
-    this.setState({body: event.target.value})
+    let text = event.target.value;
+    if (text.length < 50 || text.length > 1000) {
+      this.setState({body: event.target.value, bodyValid: false})
+    } else {
+      this.setState({body: event.target.value, bodyValid: true})
+    }
   }
 
   nicknameChangeHandler(event) {
-    this.setState({nickname: event.target.value})
+    let text = event.target.value;
+    if (text.length > 60) {
+      this.setState({nickname: event.target.value, nicknameValid: false})
+    } else {
+      this.setState({nickname: event.target.value, nicknameValid: true})
+    }
   }
 
   emailChangeHandler(event) {
-    this.setState({email: event.target.value})
+    let text = event.target.value;
+    if (text.length > 60) {
+      this.setState({email: event.target.value, emailValid: false})
+    } else {
+      this.setState({email: event.target.value, emailValid: true})
+    }
   }
 
   characteristicClickHandler(event) {
@@ -86,6 +112,11 @@ class AddAReview extends React.Component {
     let rating = event.target.getAttribute('rating');
     let current = this.state.characteristics
     this.setState({characteristics: {...current, [id]: Number(rating)}})
+  }
+
+  radioTracker(characteristic) {
+    let current = this.state.radios
+    this.setState({radios: {...current, [characteristic]: false}})
   }
 
   submitClickHandler(event) {
@@ -101,17 +132,45 @@ class AddAReview extends React.Component {
       photos: this.state.photos,
       characteristics: this.state.characteristics,
     }
-    axios.post(`api/reviews`, params)
-    .then((result) => {
-      console.log('>>>>good', result)
-    })
-    .catch((result) => {
-      console.log('>>>bad', result)
-    })
+
+    let radios = document.getElementsByClassName('characteristic-radios')
+    let inputs = document.getElementsByTagName('input')
+    let checked = 0;
+    for (var i = 0; i < inputs.length; i++) {
+      if(inputs[i].checked) {
+        checked += 1;
+      }
+    }
+
+    if (!this.state.summaryValid || !this.state.bodyValid || !this.state.nicknameValid || !this.state.emailValid || !this.state.rating || checked !== radios.length + 1) {
+      alert('missing required')
+    } else {
+      this.resetForm();
+
+      axios.post(`api/reviews`, params)
+      .then((result) => {
+        console.log('>>>>good', result)
+        if (this.props.currentSort === 'relevance') {
+          this.props.getAllProductRelevantReviews(this.props.reviewCount, true);
+        } else if (this.props.currentSort === 'helpful') {
+          this.props.getAllProductHelpfulReviews(this.props.reviewCount, true);
+        } else {
+          this.props.getAllProductNewestReviews(this.props.reviewCount, true);
+        }
+      })
+      .catch((result) => {
+        console.log('>>>bad', result)
+      })
+    }
   }
 
   onImageChange(event) {
     let images = Array.from(event.target.files)
+
+    if (images.length > 5) {
+      alert(`Only 2 files are allowed to upload.`);
+      return;
+  }
 
     if (event.target.files && event.target.files[0]) {
       images.forEach((img) => {
@@ -124,9 +183,33 @@ class AddAReview extends React.Component {
 
   formModalCloseClickHandler(event) {
     event.preventDefault();
+    this.resetForm();
     let modal = document.getElementById('modal-form');
     modal.classList.remove('modalOn-form')
     modal.classList.add('modalOff-form')
+  }
+
+  resetForm() {
+    var a = [];
+    a = document.getElementsByTagName('input');
+    for (var b = 0; b < a.length; b++) {
+      if(a[b].type === 'radio') {
+        a[b].checked = false;
+      }
+    }
+
+    this.setState({
+      currentProduct: {id: 0, name: ''},
+      rating: null,
+      hover: null,
+      recommend: null,
+      characteristics: {},
+      summary: '',
+      body: '',
+      nickname: '',
+      email: '',
+      photos: [],
+    })
   }
 
   render() {
@@ -143,7 +226,7 @@ class AddAReview extends React.Component {
             <div className="col-26">
               <div className='row-inner-container'>
                 <h2>Write Your Review</h2>
-                <h3>About the [Product Name Here]</h3>
+                <h3>About the {this.props.currentProduct.name}</h3>
               </div>
             </div>
         </div>
@@ -186,25 +269,26 @@ class AddAReview extends React.Component {
           <Characteristics
             meta={this.props.meta}
             product={this.props.currentProduct}
-            characteristicClickHandler={this.characteristicClickHandler} />
+            characteristicClickHandler={this.characteristicClickHandler}
+            radioTracker={this.radioTracker}/>
 
           <div className="row">
             <div className="col-26">
               <div className='row-inner-container'>
-                <label htmlFor="review-summary" >Review Summary</label>
-                <textarea className='shrink-right' name="review-summary" placeholder="Example: Best purchase ever!" onChange={this.summaryChangeHandler}/>
+                <label htmlFor="review-summary" >*Review Summary</label>
+                <textarea className='shrink-right' name="review-summary" placeholder="Example: Best purchase ever!" minLength="1"  maxLength="60"value={this.state.summary} onChange={this.summaryChangeHandler}/>
               </div>
 
               <div className='row-inner-container'>
                 <div className="item">
                   <div className="item-inner">
                     <label htmlFor="fname">*Nickname</label>
-                    <input type="text" id="fname" name="nickname" placeholder="Example: jackson11!" className='shrink-left' onChange={this.nicknameChangeHandler}/>
+                    <input type="text" id="fname" name="nickname" placeholder="Example: jackson11!" className='shrink-left' minLength="1" maxLength="60" value={this.state.nickname || ''} onChange={this.nicknameChangeHandler}/>
                   </div>
                 </div>
                 <div className="item-inner">
                   <label htmlFor="fname">*Email Address</label>
-                  <input type="text" id="fname" name="nickname" placeholder="Example: jackson11@email.com" className='shrink-left' onChange={this.emailChangeHandler}/>
+                  <input type="text" id="fname" name="nickname" placeholder="Example: jackson11@email.com" className='shrink-left' minLength="1" maxLength="60" value={this.state.email} onChange={this.emailChangeHandler}/>
                 </div>
               </div>
             </div>
@@ -214,7 +298,7 @@ class AddAReview extends React.Component {
             <div className="col-26">
               <div className='row-inner-container'>
                 <label htmlFor="review-summary" >*Your Review</label>
-                <textarea name="review-summary" placeholder="Why did you like the product or not?" rows="6" onChange={this.bodyChangeHandler}/>
+                <textarea name="review-summary" placeholder="Why did you like the product or not?" rows="6" minLength="50" maxLength="1000" value={this.state.body} onChange={this.bodyChangeHandler}/>
               </div>
             </div>
           </div>
