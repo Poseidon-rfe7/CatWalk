@@ -1,13 +1,15 @@
 #app {
   margin: 0 auto;
   width: 85vw;
+
 }
 
 body {
   padding: 10px;
-  font-family: Helvetica, sans-serif;
-  font-size: 10px;
+  font-family: 'Vujahday Script', cursive;
+  font-size: 30px;
   color: black;
+
 }
 
 /*STARS*/
@@ -43,11 +45,11 @@ body {
 .relatedproducts-title,
 .youroutfit-title {
   padding-top: 15px;
-  font-size: 12px;
+  font-size: 20px;
 }
 
 .style-tag {
-  font-size: 9px;
+  font-size: 14px;
 }
 
 .product-info {
@@ -116,11 +118,11 @@ body {
 .active {
   border: solid;
   border-radius: 4px;
-  border-width: 3px;
+  border-width: 2px;
   border-color: red;
-
   height: 310px;
   width: 220px;
+
 }
 
 .deactive {
@@ -132,15 +134,25 @@ body {
 .product-card-contents,
 .outfit-card-contents {
   display: grid;
-  grid-template-rows: 0px 250px 20px;
-  font-size: 15px;
+  grid-template-rows: 0px 235px 20px;
+  font-size: 20px;
   color: white;
+  letter-spacing: 1px;
+}
+.card-5star {
+  font-size:12px;
 }
 
 .add-to-outfit-card {
   display: grid;
-  grid-template-rows: 250px 50px;
+  grid-template-rows: 210px 50px;
   justify-content: center;
+  font-size: 10px;
+}
+
+.add-info {
+  font-size: 26px;
+
 }
 
 .goLeft,
@@ -238,12 +250,12 @@ table {
 }
 
 th {
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
 }
 
 td {
-  font-size: 15px;
+  font-size: 25px;
   text-align: center;
 }
 
@@ -276,6 +288,9 @@ td {
   max-width: 80%;
   min-width: 80%;
   /* overflow: hidden; */
+  font-family:  Helvetica, sans-serif;
+  font-size: 12px;
+
 }
 
 #ratings-reviews-sidebar {
@@ -709,7 +724,9 @@ progress {
 .questions-answers {
   width: 700px;
   margin: 15px auto 50px 80px;
-  font-size: 12px;
+  font-family:  Helvetica, sans-serif;
+  font-size: 15px;
+  
 }
 
 .qa-helpful {
