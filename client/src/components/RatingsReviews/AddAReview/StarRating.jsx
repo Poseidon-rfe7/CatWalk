@@ -7,7 +7,7 @@ function StarRating(props) {
         const ratingValue = i + 1;
 
         return (
-          <label>
+          <label key={i}>
             <input
               className='star-rating-radio'
               type='radio'

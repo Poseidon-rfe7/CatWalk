@@ -198,7 +198,7 @@ class RatingsReviews extends React.Component {
                 <button onClick={this.moreReviewsClickHandler} className={this.state.moreReviewsButtonStatus}>More Reviews</button>
                 <button >Add A Review</button>
               </div>
-              <AddAReview />
+              <AddAReview meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct} />
             </div>
           </section>
         </div>
