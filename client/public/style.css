@@ -556,6 +556,10 @@ select {
   display: block;
 }
 
+.modalOff-form {
+  display: none;
+}
+
 /* Modal Content (Image) */
 .modal-content-form {
   margin: auto;
@@ -565,7 +569,8 @@ select {
 }
 
 .add-review-container {
-  border: 2px solid pink;
+  /* border: 2px solid pink; */
+  border-radius: 8px;
   background-color: white;
 }
 
@@ -588,7 +593,9 @@ select {
 .item-inner {
   height: 100%;
   width: 100%;
-  display: table;
+  /* display: table; */
+  display: flex;
+  flex-direction: column;
 }
 
 .shrink-right {

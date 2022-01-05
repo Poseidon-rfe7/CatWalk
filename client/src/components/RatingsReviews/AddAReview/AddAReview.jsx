@@ -15,7 +15,8 @@ class AddAReview extends React.Component {
       body: '',
       name: '',
       email: '',
-      photos: ''
+      photos: [],
+      images: []
     }
     this.starClickHandler = this.starClickHandler.bind(this);
     this.starMouseEnter = this.starMouseEnter.bind(this);
@@ -27,7 +28,9 @@ class AddAReview extends React.Component {
     this.bodyChangeHandler = this.bodyChangeHandler.bind(this);
     this.nicknameChangeHandler = this.nicknameChangeHandler.bind(this);
     this.emailChangeHandler = this.emailChangeHandler.bind(this);
-
+    this.submitClickHandler = this.submitClickHandler.bind(this);
+    this.onImageChange = this.onImageChange.bind(this);
+    this.formModalCloseClickHandler = this.formModalCloseClickHandler.bind(this);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -84,9 +87,48 @@ class AddAReview extends React.Component {
     this.setState({characteristics: {...current, [id]: rating}})
   }
 
+  submitClickHandler(event) {
+    event.preventDefault();
+    let params = {
+      product_id: this.state.currentProduct.id,
+      rating: this.state.rating,
+      summary: this.state.summary,
+      body: this.state.body,
+      recommend: this.state.recommend,
+      name: this.state.nickname,
+      email: this.state.email,
+      photos: this.state.photos,
+      characteristics: this.state.characteristics,
+    }
+
+    console.log(params)
+
+  }
+
+  onImageChange(event) {
+    let images = Array.from(event.target.files)
+
+    if (event.target.files && event.target.files[0]) {
+      images.forEach((img) => {
+        let current = this.state.photos;
+        current.push(URL.createObjectURL(img))
+        this.setState({photos: current});
+      })
+    }
+  };
+
+  formModalCloseClickHandler(event) {
+    event.preventDefault();
+    let modal = document.getElementById('modal-form');
+    modal.classList.remove('modalOn-form')
+    modal.classList.add('modalOff-form')
+  }
+
+
+
   render() {
     return (
-    <div id="modal-form" className="modal-form modalOn-form">
+    <div id="modal-form" className="modal-form modalOff-form">
       <div className="add-review-container modal-content-form">
         <form action="action_page.php">
 
@@ -124,10 +166,10 @@ class AddAReview extends React.Component {
                     <div className="characteristic-radios">
                       <div className='radio-container'>
                         <div className='radio-input-container'>
-                          <input type="radio" name="recommend" value="yes" onClick={this.yesRadioClickHandler}/> <span>yes</span>
+                          <input type="radio" name="recommend" value="yes" onClick={this.yesRadioClickHandler}/> <span>Yes</span>
                         </div>
                         <div className='radio-input-container'>
-                          <input type="radio" name="recommend" value="no" onClick={this.noRadioClickHandler}/> <span>no</span>
+                          <input type="radio" name="recommend" value="no" onClick={this.noRadioClickHandler}/> <span>No</span>
                         </div>
                       </div>
                     </div>
@@ -147,19 +189,19 @@ class AddAReview extends React.Component {
             <div className="col-26">
               <div className='row-inner-container'>
                 <label htmlFor="review-summary" >Review Summary</label>
-                <textarea className='shrink-right' name="review-summary" placeholder="Write something.." onChange={this.summaryChangeHandler}/>
+                <textarea className='shrink-right' name="review-summary" placeholder="Example: Best purchase ever!" onChange={this.summaryChangeHandler}/>
               </div>
 
               <div className='row-inner-container'>
                 <div className="item">
                   <div className="item-inner">
                     <label htmlFor="fname">*Nickname</label>
-                    <input type="text" id="fname" name="nickname" placeholder="Nickname" className='shrink-left' onChange={this.nicknameChangeHandler}/>
+                    <input type="text" id="fname" name="nickname" placeholder="Example: jackson11!" className='shrink-left' onChange={this.nicknameChangeHandler}/>
                   </div>
                 </div>
                 <div className="item-inner">
                   <label htmlFor="fname">*Email Address</label>
-                  <input type="text" id="fname" name="nickname" placeholder="Email Address" className='shrink-left' onChange={this.emailChangeHandler}/>
+                  <input type="text" id="fname" name="nickname" placeholder="Example: jackson11@email.com" className='shrink-left' onChange={this.emailChangeHandler}/>
                 </div>
               </div>
             </div>
@@ -169,22 +211,28 @@ class AddAReview extends React.Component {
             <div className="col-26">
               <div className='row-inner-container'>
                 <label htmlFor="review-summary" >*Your Review</label>
-                <textarea name="review-summary" placeholder="Write something.." rows="6" onChange={this.bodyChangeHandler}/>
+                <textarea name="review-summary" placeholder="Why did you like the product or not?" rows="6" onChange={this.bodyChangeHandler}/>
               </div>
             </div>
           </div>
 
           <div className="row">
-            <button id='upload-btn'><i className="fas fa-arrow-alt-from-bottom"></i> Upload</button>
+            <div className="image-upload-container">
+                <input type="file" id="file-input" name="ImageStyle" multiple accept="image/png, image/jpeg" onChange={this.onImageChange}/>
+            </div>
           </div>
 
           <div className="row">
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" onClick={this.submitClickHandler}/>
+          </div>
+
+          <div className="row">
+            <button onClick={this.formModalCloseClickHandler}>Cancel</button>
           </div>
 
         </form>
       </div>
-      </div>
+    </div>
     )
   }
 }
