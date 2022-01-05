@@ -28,6 +28,10 @@ class RatingsReviews extends React.Component {
     this.moreReviewsClickHandler = this.moreReviewsClickHandler.bind(this);
     this.helpfulClickHandler = this.helpfulClickHandler.bind(this);
     this.addReviewClickHandler = this.addReviewClickHandler.bind(this);
+    this.getAllProductRelevantReviews = this.getAllProductRelevantReviews.bind(this)
+    this.getAllProductHelpfulReviews = this.getAllProductHelpfulReviews.bind(this)
+    this.getAllProductNewestReviews = this.getAllProductNewestReviews.bind(this)
+
   }
 
   componentDidUpdate(prevProps){
@@ -205,7 +209,15 @@ class RatingsReviews extends React.Component {
                 <button onClick={this.moreReviewsClickHandler} className={this.state.moreReviewsButtonStatus}>More Reviews</button>
                 <button onClick={this.addReviewClickHandler}>Add A Review</button>
               </div>
-              <AddAReview meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct} />
+              <AddAReview
+              meta={this.state.allProductReviewsMeta}
+              currentProduct={this.state.currentProduct}
+              currentSort={this.state.currentSort}
+              reviewCount={this.state.reviewCount}
+              getAllProductRelevantReviews={this.getAllProductRelevantReviews}
+              getAllProductHelpfulReviews={this.getAllProductRelevantReviews}
+              getAllProductNewestReviews={this.getAllProductRelevantReviews}
+              />
             </div>
           </section>
         </div>
