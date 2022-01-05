@@ -12,6 +12,10 @@ body {
 
 }
 
+#main-title{
+  
+ }
+
 /*STARS*/
 .stars-outer {
   position: relative;
@@ -726,7 +730,7 @@ progress {
   margin: 15px auto 50px 80px;
   font-family:  Helvetica, sans-serif;
   font-size: 15px;
-  
+
 }
 
 .qa-helpful {

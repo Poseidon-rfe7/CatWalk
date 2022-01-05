@@ -4,6 +4,7 @@ import QuestionsAnswers from "./QuestionsAnswers/QuestionsAnswers.jsx";
 import RatingsReviews from "./RatingsReviews/RatingsReviews.jsx";
 import RelatedProducts from "./RelatedProducts/RelatedProducts.jsx";
 import FiveStar from "./FiveStar.jsx";
+import MenuBar from "./MenuBar.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -93,7 +94,7 @@ class App extends React.Component {
       let productStyles = await response.json();
       return productStyles;
     } catch (err) {
-      console.log(err);  
+      console.log(err);
     }
   }
 
@@ -145,6 +146,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
+        <MenuBar/>
         <ProductsOverview />
 
         <RelatedProducts
