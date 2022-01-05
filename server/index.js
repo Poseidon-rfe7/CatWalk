@@ -53,6 +53,24 @@ app.put('/api/*', (req, res) => {
     res.status(400).send(err)});
 })
 
+app.post('/api/*', (req, res) => {
+  var sub = req.url.substring(5)
+  let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/${sub}`;
+  let params = req.body
+
+  axios.post(url, params, {
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': process.env.GITHUB_API_KEY
+    }
+  })
+  .then(result => {
+    res.send(result.data)
+  })
+  .catch(err => {
+    res.status(400).send(err)});
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
