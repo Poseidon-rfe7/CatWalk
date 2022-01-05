@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Search from './Search.jsx';
 import QuestionsList from './QuestionsList.jsx';
+import AskQuestionsModal from './AskQuestionsModal.jsx';
 
 class QuestionsAnswers extends React.Component {
   constructor(props) {
@@ -67,6 +68,7 @@ class QuestionsAnswers extends React.Component {
         <h3 className='reset-margins qa-header'>QUESTIONS & ANSWERS</h3>
         <Search />
         <QuestionsList questions={this.state.renderedQuestions} />
+        <AskQuestionsModal currentProduct={this.state.currentProduct}/>
         {this.state.showHideMoreQuestions && <button className='qa-button more-questions'
         onClick={this.handleMoreQuestionsClick.bind(this)}>More Answered Questions</button>}
         <button className='qa-button more-questions'>Add a Question +</button>
