@@ -90,6 +90,10 @@ class RatingsReviews extends React.Component {
   };
 
   getAllProductRelevantReviews(count, isHelpful) {
+    // parameter --> 5 stars
+    // if parameter do this...
+    // parse through current reviews and filter
+    //
     axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id, sort: 'relevant', count: count}})
     .then(result => {
       if (this.state.modifiedReviews.length + 1 === result.data.results.length && !isHelpful) {
