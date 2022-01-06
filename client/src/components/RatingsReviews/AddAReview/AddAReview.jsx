@@ -316,7 +316,7 @@ class AddAReview extends React.Component {
 
           <div className="row">
             <div className="image-upload-container">
-                <label for="file-upload" className="custom-file-upload" onClick={this.getFile}>Upload Photos</label>
+                <label htmlFor="file-upload" className="custom-file-upload" onClick={this.getFile}>Upload Photos</label>
                 <input type="file" id="file-input" name="ImageStyle" multiple accept="image/png, image/jpeg" onChange={this.onImageChange} />
                 <div>{this.state.uploads.join(', ') || ''}</div>
             </div>
