@@ -98,7 +98,6 @@ class RatingsReviews extends React.Component {
     axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id, sort: 'relevant', count: count}})
     .then(result => {
       if (this.state.modifiedReviews.length + 1 === result.data.results.length && !isHelpful) {
-        console.log('in here')
         this.setState({modifiedReviews: result.data.results, moreReviewsButtonStatus: 'hideEl'})
       } else {
         this.setState({modifiedReviews: result.data.results.slice(0, result.data.results.length - 1)})
