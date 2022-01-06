@@ -8,6 +8,8 @@ const MenuBar = () => {
       <p className="whitespace"></p>
        <h2 id="main-title" className="menu-cat"> CatWalk <i className=" fas fa-cat"></i></h2>
        <p className="whitespace"></p>
+       <p className="whitespace"></p>
+       <p className="whitespace"></p>
 
        <a className="menu-link" onClick={()=> {
          document.getElementById("productOverview-link").scrollIntoView()}}>product overview</a>
@@ -34,6 +36,8 @@ const MenuBar = () => {
        <a className="menu-link" onClick={()=> {
          document.getElementById("child-ratings-reviews").scrollIntoView()}}>reviews</a>
 
+       <p className="whitespace"></p>
+       <p className="whitespace"></p>
        <p className="whitespace"></p>
 
 

@@ -22,6 +22,7 @@
   font-size: 4vw;
 
 }
+
 #footer-bar {
   display: flex;
   height: 50px;
@@ -75,6 +76,10 @@ body {
    margin-bottom: 5px;
    font-size: 50px;
    transform: scaleX(-1);
+ }
+ #return-button:pointer{
+   cursor: url("http://clipart-library.com/images/rTnrpap6c.png"), auto;
+   
  }
 
 /*STARS*/
