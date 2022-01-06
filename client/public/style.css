@@ -399,6 +399,7 @@ td {
   margin-right: 10px;
   padding: 10px;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .individual-review-first-row-container {
@@ -726,6 +727,78 @@ progress {
   display: none;
 }
 
+.image-upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.form-btn {
+  border-color: rgb(118, 118, 118);
+  border-width: 1px;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: transparent;
+}
+
+.form-btn:hover {
+  cursor: pointer;
+}
+
+form {
+  padding: 20px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  /* border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px; */
+  border: 1px solid rgb(118, 118, 118);
+  /* border-color: black; */
+  /* border-width: 1px; */
+  margin-right: 10px;
+  padding: 10px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.form-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#write-your-review-title{
+  margin-bottom: 5px;
+}
+
+#write-your-review-sub{
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 12px !important;
+}
+
+.row-inner-elements {
+  margin-bottom: 7px !important;
+}
+
+form textarea {
+  background-color: #F5F5F5;
+  border-radius: 3px;
+}
+
+.input-tag {
+  background-color: #F5F5F5;
+  border: 1px solid rgb(118, 118, 118) !important;
+  border-radius: 3px;
+}
+
+
 /* Modal Content (Image) */
 .modal-content-form {
   margin: auto;
@@ -782,6 +855,10 @@ progress {
 
 .characteristic-title label {
   text-align: center;
+}
+
+.characteristic-row-container {
+  margin-top: 10px;
 }
 
 .radio-input-container {

@@ -20,12 +20,12 @@ function Characteristics(props) {
     <div>
       { keys.map((characteristic, i) => {
         return (
-          <div className="row" key={i}>
-            <div className="characteristic-title">
+          <div className="row characteristic-row-container" key={i}>
+            <div className="characteristic-title row-inner-elements">
               <label htmlFor="characteristic">*{characteristic}</label>
             </div>
             <div className="characteristic-radios">
-              <div className='radio-container'>
+              <div className='radio-container row-inner-elements'>
                 <div className='radio-input-container shrink-radio'>
                   <input
                     type="radio"
@@ -33,7 +33,8 @@ function Characteristics(props) {
                     value={characteristicSelection[characteristic]['1']}
                     charid={props.meta.characteristics[characteristic].id}
                     rating='1'
-                    onClick={props.characteristicClickHandler} /> <span>{characteristicSelection[characteristic]['1']}</span>
+                    onClick={props.characteristicClickHandler}
+                    className='row-inner-elements'/> <span className='row-inner-elements'>{characteristicSelection[characteristic]['1']}</span>
                 </div>
                 <div className='radio-input-container shrink-radio'>
                   <input
@@ -42,7 +43,8 @@ function Characteristics(props) {
                     value={characteristicSelection[characteristic]['2']}
                     charid={props.meta.characteristics[characteristic].id}
                     rating='2'
-                    onClick={props.characteristicClickHandler} /> <span>{characteristicSelection[characteristic]['2']}</span>
+                    onClick={props.characteristicClickHandler}
+                    className='row-inner-elements'/> <span className='row-inner-elements'>{characteristicSelection[characteristic]['2']}</span>
                 </div>
                 <div className='radio-input-container shrink-radio'>
                   <input
@@ -51,7 +53,8 @@ function Characteristics(props) {
                     value={characteristicSelection[characteristic]['3']}
                     charid={props.meta.characteristics[characteristic].id}
                     rating='3'
-                    onClick={props.characteristicClickHandler} /> <span>{characteristicSelection[characteristic]['3']}</span>
+                    onClick={props.characteristicClickHandler}
+                    className='row-inner-elements'/> <span className='row-inner-elements'>{characteristicSelection[characteristic]['3']}</span>
                 </div>
                 <div className='radio-input-container shrink-radio'>
                   <input
@@ -60,7 +63,8 @@ function Characteristics(props) {
                     value={characteristicSelection[characteristic]['4']}
                     charid={props.meta.characteristics[characteristic].id}
                     rating='4'
-                    onClick={props.characteristicClickHandler} /> <span>{characteristicSelection[characteristic]['4']}</span>
+                    onClick={props.characteristicClickHandler}
+                    className='row-inner-elements'/> <span className='row-inner-elements'>{characteristicSelection[characteristic]['4']}</span>
                 </div>
                 <div className='radio-input-container shrink-radio'>
                   <input
@@ -69,7 +73,8 @@ function Characteristics(props) {
                     value={characteristicSelection[characteristic]['5']}
                     charid={props.meta.characteristics[characteristic].id}
                     rating='5'
-                    onClick={props.characteristicClickHandler} /> <span>{characteristicSelection[characteristic]['5']}</span>
+                    onClick={props.characteristicClickHandler}
+                    className='row-inner-elements'/> <span className='row-inner-elements'>{characteristicSelection[characteristic]['5']}</span>
                 </div>
               </div>
             </div>
