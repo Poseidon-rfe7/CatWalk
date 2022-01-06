@@ -181,7 +181,7 @@ class RatingsReviews extends React.Component {
 
   render() {
     return (
-      <div id="ratings-reviews-main-container">
+      <div id="ratings-reviews-main-container" className="ratings-review-event module-parent">
         <div id='child-ratings-reviews'>
           {/* title section */}
           <h3 id="ratings-reviews-title">RATINGS &#38; REVIEWS</h3>

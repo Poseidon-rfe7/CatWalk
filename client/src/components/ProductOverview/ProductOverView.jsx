@@ -19,7 +19,7 @@ const ProductsOverview = (props) => {
   }, [props.currentStyles]);
 
   return (
-    <div id="productOverview-link" className="products-overview-container">
+    <div id="productOverview-link" className="products-overview-container module-parent">
       <Grid  >
         <div className="image-and-thumbnails" >
           <ImageGallery styles={styles} currentPhotos={style.photos} />
