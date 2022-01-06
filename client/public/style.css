@@ -10,7 +10,7 @@
   margin-bottom: 150px;
 }
 .menu-bar {
-  
+
   display: flex;
   background:black;
   margin-bottom: 40px;
@@ -1078,13 +1078,10 @@ Grid Container
 
 .container {
   display: grid;
-  grid-template-areas:
-    'header header header header header header'
-    'menu main main main right right'
-    'menu footer footer footer footer footer';
-  grid-gap: 10px;
-  background-color: #2196F3;
-  padding: 10px;
+  grid-template-columns: 60% 39.5%;
+  grid-gap: 5px;
+  background-color: black;
+  padding: 5px;
 }
 
 .container > div {

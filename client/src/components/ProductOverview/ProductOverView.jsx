@@ -31,21 +31,25 @@ const ProductsOverview = (props) => {
           styles={styles}
           currentPhotos={style.photos}
         />
+
+        <div className="info-and-style">
         <ProductInformation
           currentProduct={props.currentProduct}
           currentRatings={props.currentRatings}
           stylePrice={style.original_price} />
-
-
         <StyleSelector
           styles={styles}
         //  changeStyle={changeStyle}
         />
+
         <AddToCart
           skus={skus}
           style={style}>
 
         </AddToCart>
+
+        </div>
+
 
       </Grid>
 
