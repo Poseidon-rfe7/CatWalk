@@ -5,6 +5,7 @@ import RatingsReviews from "./RatingsReviews/RatingsReviews.jsx";
 import RelatedProducts from "./RelatedProducts/RelatedProducts.jsx";
 import FiveStar from "./FiveStar.jsx";
 import MenuBar from "./MenuBar.jsx";
+import ReturnToTop from "./returnToTop.jsx"
 
 class App extends React.Component {
   constructor(props) {
@@ -148,7 +149,7 @@ class App extends React.Component {
       <>
         <MenuBar />
         <div className="app-container">
-          <ProductsOverview 
+          <ProductsOverview
             currentProduct={this.state.currentProduct}
             currentStyles={this.state.currentProductStyles}
             currentRatings={this.state.currentProductRating}
@@ -167,6 +168,7 @@ class App extends React.Component {
 
           <QuestionsAnswers currentProduct={this.state.currentProduct} />
           <RatingsReviews currentProduct={this.state.currentProduct} />
+          <ReturnToTop/>
         </div>
       </>
     );

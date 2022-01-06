@@ -15,8 +15,12 @@
   background:black;
   margin-bottom: 40px;
   color: white;
-  max-height: 61px ;
+  max-height: 4.8vw;
   /* align-items: flex-end; */
+}
+.menu-cat{
+  font-size: 4vw;
+
 }
 
 body {
@@ -39,6 +43,7 @@ body {
    font-size: 3vw;
  }
 
+
  hr{
    height:8px;
 
@@ -46,6 +51,16 @@ body {
 
  .whitespace{
    width: 2vw;
+ }
+
+ #return-button{
+   position: fixed;
+   bottom: 0;
+   right: 0;
+   margin-right: 5px;
+   margin-bottom: 5px;
+   font-size: 50px;
+   transform: scaleX(-1);
  }
 
 /*STARS*/
@@ -66,7 +81,7 @@ body {
 .stars-outer::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   font-family: "Font Awesome 5 Free";
-  color: #ccc;
+  color: white;
 }
 
 .stars-inner::after {
@@ -1034,7 +1049,7 @@ a {
 }
 
 :root {
-  --bg:  #216ab4;
+  --bg: grey;
   --bg-accent: #484a4d;
   --text-color: #dadce1;
   --nav-size: 60px;
