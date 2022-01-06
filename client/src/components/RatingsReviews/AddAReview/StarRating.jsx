@@ -2,7 +2,7 @@ import React from 'react';
 
 function StarRating(props) {
   return (
-    <div className='star-rating-container'>
+    <div className='star-rating-container row-inner-elements'>
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
 
