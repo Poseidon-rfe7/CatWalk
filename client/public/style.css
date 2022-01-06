@@ -310,9 +310,9 @@ td {
   justify-content: center;
   align-items: center;
   /* flex-wrap: wrap; */
-  border: solid;
+  /* border: solid;
   border-color: grey;
-  border-width: 1px;
+  border-width: 1px; */
   padding : 10px;
   overflow: hidden;
 }
@@ -331,6 +331,7 @@ td {
   max-width: 75vw;
   justify-content: center;
   align-items: center;
+  padding: 10px;
   /* flex-wrap: wrap; */
 }
 
@@ -487,6 +488,16 @@ td {
   color: black;
 }
 
+.helpful:hover {
+  cursor: pointer;
+  text-decoration: underline;
+
+}
+
+.helpful-container {
+  display: flex;
+}
+
 .helpful-yes {
   text-decoration: underline;
   cursor: pointer;
@@ -520,6 +531,7 @@ p {
   display: flex;
   font-weight: bold;
   font-size: 16px;
+  justify-content: right;
 }
 
 #sort-options-container p {

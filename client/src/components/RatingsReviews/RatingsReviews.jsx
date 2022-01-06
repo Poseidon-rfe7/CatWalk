@@ -161,7 +161,7 @@ class RatingsReviews extends React.Component {
   }
 
   helpfulClickHandler(event) {
-    let reviewId = event.target.getAttribute('id')
+    let reviewId = event.target.closest('p').getAttribute('id')
     axios.put(`api/reviews/${reviewId}/helpful`)
     .then((result) => {
       if (this.state.currentSort === 'relevance') {
