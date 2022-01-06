@@ -8,6 +8,14 @@
   width: 85vw;
   margin-bottom: 150px;
 }
+.menu-bar {
+  display: flex;
+  background:black;
+  margin-bottom: 40px;
+  color: white;
+  max-height: 61px ;
+  /* align-items: flex-end; */
+}
 
 body {
   font-family: 'Vujahday Script', cursive;
@@ -17,9 +25,20 @@ body {
 
 #main-title{
   margin: 0;
-  color: white;
-  background:black;
-  margin-bottom: 40px;
+ }
+
+ .menu-link {
+   font-size: 2vw;
+   letter-spacing: 1px ;
+ }
+
+ hr{
+   height:8px;
+
+ }
+
+ .whitespace{
+   width: 2vw;
  }
 
 /*STARS*/
