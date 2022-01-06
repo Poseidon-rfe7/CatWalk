@@ -148,7 +148,7 @@ class App extends React.Component {
       <>
         <MenuBar />
         <div className="app-container">
-          <ProductsOverview
+          <ProductsOverview 
             currentProduct={this.state.currentProduct}
             currentStyles={this.state.currentProductStyles}
             currentRatings={this.state.currentProductRating}

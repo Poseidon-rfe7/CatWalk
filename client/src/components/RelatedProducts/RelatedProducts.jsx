@@ -47,7 +47,7 @@ const RelatedProducts = (props) => {
   }
 
   return(
-    <div className="related-products-container">
+    <div id="relatedProducts-link" className="related-products-container">
 
       <div className="relatedproducts-title">Related Products</div>
       <RelatedProductsCards

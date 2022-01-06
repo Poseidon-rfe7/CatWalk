@@ -28,8 +28,6 @@ app.get('/api/*', (req, res) => {
     .then(result => {
       if (sub.includes('products/')){
         serverCache[sub] = result.data
-        console.log(serverCache)
-        console.log(sub)
       }
       res.send(result.data)
     })
