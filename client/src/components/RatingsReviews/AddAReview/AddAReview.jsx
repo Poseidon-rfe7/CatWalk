@@ -305,16 +305,16 @@ class AddAReview extends React.Component {
 
           <div className="row">
             <div className="image-upload-container">
-                <input type="file" id="file-input" name="ImageStyle" multiple accept="image/png, image/jpeg" onChange={this.onImageChange}/>
+                <input type="file" id="file-input" name="ImageStyle" multiple accept="image/png, image/jpeg" onChange={this.onImageChange} />
             </div>
           </div>
 
           <div className="row">
-            <input type="submit" value="Submit" onClick={this.submitClickHandler}/>
+            <input type="submit" value="Submit" onClick={this.submitClickHandler} className='form-btn'/>
           </div>
 
           <div className="row">
-            <button onClick={this.formModalCloseClickHandler}>Cancel</button>
+            <button onClick={this.formModalCloseClickHandler}className='form-btn'>Cancel</button>
           </div>
 
         </form>
