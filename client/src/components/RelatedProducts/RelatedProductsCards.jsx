@@ -32,8 +32,8 @@ const RelatedProductsCards = (props) => {
     }
   }, [activeSlide]);
 
-  const moveLeft = activeSlide - 1
-  const moveRight =  activeSlide + 1
+  const moveLeft = activeSlide - 1;
+  const moveRight = activeSlide + 1;
 
   const starHandler = (e) => {
     var id = e.target.getAttribute("serial");
