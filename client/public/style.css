@@ -839,48 +839,6 @@ progress {
  //////////////////
  */
 
-.products-overview-container {
-  position: relative;
-  width:100%;
-  border: 5px solid red;
-  padding: 0;
-
-}
-
-.product-information-container {
-  position: relative;
-  width:100%;
-  border: 2px solid green;
-  padding: 0;
-
-}
-
-.style-selector-container {
-  position: relative;
-  width:100%;
-  border: 1px solid yellow;
-  padding: 0;
-
-}
-
-.image-gallery-container {
-  position: relative;
-  width:100%;
-  border: 4px solid purple;
-  padding: 0;
-
-}
-
-.addToCart-container {
-  position: relative;
-  width:100%;
-  border: 2px solid blue;
-  padding: 0;
-
-}
-
-/* Top Navigation Bar */
-
 /* <nav> */
 .navbar {
   height: var(--nav-size);
@@ -1021,10 +979,29 @@ a {
   transform: translateX(0%);
   transition: all var(--speed) ease;
 }
-.menu-secondary-exit {
-
-}
 .menu-secondary-exit-active {
   transform: translateX(110%);
   transition: all var(--speed) ease;
+}
+
+/*
+Grid Container
+*/
+
+.container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 15px;
 }
