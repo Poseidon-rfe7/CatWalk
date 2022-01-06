@@ -55,8 +55,8 @@ function IndividualReviewTile(props) {
           <p><span>&#10003;</span> I recommend this product</p>
         </div>
         <div className={`response-container ${props.review.response ? 'showEl' : 'hideEl'}`}>
-          <h3>Response from seller:</h3>
-          <p>{props.review.response}</p>
+          <h3 className='response-container-move'>Response from seller:</h3>
+          <p className='response-container-move'>{props.review.response}</p>
         </div>
         <div className='helpfulness-container'>
           <IndividualReviewHelpfulness review={props.review} helpfulClickHandler={props.helpfulClickHandler}/>

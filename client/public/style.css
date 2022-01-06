@@ -306,7 +306,7 @@ td {
   flex: 0.25;
   flex: auto;
   min-width: 250px;
-  max-height: 450px;
+  /* max-height: 450px; */
   justify-content: center;
   align-items: center;
   /* flex-wrap: wrap; */
@@ -502,10 +502,10 @@ td {
   padding-bottom: 3px;
 }
 
-.response-container h3,
+/* .response-container h3,
 p {
   margin-left: 15px;
-}
+} */
 
 .helpfulness-container {
   margin-top: 5px;
@@ -572,28 +572,31 @@ select {
   justify-content: start;
 }
 
+.average-rating-stars-container h2 {
+  font-size: 40px;
+}
+
 .star-progress-bar-container {
-  /* flex-direction: column; */
   display: flex;
   align-items: center;
-  justify-content: center;
-  /* width: 100%; */
-  /* background-color: green; */
+  justify-content: space-between;
+  width: 100%;
+  height: 22px;
 }
 
-.star-progress-bar-container p {
+/* .star-progress-bar-container p {
   flex: 0.5;
-}
+} */
 
-.star-progress-bar-container p,
+/* .star-progress-bar-container p,
 progress {
   width: 60%;
   margin: 0;
-  margin-left: 0px;
+  margin-left: 0px; */
   /* align-self: flex-start; */
 
   /* background-color: rgb(226, 0, 196); */
-}
+/* } */
 
 .star-progress-bar-container-total-ratings {
   text-align: right;
