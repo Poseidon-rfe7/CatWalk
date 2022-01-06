@@ -24,7 +24,7 @@ const AddToOutfit = (props) => {
     }
 
     var toStore = {
-      url: currentPhoto,
+      url: currentPhoto || "https://i.pinimg.com/originals/74/5c/e5/745ce5086456b8d2520a32ec6fca9888.jpg",
       name: props.currentproduct.name,
       category: props.currentproduct.category,
       id: props.currentproduct.id,
