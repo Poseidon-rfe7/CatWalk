@@ -6,7 +6,7 @@ const MenuBar = () => {
   return (
     <div className="menu-bar">
       <p className="whitespace"></p>
-       <h2 id="main-title"> CatWalk <i class="fas fa-cat"></i></h2>
+       <h2 id="main-title"> CatWalk <i className="fas fa-cat"></i></h2>
        <p className="whitespace"></p>
 
        <a className="menu-link" onClick={()=> {

@@ -10,8 +10,8 @@ export default function Grid (props) {
 
     <div className="container">
 
-      {props.children.map((child) => {
-        return <div className="item">{child}</div>
+      {props.children.map((child, i) => {
+        return <div className="item" key={i}>{child}</div>
       })}
 
     </div>

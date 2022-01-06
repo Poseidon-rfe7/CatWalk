@@ -20,11 +20,12 @@ const ProductsOverview = (props) => {
 
   return (
     <div id="productOverview-link" className="products-overview-container">
-      <Grid>
-        <div className="image-and-thumbnails">
+      <Grid  >
+        <div className="image-and-thumbnails" >
           <ImageGallery styles={styles} currentPhotos={style.photos} />
         </div>
-        <div className="info-and-style">
+
+        <div className="info-and-style" key={2}>
           <ProductInformation
             currentProduct={props.currentProduct}
             currentRatings={props.currentRatings}
