@@ -122,14 +122,14 @@ body {
   border: solid;
   border-radius: 4px;
   border-width: 2px;
-  border-color: red;
+  border-color: black;
   height: 310px;
-  width: 220px;
-
+  width: 200px;
+  margin-bottom: 5px;
 }
 
 .deactive {
-  margin-right: -85px;
+  margin-right: -80px;
   height:290;
 
 }
@@ -138,7 +138,7 @@ body {
 .outfit-card-contents {
   display: grid;
   grid-template-rows: 0px 235px 20px;
-  font-size: 20px;
+  font-size: 18px;
   color: white;
   letter-spacing: 1px;
 }
@@ -179,8 +179,8 @@ body {
   border-radius: 4px;
 }
 .active-pic{
-  width: 100%;
-  max-height: 400px;
+
+  max-height: 300px;
 }
 
 /* compare modal button*/
