@@ -67,8 +67,8 @@ class QuestionsAnswers extends React.Component {
 
   render() {
     return (
-      <div className='questions-answers'>
-        <h3 className='reset-margins qa-header'>QUESTIONS & ANSWERS</h3>
+      <div id="qa-link" className='questions-answers'>
+
         <Search />
         <QuestionsList questions={this.state.renderedQuestions} />
         <AskQuestionsModal currentProduct={this.state.currentProduct}/>

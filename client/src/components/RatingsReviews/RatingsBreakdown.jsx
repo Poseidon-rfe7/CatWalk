@@ -1,5 +1,6 @@
 import React from 'react';
 import FiveStar from '../FiveStar.jsx';
+import Progressbar from './Progressbar.jsx';
 
 class RatingsBreakdown extends React.Component {
   constructor(props) {
@@ -67,7 +68,7 @@ class RatingsBreakdown extends React.Component {
         {/* {console.log(this.props.meta)} */}
 
         <div className='recommend-percentage'>
-          <h2>{this.state.recommend || 0}% Recommend this product</h2>
+          {this.state.recommend || 0}% Recommend this product
 
         </div>
 
@@ -78,27 +79,27 @@ class RatingsBreakdown extends React.Component {
 
         <div className='star-progress-bar-container'>
           <p>5 stars</p>
-          <progress value={this.state.ratings['5'] || 0} max={this.state.totalRatings}>{this.state.totalRatings}%</progress>
+          <Progressbar bgcolor="orange" min={this.state.ratings['5'] || 0} max={this.state.totalRatings} height={10} width={70}/>
           <p className='star-progress-bar-container-total-ratings'>{this.state.ratings['5'] || 0}</p>
         </div>
         <div className='star-progress-bar-container'>
           <p>4 stars</p>
-          <progress value={this.state.ratings['4'] || 0} max={this.state.totalRatings}>{this.state.totalRatings}%</progress>
+          <Progressbar bgcolor="orange" min={this.state.ratings['4'] || 0} max={this.state.totalRatings} height={10} width={70}/>
           <p className='star-progress-bar-container-total-ratings'>{this.state.ratings['4'] || 0}</p>
         </div>
         <div className='star-progress-bar-container'>
           <p>3 stars</p>
-          <progress value={this.state.ratings['3'] || 0} max={this.state.totalRatings}>{this.state.totalRatings}%</progress>
+          <Progressbar bgcolor="orange" min={this.state.ratings['3'] || 0} max={this.state.totalRatings} height={10} width={70}/>
           <p className='star-progress-bar-container-total-ratings'>{this.state.ratings['3'] || 0}</p>
         </div>
         <div className='star-progress-bar-container'>
           <p>2 stars</p>
-          <progress value={this.state.ratings['2'] || 0} max={this.state.totalRatings}>{this.state.totalRatings}%</progress>
+          <Progressbar bgcolor="orange" min={this.state.ratings['2'] || 0} max={this.state.totalRatings} height={10} width={70}/>
           <p className='star-progress-bar-container-total-ratings'>{this.state.ratings['2'] || 0}</p>
         </div>
         <div className='star-progress-bar-container'>
           <p>1 stars</p>
-          <progress value={this.state.ratings['1'] || 0} max={this.state.totalRatings}>{this.state.totalRatings}%</progress>
+          <Progressbar bgcolor="orange" min={this.state.ratings['1'] || 0} max={this.state.totalRatings} height={10} width={70}/>
           <p className='star-progress-bar-container-total-ratings'>{this.state.ratings['1'] || 0}</p>
         </div>
 

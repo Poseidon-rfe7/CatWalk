@@ -28,6 +28,10 @@ class RatingsReviews extends React.Component {
     this.moreReviewsClickHandler = this.moreReviewsClickHandler.bind(this);
     this.helpfulClickHandler = this.helpfulClickHandler.bind(this);
     this.addReviewClickHandler = this.addReviewClickHandler.bind(this);
+    this.getAllProductRelevantReviews = this.getAllProductRelevantReviews.bind(this)
+    this.getAllProductHelpfulReviews = this.getAllProductHelpfulReviews.bind(this)
+    this.getAllProductNewestReviews = this.getAllProductNewestReviews.bind(this)
+
   }
 
   componentDidUpdate(prevProps){
@@ -43,6 +47,7 @@ class RatingsReviews extends React.Component {
     if (props.currentProduct && props.currentProduct.id !== state.currentProduct.id) {
       return {
         currentProduct: props.currentProduct,
+        reviewCount: 3
       };
     }
     return null;
@@ -86,6 +91,10 @@ class RatingsReviews extends React.Component {
   };
 
   getAllProductRelevantReviews(count, isHelpful) {
+    // parameter --> 5 stars
+    // if parameter do this...
+    // parse through current reviews and filter
+    //
     axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id, sort: 'relevant', count: count}})
     .then(result => {
       if (this.state.modifiedReviews.length + 1 === result.data.results.length && !isHelpful) {
@@ -152,7 +161,7 @@ class RatingsReviews extends React.Component {
   }
 
   helpfulClickHandler(event) {
-    let reviewId = event.target.getAttribute('id')
+    let reviewId = event.target.closest('p').getAttribute('id')
     axios.put(`api/reviews/${reviewId}/helpful`)
     .then((result) => {
       if (this.state.currentSort === 'relevance') {
@@ -185,6 +194,7 @@ class RatingsReviews extends React.Component {
               <div>
                 <RatingsBreakdown product={this.state.modifiedReviews} meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct}/>
               </div>
+              <div className="spacer"></div>
               <div>
                 <ProductBreakdown product={this.state.modifiedReviews} meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct}/>
               </div>
@@ -202,10 +212,18 @@ class RatingsReviews extends React.Component {
               </div>
 
               <div id="more-reviews-button-container" className={this.state.moreReviewsButtonStatus}>
-                <button onClick={this.moreReviewsClickHandler} className={this.state.moreReviewsButtonStatus}>More Reviews</button>
-                <button onClick={this.addReviewClickHandler}>Add A Review</button>
+                <button onClick={this.moreReviewsClickHandler} className={`${this.state.moreReviewsButtonStatus} ratings-reviews-btn`}>More Reviews</button>
+                <button onClick={this.addReviewClickHandler} className='ratings-reviews-btn'>Add A Review</button>
               </div>
-              <AddAReview meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct} />
+              <AddAReview
+              meta={this.state.allProductReviewsMeta}
+              currentProduct={this.state.currentProduct}
+              currentSort={this.state.currentSort}
+              reviewCount={this.state.reviewCount}
+              getAllProductRelevantReviews={this.getAllProductRelevantReviews}
+              getAllProductHelpfulReviews={this.getAllProductRelevantReviews}
+              getAllProductNewestReviews={this.getAllProductRelevantReviews}
+              />
             </div>
           </section>
         </div>

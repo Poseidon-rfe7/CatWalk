@@ -32,8 +32,8 @@ const RelatedProductsCards = (props) => {
     }
   }, [activeSlide]);
 
-  const moveLeft = Math.max(0, activeSlide - 1);
-  const moveRight = Math.min(props.relatedProducts.length - 1, activeSlide + 1);
+  const moveLeft = activeSlide - 1;
+  const moveRight = activeSlide + 1;
 
   const starHandler = (e) => {
     var id = e.target.getAttribute("serial");
