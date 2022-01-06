@@ -145,24 +145,30 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app-container">
-        <MenuBar/>
-        <ProductsOverview />
+      <>
+        <MenuBar />
+        <div className="app-container">
+          <ProductsOverview
+            currentProduct={this.state.currentProduct}
+            currentStyles={this.state.currentProductStyles}
+            currentRatings={this.state.currentProductRating}
+          />
 
-        <RelatedProducts
-          relatedratings={this.state.currentRelatedProductRatings}
-          currentProduct={this.state.currentProduct}
-          currentproductstyles={this.state.currentProductStyles}
-          relatedProducts={this.state.currentRelatedProducts}
-          relatedProductStyles={this.state.currentRelatedProductStyles}
-          relatedProductsIds={this.state.currentRelatedProductsIds}
-          changeProducts={this.handleChangeCurrentProduct}
-        />
-        <h3 className='reset-margins qa-header'>QUESTIONS & ANSWERS</h3>
+          <RelatedProducts
+            relatedratings={this.state.currentRelatedProductRatings}
+            currentProduct={this.state.currentProduct}
+            currentproductstyles={this.state.currentProductStyles}
+            relatedProducts={this.state.currentRelatedProducts}
+            relatedProductStyles={this.state.currentRelatedProductStyles}
+            relatedProductsIds={this.state.currentRelatedProductsIds}
+            changeProducts={this.handleChangeCurrentProduct}
+          />
+          <h3 className="reset-margins qa-header">QUESTIONS & ANSWERS</h3>
 
-        <QuestionsAnswers currentProduct={this.state.currentProduct} />
-        <RatingsReviews currentProduct={this.state.currentProduct} />
-      </div>
+          <QuestionsAnswers currentProduct={this.state.currentProduct} />
+          <RatingsReviews currentProduct={this.state.currentProduct} />
+        </div>
+      </>
     );
   }
 }

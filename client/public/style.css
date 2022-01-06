@@ -1,4 +1,9 @@
-#app {
+#app{
+  margin: 0;
+  width:100vw;
+}
+
+.app-container{
   margin: 0 auto;
   width: 85vw;
   margin-bottom: 150px;
@@ -12,6 +17,9 @@ body {
 
 #main-title{
   margin: 0;
+  color: white;
+  background:black;
+  margin-bottom: 40px;
  }
 
 /*STARS*/
@@ -82,6 +90,7 @@ body {
 /* slider */
 .related-card-deck,
 .your-outfit-deck {
+
   width: auto;
   white-space: nowrap;
   overflow-x: scroll;
@@ -122,14 +131,14 @@ body {
   border: solid;
   border-radius: 4px;
   border-width: 2px;
-  border-color: red;
+  border-color: black;
   height: 310px;
-  width: 220px;
-
+  width: 200px;
+  margin-bottom: 5px;
 }
 
 .deactive {
-  margin-right: -85px;
+  margin-right: -80px;
   height:290;
 
 }
@@ -138,7 +147,7 @@ body {
 .outfit-card-contents {
   display: grid;
   grid-template-rows: 0px 235px 20px;
-  font-size: 20px;
+  font-size: 18px;
   color: white;
   letter-spacing: 1px;
 }
@@ -179,8 +188,8 @@ body {
   border-radius: 4px;
 }
 .active-pic{
-  width: 100%;
-  max-height: 400px;
+
+  max-height: 300px;
 }
 
 /* compare modal button*/
@@ -204,6 +213,7 @@ body {
 
 .placeholder {
   width: 15.63px;
+
 }
 
 #add-to-outfit-button {
@@ -883,4 +893,177 @@ progress {
   border-width: 1px;
   margin-right: 10px;
   padding: 10px;
+}
+
+/*
+///////////////////
+ Products Overview
+ //////////////////
+ */
+
+/* <nav> */
+.navbar {
+  height: var(--nav-size);
+  background-color: var(--bg);
+  padding: 0 1rem;
+  border-bottom: var(--border);
+}
+
+/* <ul> */
+.navbar-nav {
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* <li> */
+.nav-item {
+  width: calc(var(--nav-size) * 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon Button */
+.icon-button {
+  --button-size: calc(var(--nav-size) * 0.5);
+  width: var(--button-size);
+  height: var(--button-size);
+  background-color: #484a4d;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 300ms;
+}
+
+.icon-button:hover {
+  filter: brightness(1.2);
+}
+
+.icon-button svg {
+  fill: var(--text-color);
+  width: 20px;
+  height: 20px;
+}
+
+
+/* Dropdown Menu */
+
+.dropdown {
+  position: absolute;
+  top: 58px;
+  width: 300px;
+  transform: translateX(-45%);
+  background-color: var(--bg);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  overflow: hidden;
+  transition: height var(--speed) ease;
+}
+
+.menu {
+  width: 100%;
+}
+
+.menu-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  transition: background var(--speed);
+  padding: 0.5rem;
+}
+
+.menu-item .icon-button {
+  margin-right: 0.5rem;
+}
+
+
+.menu-item .icon-button:hover {
+  filter: none;
+}
+
+.menu-item:hover {
+  background-color: #525357;
+}
+
+.icon-right {
+  margin-left: auto;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;;
+}
+
+:root {
+  --bg:  #216ab4;
+  --bg-accent: #484a4d;
+  --text-color: #dadce1;
+  --nav-size: 60px;
+  --border: 1px solid #474a4d;
+  --border-radius: 8px;
+  --speed: 500ms;
+}
+
+/* CSSTransition classes  */
+.menu-primary-enter {
+  position: absolute;
+  transform: translateX(-110%);
+}
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-primary-exit {
+  position: absolute;
+}
+.menu-primary-exit-active {
+  transform: translateX(-110%);
+  transition: all var(--speed) ease;
+}
+
+.menu-secondary-enter {
+  transform: translateX(110%);
+}
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-secondary-exit-active {
+  transform: translateX(110%);
+  transition: all var(--speed) ease;
+}
+
+/*
+Grid Container
+*/
+
+.container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 15px;
 }
