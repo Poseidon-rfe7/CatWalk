@@ -22,6 +22,20 @@
   font-size: 4vw;
 
 }
+#footer-bar {
+  display: flex;
+  height: 50px;
+  margin-bottom: 0;
+  background: linear-gradient( 0.25turn, black, black, white);
+  align-items: flex-end;
+}
+.tiny-text {
+  font-size: 15px;
+  color: white;
+}
+.POS{
+  font-size: 20px;
+}
 
 body {
   margin: 0;
