@@ -1,4 +1,6 @@
 import React from 'react';
+import Progressbar from './Progressbar.jsx';
+
 
 function ProductBreakdownProgressBar(props) {
 
@@ -23,7 +25,8 @@ function ProductBreakdownProgressBar(props) {
           return (
             <div className='product-progress-bar-container' key={props.characteristics[characteristic].id}>
               <div className="characteristic-titles">{characteristic}</div>
-              <progress value={props.characteristics[characteristic].value} max={5}>{100}%</progress>
+              <Progressbar bgcolor="orange" min={props.characteristics[characteristic].value} max={5} height={5} width={100}/>
+
               <div className='characteristic-container'>
                 <p className='tiny-font'>{characteristicSelection[characteristic]['1']}</p>
                 <p className='tiny-font'>{characteristicSelection[characteristic]['2']}</p>

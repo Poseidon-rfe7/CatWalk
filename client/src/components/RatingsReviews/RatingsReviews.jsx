@@ -47,6 +47,7 @@ class RatingsReviews extends React.Component {
     if (props.currentProduct && props.currentProduct.id !== state.currentProduct.id) {
       return {
         currentProduct: props.currentProduct,
+        reviewCount: 3
       };
     }
     return null;
@@ -90,6 +91,10 @@ class RatingsReviews extends React.Component {
   };
 
   getAllProductRelevantReviews(count, isHelpful) {
+    // parameter --> 5 stars
+    // if parameter do this...
+    // parse through current reviews and filter
+    //
     axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id, sort: 'relevant', count: count}})
     .then(result => {
       if (this.state.modifiedReviews.length + 1 === result.data.results.length && !isHelpful) {
@@ -156,7 +161,7 @@ class RatingsReviews extends React.Component {
   }
 
   helpfulClickHandler(event) {
-    let reviewId = event.target.getAttribute('id')
+    let reviewId = event.target.closest('p').getAttribute('id')
     axios.put(`api/reviews/${reviewId}/helpful`)
     .then((result) => {
       if (this.state.currentSort === 'relevance') {
@@ -207,8 +212,8 @@ class RatingsReviews extends React.Component {
               </div>
 
               <div id="more-reviews-button-container" className={this.state.moreReviewsButtonStatus}>
-                <button onClick={this.moreReviewsClickHandler} className={this.state.moreReviewsButtonStatus}>More Reviews</button>
-                <button onClick={this.addReviewClickHandler}>Add A Review</button>
+                <button onClick={this.moreReviewsClickHandler} className={`${this.state.moreReviewsButtonStatus} ratings-reviews-btn`}>More Reviews</button>
+                <button onClick={this.addReviewClickHandler} className='ratings-reviews-btn'>Add A Review</button>
               </div>
               <AddAReview
               meta={this.state.allProductReviewsMeta}
