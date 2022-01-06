@@ -31,7 +31,7 @@ function IndividualReviewTile(props) {
   let currentSummary = props.review.summary;
 
   return (
-    <div>
+    <div className='individual-review-main-container'>
       <div className="individual-review-first-row-container">
         <div>
           <FiveStar rating={props.review.rating}/>
@@ -44,7 +44,7 @@ function IndividualReviewTile(props) {
         <div className="individual-review-summary-container">
           <p>{props.review.summary}</p>
         </div>
-        <div>
+        <div className="individual-review-body-main-container">
           <IndividualReviewBody
             body={props.review.body}
             photos={props.review.photos}

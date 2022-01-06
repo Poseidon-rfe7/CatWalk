@@ -47,6 +47,7 @@ class RatingsReviews extends React.Component {
     if (props.currentProduct && props.currentProduct.id !== state.currentProduct.id) {
       return {
         currentProduct: props.currentProduct,
+        reviewCount: 3
       };
     }
     return null;
@@ -211,8 +212,8 @@ class RatingsReviews extends React.Component {
               </div>
 
               <div id="more-reviews-button-container" className={this.state.moreReviewsButtonStatus}>
-                <button onClick={this.moreReviewsClickHandler} className={this.state.moreReviewsButtonStatus}>More Reviews</button>
-                <button onClick={this.addReviewClickHandler}>Add A Review</button>
+                <button onClick={this.moreReviewsClickHandler} className={`${this.state.moreReviewsButtonStatus} ratings-reviews-btn`}>More Reviews</button>
+                <button onClick={this.addReviewClickHandler} className='ratings-reviews-btn'>Add A Review</button>
               </div>
               <AddAReview
               meta={this.state.allProductReviewsMeta}
