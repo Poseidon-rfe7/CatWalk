@@ -25,7 +25,7 @@ function ProductBreakdownProgressBar(props) {
           return (
             <div className='product-progress-bar-container' key={props.characteristics[characteristic].id}>
               <div className="characteristic-titles">{characteristic}</div>
-              <Progressbar bgcolor="orange" min={props.characteristics[characteristic].value} max={5} height={5} width={100}/>
+              <Progressbar bgcolor="#6EFD9D" min={props.characteristics[characteristic].value} max={5} height={5} width={100} showIcon='true' showBar='true'/>
 
               <div className='characteristic-container'>
                 <p className='tiny-font'>{characteristicSelection[characteristic]['1']}</p>
