@@ -22,7 +22,8 @@ const ProductsOverview = (props) => {
   }, [props.currentStyles])
 
   return (
-    <div className='products-overview-container'>
+    <div
+    id="productOverview-link" className='products-overview-container'>
 
       <Grid>
         <ImageGallery
