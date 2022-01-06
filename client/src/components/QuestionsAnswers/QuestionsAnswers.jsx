@@ -66,7 +66,7 @@ class QuestionsAnswers extends React.Component {
 
   render() {
     return (
-      <div id="qa-link" className='questions-answers'>
+      <div className='questions-answers'>
 
         <Search />
         <QuestionsList questions={this.state.renderedQuestions} />
