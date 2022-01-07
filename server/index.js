@@ -3,9 +3,9 @@ const app = express()
 const port = 3000
 const axios = require('axios')
 const path = require('path')
-
+const compression = require('compression')
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
-
+app.use(compression())
 app.use(express.json())
 app.use(express.static("client/public"));
 
