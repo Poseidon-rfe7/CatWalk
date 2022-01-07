@@ -6,7 +6,8 @@ import RelatedProducts from "./RelatedProducts/RelatedProducts.jsx";
 import FiveStar from "./FiveStar.jsx";
 import MenuBar from "./MenuBar.jsx";
 import ReturnToTop from "./returnToTop.jsx";
-import FooterBar from "./FooterBar.jsx"
+import FooterBar from "./FooterBar.jsx";
+import ls from "local-storage";
 
 class App extends React.Component {
   constructor(props) {
@@ -35,33 +36,30 @@ class App extends React.Component {
     this.recordClicks = this.recordClicks.bind(this);
   }
 
-  recordClicks (e) {
-    var clickEvent = {}
-    clickEvent.element = e.target;
-    clickEvent.time = new Date()
-    var mod = e.target.closest('.module-parent');
-    var logModule;
-    if ( mod !== null){
-      var name = mod.className
-      if (name.includes('questions')){
-        logModule = 'Questions and Answers'
-      } else if (name.includes('related')){
-        logModule = 'Related Products'
-      } else if (name.includes('products-overview')){
-        logModule = 'Product Overview'
-      }else if (name.includes('ratings')){
-        logModule = 'Ratings and Reviews'
-      } else {
-        logModule = 'App container'
-      }
-    }
-    clickEvent.module = logModule
-
-    console.log(clickEvent)
-    //get eventhistory from localstorage
-    //add to it and put it back
-    
-
+  recordClicks(e) {
+    // var events = ls.get("logEvents") || [];
+    // var clickEvent = {};
+    // clickEvent.element = e.target;
+    // clickEvent.time = new Date().toString().substring(0, 25);
+    // var mod = e.target.closest(".module-parent");
+    // var logModule;
+    // if (mod !== null) {
+    //   var name = mod.className;
+    //   if (name.includes("questions")) {
+    //     logModule = "Questions and Answers";
+    //   } else if (name.includes("related")) {
+    //     logModule = "Related Products";
+    //   } else if (name.includes("products-overview")) {
+    //     logModule = "Product Overview";
+    //   } else if (name.includes("ratings")) {
+    //     logModule = "Ratings and Reviews";
+    //   } else {
+    //     logModule = "App container";
+    //   }
+    // }
+    // clickEvent.module = logModule;
+    // events.push(clickEvent);
+    // ls("logEvents", events);
   }
 
   async handleChangeCurrentProduct(id) {
@@ -177,7 +175,7 @@ class App extends React.Component {
 
   render() {
     return (
-      < div onClick={this.recordClicks}>
+      <div onClick={this.recordClicks}>
         <MenuBar />
         <div className="app-container">
           <ProductsOverview
@@ -195,13 +193,15 @@ class App extends React.Component {
             relatedProductsIds={this.state.currentRelatedProductsIds}
             changeProducts={this.handleChangeCurrentProduct}
           />
-          <h3 id="qa-link" className="reset-margins qa-header ">QUESTIONS & ANSWERS</h3>
+          <h3 id="qa-link" className="reset-margins qa-header ">
+            QUESTIONS & ANSWERS
+          </h3>
 
           <QuestionsAnswers currentProduct={this.state.currentProduct} />
           <RatingsReviews currentProduct={this.state.currentProduct} />
         </div>
-          <FooterBar/>
-          <ReturnToTop/>
+        <FooterBar />
+        <ReturnToTop />
       </div>
     );
   }
