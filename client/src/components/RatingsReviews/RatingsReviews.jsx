@@ -201,7 +201,7 @@ class RatingsReviews extends React.Component {
             {/* list items */}
             <div id="ratings-reviews-list-items">
 
-              <div>
+              <div className={this.state.modifiedReviews.length !== 0 ? 'showEl' : 'hideEl'}>
                 <SortOptions sortChangeHandler={this.sortChangeHandler}/>
               </div>
 
