@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Search from './Search.jsx';
 import QuestionsList from './QuestionsList.jsx';
+import AskQuestionsModal from './AskQuestionsModal.jsx';
 
 class QuestionsAnswers extends React.Component {
   constructor(props) {
@@ -10,23 +11,21 @@ class QuestionsAnswers extends React.Component {
       currentProduct: { id: 0 },
       allQuestions: ['placeholder'],
       renderedQuestions: [],
-      count: 1,
       questionsToRender: 2,
       showHideMoreQuestions: true
     };
 
-    this.handleMoreQuestionsClick.bind(this);
+    this.handleMoreQuestionsClick = this.handleMoreQuestionsClick.bind(this);
+    this.handleAddQuestionClick = this.handleAddQuestionClick.bind(this);
+    this.renderMoreQuestions = this.renderMoreQuestions.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
     let sameProduct = prevState.currentProduct.id === this.state.currentProduct.id;
     let sameNumOfQuestions = prevState.questionsToRender === this.state.questionsToRender;
-    // console.log(prevState.currentProduct);
 
     if (!sameProduct) {
       this.setState({count: 1});
-      this.getQuestions();
-    } else if (!sameNumOfQuestions) {
       this.getQuestions();
     }
   };
@@ -41,27 +40,40 @@ class QuestionsAnswers extends React.Component {
   };
 
   getQuestions() {
-    axios.get(`/api/qa/questions/?product_id=${this.state.currentProduct.id}&count=${this.state.count}`)
+    axios.get(`/api/qa/questions/?product_id=${this.state.currentProduct.id}&count=500`)
       .then((response) => {
-        this.setState({ renderedQuestions: response.data.results });
-        return response.data.results[response.data.results.length -1]
+        this.setState({ allQuestions: response.data.results });
       })
-      .then((lastQuestion) => {
-        if (this.state.renderedQuestions.length !== this.state.questionsToRender) {
-          if (this.state.count > 5 && this.state.renderedQuestions.length <= 1){
-            return
-          }
-          let newCount = this.state.count + 1;
-          this.setState({count: newCount});
-          this.getQuestions();
-        }
-      })
+      .then(() => this.renderMoreQuestions())
       .catch(err => console.log(err));
   };
 
+  renderMoreQuestions() {
+    let tempQuestionHolder = [];
+
+    for (let i = 0; i < this.state.questionsToRender; i++) {
+      tempQuestionHolder.push(this.state.allQuestions[i]);
+    }
+
+    this.setState({renderedQuestions: tempQuestionHolder})
+  }
+
   handleMoreQuestionsClick() {
-    let newQuestionsAmount = this.state.questionsToRender + 2;
+    let newQuestionsAmount;
+    if (this.state.allQuestions.length - this.state.renderedQuestions.length > 1) {
+      newQuestionsAmount = this.state.questionsToRender + 2;
+    } else if (this.state.allQuestions.length - this.state.renderedQuestions.length <= 1) {
+      newQuestionsAmount = this.state.questionsToRender + 1;
+      this.setState({showHideMoreQuestions: false});
+    }
     this.setState({questionsToRender: newQuestionsAmount});
+    this.renderMoreQuestions();
+  }
+
+  handleAddQuestionClick() {
+    let questionModal = document.getElementById('question-modal');
+    questionModal.classList.remove('modalOff-form')
+    questionModal.classList.add('modalOn-form')
   }
 
   render() {
@@ -69,10 +81,11 @@ class QuestionsAnswers extends React.Component {
       <div className='questions-answers module-parent'>
 
         <Search />
-        <QuestionsList questions={this.state.renderedQuestions} />
+        <QuestionsList questions={this.state.renderedQuestions} productName={this.state.currentProduct.name}/>
+        <AskQuestionsModal currentProduct={this.state.currentProduct}/>
         {this.state.showHideMoreQuestions && <button className='qa-button more-questions'
-        onClick={this.handleMoreQuestionsClick.bind(this)}>More Answered Questions</button>}
-        <button className='qa-button more-questions'>Add a Question +</button>
+        onClick={this.handleMoreQuestionsClick}>More Answered Questions</button>}
+        <button className='qa-button more-questions' onClick={this.handleAddQuestionClick}>Add a Question +</button>
       </div>
     )
   };

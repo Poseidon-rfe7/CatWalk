@@ -948,7 +948,7 @@ form textarea {
   margin: 15px auto 50px 80px;
   font-family: Helvetica, sans-serif;
   font-size: 15px;
-
+  overflow: hidden;
 }
 
 .qa-helpful {
@@ -1003,6 +1003,11 @@ form textarea {
   float: right;
 }
 
+#qa-list {
+  max-height: 800px;
+  overflow-y: scroll;
+}
+
 /* buttons */
 .qa-button:hover {
   cursor: pointer;
@@ -1025,6 +1030,40 @@ form textarea {
   border-width: 1px;
   margin-right: 10px;
   padding: 10px;
+}
+
+.load-answers {
+  font-size: 10px;
+}
+
+/* Modals */
+.askQuestion-form {
+  margin: auto;
+  width: 550px;
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+.username-email {
+  margin-top: 10px;
+}
+
+.form-subtext {
+  margin-top: 3px;
+  font-size: 10px;
+  color: red;
+}
+
+.qa-textarea {
+  margin-top: 5px;
+  width: 92%;
+  height: 75px;
+}
+
+.modal-button {
+  margin-top: 5px;
+  margin-right: 5px;
 }
 
 /*

@@ -1,5 +1,6 @@
 import React from 'react';
 import AnswersList from './AnswersList.jsx';
+import AddAnswerModal from './AddAnswerModal.jsx';
 import axios from 'axios';
 
 let source;
@@ -13,6 +14,8 @@ class Question extends React.Component {
     }
 
     source = axios.CancelToken.source();
+    this.handleIsHelpfulClick = this.handleIsHelpfulClick.bind(this);
+    this.handleAddAnswerClick = this.handleAddAnswerClick.bind(this);
   }
 
   componentDidMount() {
@@ -43,6 +46,21 @@ class Question extends React.Component {
     this.setState({count: this.state.count + 2});
   }
 
+  handleIsHelpfulClick() {
+    axios.put(`/api/qa/questions/${this.props.question.question_id}/helpful`)
+      .then(() => {
+        document.getElementById('question-helpful').disabled = true;
+        console.log('It worked!')
+      })
+      .catch(err => console.log(err));
+  }
+
+  handleAddAnswerClick() {
+    let answerModal = document.getElementById('answer-modal');
+    answerModal.classList.remove('modalOff-form')
+    answerModal.classList.add('modalOn-form')
+  }
+
   componentWillUnmount() {
     if (source) {
       source.cancel("call canceled");
@@ -57,13 +75,14 @@ class Question extends React.Component {
           Q: {this.props.question.question_body}
           <span className='qa-helpful q-helpful'>
             Helpful?
-            <button className='qa-button helpful-button'>Yes ({this.props.question.question_helpfulness})</button>
+            <button id='question-helpful' className='qa-button helpful-button' onClick={this.handleIsHelpfulClick}>Yes ({this.props.question.question_helpfulness})</button>
             |
-            <button className='qa-button helpful-button'> Add Answer</button>
+            <button className='qa-button helpful-button' onClick={this.handleAddAnswerClick}> Add Answer</button>
+            <AddAnswerModal currentQuestion={this.props.question.question_id} productName={this.props.productName} />
           </span>
         </div>
         {this.state.answers.length > 0 && <AnswersList answers={this.state.answers} />}
-        <button className='qa-button' onClick={this.loadMoreAnswers.bind(this)}>Load More Answers</button>
+        <button className='qa-button load-answers' onClick={this.loadMoreAnswers.bind(this)}>Load More Answers</button>
       </div>
     )
   }
