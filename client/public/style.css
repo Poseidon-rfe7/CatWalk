@@ -1299,6 +1299,7 @@ Grid Container
   list-style: none;
   margin-top: 10px;
   padding: 0;
+
 }
 
 .gallery_thumbnailsUl li {
@@ -1307,7 +1308,8 @@ Grid Container
   margin-left: 15px;
   margin-top: 5px;
   cursor: pointer;
-  
+
+
 }
 
 .gallery_thumbnailsUl li img {
@@ -1319,12 +1321,14 @@ Grid Container
   display: inline-block;
   max-width: 99%;
   min-width: 20%;
+
 }
 
 .galleryStyle{
 border-radius: 5px;
 max-width: 10%;
 max-height: 10%;
+
 }
 
 #mainImg{
@@ -1431,7 +1435,7 @@ max-height: 10%;
 .modal-box .user-box input:valid ~ label {
   top: -20px;
   left: 0;
-  color: #03e9f4;
+  color:red;
   font-size: 12px;
 }
 
@@ -1439,7 +1443,7 @@ max-height: 10%;
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  color: #03e9f4;
+  color: red;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
@@ -1449,13 +1453,13 @@ max-height: 10%;
 }
 
 .modal-box a:hover {
-  background: #5909a3;
+  background: black;
   color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4,
-              0 0 25px #03e9f4,
-              0 0 50px #03e9f4,
-              0 0 100px #03e9f4;
+  box-shadow: 0 0 5px red,
+              0 0 25px red,
+              0 0 50px red,
+              0 0 100px red;
 }
 
 .modal-box a span {

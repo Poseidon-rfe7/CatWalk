@@ -28,7 +28,7 @@ export default function Modal({ open, children, onClose }) {
   return ReactDom.createPortal(
     <>
 <div class="modal-box">
-  <h2 style={{color: 'aqua'}}>Confirm Selections</h2>
+  <h2 style={{color: 'silver'}}>Confirm Selections</h2>
   {children}
   <form>
     <a
