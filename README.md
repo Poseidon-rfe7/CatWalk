@@ -37,6 +37,7 @@ Questions and Answers:
 
 Ratings and Reviews:
 
+![ratingsReviews](https://user-images.githubusercontent.com/86323698/148569622-defec454-672f-4e78-a270-19ee1f2101f4.gif)
 
 ## Links
 
