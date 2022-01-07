@@ -13,10 +13,13 @@ class QuestionsAnswers extends React.Component {
       renderedQuestions: [],
       count: 1,
       questionsToRender: 2,
-      showHideMoreQuestions: true
+      showHideMoreQuestions: true,
+      showHideAskQuestion: false,
+      showHideAddAnswer: false
     };
 
-    this.handleMoreQuestionsClick.bind(this);
+    this.handleMoreQuestionsClick = this.handleMoreQuestionsClick.bind(this);
+    this.handleAddQuestionClick = this.handleAddQuestionClick.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -65,16 +68,21 @@ class QuestionsAnswers extends React.Component {
     this.setState({questionsToRender: newQuestionsAmount});
   }
 
+  handleAddQuestionClick() {
+    let questionModal = document.getElementById('question-modal');
+    questionModal.classList.remove('modalOff-form')
+    questionModal.classList.add('modalOn-form')
+  }
+
   render() {
     return (
       <div id="qa-link" className='questions-answers'>
-
         <Search />
         <QuestionsList questions={this.state.renderedQuestions} />
         <AskQuestionsModal currentProduct={this.state.currentProduct}/>
         {this.state.showHideMoreQuestions && <button className='qa-button more-questions'
-        onClick={this.handleMoreQuestionsClick.bind(this)}>More Answered Questions</button>}
-        <button className='qa-button more-questions'>Add a Question +</button>
+        onClick={this.handleMoreQuestionsClick}>More Answered Questions</button>}
+        <button className='qa-button more-questions' onClick={this.handleAddQuestionClick}>Add a Question +</button>
       </div>
     )
   };
