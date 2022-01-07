@@ -37,7 +37,7 @@ function IndividualReviewTile(props) {
           <FiveStar rating={props.review.rating}/>
         </div>
         <div className="individual-review-reviewer-date-container">
-          <p>{`${props.review.reviewer_name}, ${month} ${day}, ${year}`}</p>
+          <p><span className='username-checkmark'>&#10003;</span>{`${props.review.reviewer_name}, ${month} ${day}, ${year}`}</p>
         </div>
       </div>
       <div>

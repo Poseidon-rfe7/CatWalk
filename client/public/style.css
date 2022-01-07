@@ -81,7 +81,6 @@ body {
  }
  #return-button:pointer{
    cursor: url("http://clipart-library.com/images/rTnrpap6c.png"), alias;
-
  }
 
 /*STARS*/
@@ -565,6 +564,11 @@ td {
   cursor: pointer;
   text-decoration: underline;
 
+}
+
+.star-underline {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .helpful-container {
