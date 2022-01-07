@@ -25,6 +25,7 @@ after any changes you must run `npm run react-dev`
 this will compile and build the code
 
 ## Features
+Menu and home button: We include a menubar at the top with quick links to the specific modules as well as a button at the bottom right present at all times that will bring you back to the top of the app.
 
 Product overview component: where you can view your currently selected item of choice, see all of its optional styles, photos of each style, information on the product as well as a quick rating and the price as well as a selection for sizes and the ability to add the selected item with your configuration to the cart.
 
