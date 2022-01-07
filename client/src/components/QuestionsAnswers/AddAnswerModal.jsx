@@ -1,21 +1,23 @@
 import React from 'react';
 import axios from 'axios';
 
-class AskQuestionsModal extends React.Component {
+class AddAnswerModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
       nickname: '',
-      question: ''
+      answer: '',
+      photots: []
     };
 
-    this.handleCancelClick = this.handleCancelClick.bind(this);
-    this.handleSubmitClick = this.handleSubmitClick.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleNicknameChange = this.handleNicknameChange.bind(this);
-    this.handleQuestionChange = this.handleQuestionChange.bind(this);
+    this.handleAnswerChange = this.handleAnswerChange.bind(this);
+    this.handleSubmitClick = this.handleSubmitClick.bind(this);
+    this.handleCancelClick = this.handleCancelClick.bind(this);
     this.validateEmail = this.validateEmail.bind(this);
+    this.resetForm = this.resetForm.bind(this);
   }
 
   handleEmailChange(event) {
@@ -26,45 +28,45 @@ class AskQuestionsModal extends React.Component {
     this.setState({ nickname: event.target.value });
   }
 
-  handleQuestionChange(event) {
-    this.setState({ question: event.target.value });
+  handleAnswerChange(event) {
+    this.setState({ answer: event.target.value });
   }
 
   handleSubmitClick(event) {
     event.preventDefault();
     let validEmail = this.validateEmail(this.state.email);
     let validNickname = this.state.email !== this.state.nicmname && this.state.nickname.length > 0;
-    let validQuestion = this.state.question.length > 0;
+    let validAnswer = this.state.answer.length > 0;
 
-    if (validEmail && validNickname && validQuestion) {
+    if (validEmail && validNickname && validAnswer) {
       this.resetForm();
       let params = {
-        body: this.state.question,
+        body: this.state.answer,
         name: this.state.nickname,
         email: this.state.email,
-        product_id: this.props.currentProduct.id
+        photos: this.state.photos
       };
 
-      axios.post('/api/qa/questions', params)
+      axios.post(`/api/qa/questions/${this.props.currentQuestion}/answers`, params)
         .then((result) => {
           console.log('Success!');
         })
         .catch(err => console.log(err));
+
     } else if (!validEmail) {
       alert('Invalid email address');
     } else if (!validNickname) {
       alert('You must enter the following: Nickname');
-    } else if (!validQuestion) {
-      alert('You must enter the following: Question');
+    } else if (!validAnswer) {
+      alert('You must enter the following: Answer');
     } else {
       alert('Invalid input(s)')
     }
-
   }
 
   handleCancelClick() {
     this.resetForm();
-    let modal = document.getElementById('question-modal');
+    let modal = document.getElementById('answer-modal');
     modal.classList.remove('modalOn-form')
     modal.classList.add('modalOff-form')
   }
@@ -83,16 +85,17 @@ class AskQuestionsModal extends React.Component {
     this.setState({
       email: '',
       nickname: '',
-      question: ''
+      answer: '',
+      photos: []
     });
   }
 
   render() {
     return (
-      <div id='question-modal' className='modal-form modalOff-form'>
+      <div id='answer-modal' className='modal-form modalOff-form'>
         <div className='askQuestion-form'>
-          <h1 className='reset-margins'>Ask Your Question</h1>
-          <h3 className='reset-margins'>About the {this.props.currentProduct.name}</h3>
+          <h1 className='reset-margins'>Submit your answer</h1>
+          <h3 className='reset-margins'>{this.props.productName}: {this.props.currentQuestion.question_body}</h3>
           <form>
             <div className='username-email'>
               <label htmlFor='email-input'>Email: </label>
@@ -104,8 +107,8 @@ class AskQuestionsModal extends React.Component {
               <input id='nickname-input' type='text' placeholder='Example: jackson11!' onChange={this.handleNicknameChange} value={this.state.nickname} />
               <p className='form-subtext'>For privacy reasons, do not use your full name or email address.</p>
             </div>
-            <label htmlFor='question-input'>Your question:</label><br />
-            <textarea id='question-input' maxLength='1000' placeholder='Ask your question...' className='qa-textarea' onChange={this.handleQuestionChange} value={this.state.question} /><br />
+            <label htmlFor='answer-input'>Your answer:</label><br />
+            <textarea id='answer-input' maxLength='1000' placeholder='Ask your answer...' className='qa-textarea' onChange={this.handleAnswerChange} value={this.state.answer} /><br />
             <input type='submit' value='Submit' className='modal-button' onClick={this.handleSubmitClick} />
             <input type='button' value='Cancel' onClick={this.handleCancelClick} className='modal-button' />
           </form>
@@ -115,4 +118,4 @@ class AskQuestionsModal extends React.Component {
   }
 }
 
-export default AskQuestionsModal;
+export default AddAnswerModal;

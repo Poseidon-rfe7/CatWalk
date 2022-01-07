@@ -23,12 +23,9 @@ class QuestionsAnswers extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     let sameProduct = prevState.currentProduct.id === this.state.currentProduct.id;
     let sameNumOfQuestions = prevState.questionsToRender === this.state.questionsToRender;
-    // console.log(prevState.currentProduct);
 
     if (!sameProduct) {
       this.setState({count: 1});
-      this.getQuestions();
-    } else if (!sameNumOfQuestions) {
       this.getQuestions();
     }
   };
@@ -42,30 +39,10 @@ class QuestionsAnswers extends React.Component {
     return null;
   };
 
-  // getQuestions() {
-  //   axios.get(`/api/qa/questions/?product_id=${this.state.currentProduct.id}&count=${this.state.count}`)
-  //     .then((response) => {
-  //       this.setState({ renderedQuestions: response.data.results });
-  //       return response.data.results[response.data.results.length -1]
-  //     })
-  //     .then((lastQuestion) => {
-  //       if (this.state.renderedQuestions.length !== this.state.questionsToRender) {
-  //         if (this.state.count > 5 && this.state.renderedQuestions.length <= 1){
-  //           return
-  //         }
-  //         let newCount = this.state.count + 1;
-  //         this.setState({count: newCount});
-  //         this.getQuestions();
-  //       }
-  //     })
-  //     .catch(err => console.log(err));
-  // };
-
   getQuestions() {
     axios.get(`/api/qa/questions/?product_id=${this.state.currentProduct.id}&count=500`)
       .then((response) => {
         this.setState({ allQuestions: response.data.results });
-        console.log(this.state.allQuestions);
       })
       .then(() => this.renderMoreQuestions())
       .catch(err => console.log(err));
@@ -85,7 +62,7 @@ class QuestionsAnswers extends React.Component {
     let newQuestionsAmount;
     if (this.state.allQuestions.length - this.state.renderedQuestions.length > 1) {
       newQuestionsAmount = this.state.questionsToRender + 2;
-    } else if (this.state.allQuestions.length - this.state.renderedQuestions.length === 1) {
+    } else if (this.state.allQuestions.length - this.state.renderedQuestions.length <= 1) {
       newQuestionsAmount = this.state.questionsToRender + 1;
       this.setState({showHideMoreQuestions: false});
     }
@@ -103,7 +80,7 @@ class QuestionsAnswers extends React.Component {
     return (
       <div id="qa-link" className='questions-answers'>
         <Search />
-        <QuestionsList questions={this.state.renderedQuestions} />
+        <QuestionsList questions={this.state.renderedQuestions} productName={this.state.currentProduct.name}/>
         <AskQuestionsModal currentProduct={this.state.currentProduct}/>
         {this.state.showHideMoreQuestions && <button className='qa-button more-questions'
         onClick={this.handleMoreQuestionsClick}>More Answered Questions</button>}
