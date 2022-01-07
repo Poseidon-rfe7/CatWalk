@@ -23,6 +23,7 @@ class RatingsReviews extends React.Component {
       currentReviews: [],
       modifiedReviews: [],
       moreReviewsButtonStatus: 'showEl',
+      filters: []
     };
     this.sortChangeHandler = this.sortChangeHandler.bind(this);
     this.moreReviewsClickHandler = this.moreReviewsClickHandler.bind(this);
@@ -31,6 +32,7 @@ class RatingsReviews extends React.Component {
     this.getAllProductRelevantReviews = this.getAllProductRelevantReviews.bind(this)
     this.getAllProductHelpfulReviews = this.getAllProductHelpfulReviews.bind(this)
     this.getAllProductNewestReviews = this.getAllProductNewestReviews.bind(this)
+    this.starFilterClickHandler = this.starFilterClickHandler.bind(this)
 
   }
 
@@ -109,7 +111,7 @@ class RatingsReviews extends React.Component {
 
   getInitialAllProductRelevantReviews(count) {
     axios.get('/api/reviews/', {params: {product_id: this.state.currentProduct.id, sort: 'relevant', count: count}})
-    .then(result => this.setState({modifiedReviews: result.data.results.slice(0, result.data.results.length - 1)}))
+    .then(result => this.setState({modifiedReviews: result.data.results.slice(0, result.data.results.length - 1), filters: []}))
     .catch(err => console.log('Error:', err));
   };
 
@@ -153,10 +155,11 @@ class RatingsReviews extends React.Component {
         this.getAllProductNewestReviews(newCount);
       }
     }).then(() => {
-      let newLength = this.state.allProductRelevantReviews.length;
       let oldLength = this.state.modifiedReviews.length;
+      let btnStatus = this.state.moreReviewsButtonStatus;
       // console.log('>>>>', oldLength, this.state.reviewCount)
     })
+
   }
 
   helpfulClickHandler(event) {
@@ -179,6 +182,19 @@ class RatingsReviews extends React.Component {
     modal.classList.add('modalOn-form')
   }
 
+  starFilterClickHandler(event) {
+    let newFilter = event.target.innerText.substring(0, 1);
+    let copy = this.state.filters;
+
+    if (copy.includes(newFilter)) {
+      let newArr = this.state.filters.filter((filter) => filter !== newFilter);
+      this.setState({filters: newArr})
+    } else {
+      copy.push(newFilter)
+      this.setState({filters: copy})
+    }
+  }
+
   render() {
     return (
       <div id="ratings-reviews-main-container" className="ratings-review-event module-parent">
@@ -191,7 +207,7 @@ class RatingsReviews extends React.Component {
             {/* left sidebar */}
             <div id="ratings-reviews-sidebar">
               <div>
-                <RatingsBreakdown product={this.state.modifiedReviews} meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct}/>
+                <RatingsBreakdown product={this.state.modifiedReviews} meta={this.state.allProductReviewsMeta} currentProduct={this.state.currentProduct} starFilterClickHandler={this.starFilterClickHandler}/>
               </div>
               <div className="spacer"></div>
               <div>
@@ -206,7 +222,7 @@ class RatingsReviews extends React.Component {
               </div>
 
               <div id='review-list-scroll-wrapper'>
-                <ReviewList product={this.state.modifiedReviews} meta={this.state.allProductReviewsMeta} helpfulClickHandler={this.helpfulClickHandler}/>
+                <ReviewList product={this.state.modifiedReviews} meta={this.state.allProductReviewsMeta} helpfulClickHandler={this.helpfulClickHandler} filters={this.state.filters}/>
                 <IndividualReviewThumbnailModal />
               </div>
 
