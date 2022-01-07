@@ -45,7 +45,7 @@ const StyleSelector = (props) => {
           return <li key={`${i}  ${style}`}>
             <img
             src={style.photos[0].thumbnail_url}
-            className={'galleryThumbnail'}
+            className={'galleryThumbnail styleSelect'}
             id={JSON.stringify(style)}
             onClick={(e) => setProxyID(e.target.id)}/>
           </li>

@@ -28,31 +28,29 @@ const ImageGallery = (props) => {
   return (
     <div className='image-gallery-container'>
 
-      <div>
-        <figure className={'galleryFigure'}>
-          <img
-          src={url}
-          id={mainID}
-          />
-          <figcaption className={'styleCaption'}>{props.styleName}</figcaption>
-        </figure>
-      </div>
-
-
       <ul className={'gallery_thumbnailsUl'}>
         {thumbnails.map((thumbnail, i) => {
           return <li key={`${i}  ${thumbnail.thumbnail_url}`}>
             <img
             src={thumbnail.thumbnail_url}
-            className={'galleryThumbnail'}
+            className={'galleryThumbnail galleryStyle'}
             id={thumbnail.thumbnail_url}
             onClick={(e) => setProxyID(e.target.id)}/>
           </li>
         })}
       </ul>
+      <div>
+          <figcaption className={'styleCaption'}>{props.styleName}</figcaption>
+        <figure className={'galleryFigure'}>
+          <img
+          src={url}
+          id={mainID}
+          />
+        </figure>
+      </div>
 
 
-      <h2>Select a Picture!</h2>
+
     </div>
   )
 }

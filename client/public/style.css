@@ -1,87 +1,82 @@
-#app{
+#app {
   margin: 0;
-  width:100vw;
+  width: 100vw;
 }
 
-.app-container{
-
+.app-container {
   margin: 0 auto;
   width: 85vw;
   margin-bottom: 150px;
 }
 .menu-bar {
-
   display: flex;
-  background:black;
+  background: black;
   margin-bottom: 40px;
   color: white;
   max-height: 4.8vw;
   min-height: 3vh;
   /* align-items: flex-end; */
 }
-.menu-cat{
+.menu-cat {
   min-width: 20vw;
   font-size: 4vw;
-
 }
 
 #footer-bar {
   display: flex;
   height: 50px;
   margin-bottom: 0;
-  background: linear-gradient( 0.25turn, black, black, white);
+  background: linear-gradient(0.25turn, black, black, white);
   align-items: flex-end;
 }
 .tiny-text {
   font-size: 15px;
   color: white;
 }
-.POS{
+.POS {
   font-size: 20px;
 }
 
 body {
   margin: 0;
-  font-family: 'Vujahday Script', cursive;
+  font-family: "Vujahday Script", cursive;
   font-size: 30px;
   color: black;
 }
 
-#main-title{
+#main-title {
   margin: 0;
- }
+}
 
- .menu-link {
-   font-size: 2vw;
-   letter-spacing: 1px ;
- }
- .menu-link:hover{
-   color: red;
-   transform: translateY(10%);
- }
+.menu-link {
+  font-size: 2vw;
+  letter-spacing: 1px;
+}
+.menu-link:hover {
+  color: red;
+  transform: translateY(10%);
+}
 
+hr {
+  height: 8px;
+}
 
- hr{
-   height:8px;
+.whitespace {
+  width: 2vw;
+}
 
- }
-
- .whitespace{
-   width: 2vw;
- }
-
- #return-button{
-   position: fixed;
-   bottom: 0;
-   right: 0;
-   margin-right: 5px;
-   margin-bottom: 5px;
-   font-size: 50px;
-   transform: scaleX(-1);
- }
- #return-button:pointer{
-   cursor: url("http://clipart-library.com/images/rTnrpap6c.png"), alias;
- }
+#return-button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 50px;
+  transform: scaleX(-1);
+}
+#return-button:pointer {
+  cursor: url("http://clipart-library.com/images/rTnrpap6c.png"), alias;
+}
 
 /*STARS*/
 .stars-outer {
@@ -151,7 +146,6 @@ body {
 /* slider */
 .related-card-deck,
 .your-outfit-deck {
-
   width: auto;
   white-space: nowrap;
   overflow-x: scroll;
@@ -184,7 +178,7 @@ body {
   font-weight: bold;
 }
 
-.related-card{
+.related-card {
   position: relative;
 }
 
@@ -200,8 +194,7 @@ body {
 
 .deactive {
   margin-right: -80px;
-  height:290;
-
+  height: 290;
 }
 
 .product-card-contents,
@@ -213,7 +206,7 @@ body {
   letter-spacing: 1px;
 }
 .card-5star {
-  font-size:12px;
+  font-size: 12px;
 }
 
 .add-to-outfit-card {
@@ -225,7 +218,6 @@ body {
 
 .add-info {
   font-size: 26px;
-
 }
 
 .goLeft,
@@ -248,8 +240,7 @@ body {
   max-height: 300px;
   border-radius: 4px;
 }
-.active-pic{
-
+.active-pic {
   max-height: 300px;
 }
 
@@ -274,7 +265,6 @@ body {
 
 .placeholder {
   width: 15.63px;
-
 }
 
 #add-to-outfit-button {
@@ -340,7 +330,6 @@ td {
   font-size: 15px;
   font-style: italic;
   font-weight: 900;
-
 }
 
 #child-ratings-reviews {
@@ -353,7 +342,7 @@ td {
   max-width: 80%;
   min-width: 80%;
   margin: auto; */
-  width:100%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -367,9 +356,8 @@ td {
   justify-content: center;
   width: 90%;
   /* overflow: hidden; */
-  font-family:  Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-size: 12px;
-
 }
 
 #ratings-reviews-sidebar {
@@ -384,14 +372,14 @@ td {
   /* border: solid;
   border-color: grey;
   border-width: 1px; */
-  padding : 10px;
+  padding: 10px;
   overflow: hidden;
 }
 .tiny-font {
   font-size: 10px;
 }
-.spacer{
-  height:30px;
+.spacer {
+  height: 30px;
 }
 
 #ratings-reviews-list-items {
@@ -438,7 +426,6 @@ td {
 
 .individual-review-body-main-container {
   margin-top: 8px;
-
 }
 
 .individual-review-body-container p {
@@ -449,7 +436,6 @@ td {
   font-weight: bold;
   font-size: 14px;
   margin-top: 12px;
-
 }
 
 .individual-review-summary-container p {
@@ -563,7 +549,6 @@ td {
 .helpful:hover {
   cursor: pointer;
   text-decoration: underline;
-
 }
 
 .star-underline {
@@ -682,9 +667,9 @@ progress {
   width: 60%;
   margin: 0;
   margin-left: 0px; */
-  /* align-self: flex-start; */
+/* align-self: flex-start; */
 
-  /* background-color: rgb(226, 0, 196); */
+/* background-color: rgb(226, 0, 196); */
 /* } */
 
 .star-progress-bar-container-total-ratings {
@@ -695,15 +680,11 @@ progress {
 /* product breakdown */
 
 .product-progress-bar-container {
-
-
-
 }
 
-.characteristic-titles{
+.characteristic-titles {
   font-size: 16px;
   font-style: italic;
-
 }
 
 .product-progress-bar-container progress {
@@ -740,8 +721,8 @@ progress {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
 
 .modalOn-form {
@@ -797,12 +778,11 @@ input[type="file"] {
   justify-content: center;
 }
 
-
-#write-your-review-title{
+#write-your-review-title {
   margin-bottom: 5px;
 }
 
-#write-your-review-sub{
+#write-your-review-sub {
   margin: 0;
   margin-bottom: 15px;
   font-size: 12px !important;
@@ -813,16 +793,15 @@ input[type="file"] {
 }
 
 form textarea {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   border-radius: 3px;
 }
 
 .input-tag {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   border: 1px solid rgb(118, 118, 118) !important;
   border-radius: 3px;
 }
-
 
 /* Modal Content (Image) */
 .modal-content-form {
@@ -930,8 +909,6 @@ form textarea {
   color: #e4e5e9;
 }
 
-
-
 /* ///////// END RATINGS & REVIEWS ///////// */
 
 /* ============= Questions and Answers ============= */
@@ -957,9 +934,8 @@ form textarea {
 .questions-answers {
   width: 700px;
   margin: 15px auto 50px 80px;
-  font-family:  Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-size: 15px;
-
 }
 
 .qa-helpful {
@@ -1093,7 +1069,6 @@ form textarea {
   height: 20px;
 }
 
-
 /* Dropdown Menu */
 
 .dropdown {
@@ -1126,7 +1101,6 @@ form textarea {
   margin-right: 0.5rem;
 }
 
-
 .menu-item .icon-button:hover {
   filter: none;
 }
@@ -1147,7 +1121,7 @@ ul {
 
 a {
   color: var(--text-color);
-  text-decoration: none;;
+  text-decoration: none;
 }
 
 :root {
@@ -1208,36 +1182,36 @@ Grid Container
   font-size: 15px;
 }
 
-.product-info-price{
+.product-info-price {
   font-size: 2vw;
 }
-.product-info-description{
+.product-info-description {
   font-weight: 900;
   font-size: 2vw;
   padding: 1vw;
 }
-.product-info-name{
+.product-info-name {
   margin: 5px;
   font-weight: 900;
   font-size: 4vw;
   padding: 1vw;
 }
 
-.product-info-title{
-  margin:5px;
+.product-info-title {
+  margin: 5px;
   font-size: 1.2vw;
 }
 
-.product-info-cat{
-  margin:0;
+.product-info-cat {
+  margin: 0;
   font-size: 1.2vw;
 }
 
-.product-info-title{
-  margin:5px;
+.product-info-title {
+  margin: 5px;
   font-size: 1.2vw;
 }
-.fivestar-product{
+.fivestar-product {
   margin-bottom: px;
 }
 
@@ -1248,35 +1222,53 @@ Grid Container
 /* //////////////////////////////////////////////////////////////////
 /* //////////////////////////////////////////////////////////////////
 /* //////////////////////////////////////////////////////////////////*/
+.image-gallery-container {
+  display: grid;
+  grid-template-columns:  20% 80% ;
+  align-items: center;
+}
+.galleryFigure {
 
-.galleryFigure{
-  max-width: 800px;
-  margin: 0 auto 40px;
-  border: 2px solid purple;
+  margin: 0 ;
 }
-.galleryFigure img{
+.galleryFigure img {
+
   display: inline;
-  max-width: 50%;
-  min-width: 10%;
-}
-.gallery_thumbnailsUl{
-  list-style: none;
+  min-width: 20%;
+  max-width:90%;
   margin: 0;
+  margin-top: 10px;
+}
+.gallery_thumbnailsUl {
+
+  max-width: 80%;
+  list-style: none;
+  margin-top: 10px;
   padding: 0;
 }
-.gallery_thumbnailsUl li{
+.gallery_thumbnailsUl li {
+
   display: inline-block;
-  border: 1px solid aqua;
-  width: 100px;
-  margin: 0 5px;
+  width: 7vw;
+  margin-left: 15px;
+  margin-top: 5px;
   cursor: pointer;
 }
-.gallery_thumbnailsUl li img{
+.gallery_thumbnailsUl li img {
   display: inline-block;
-  max-width: 99%;
+  max-width: 100%;
   min-width: 20%;
 }
+.galleryStyle{
+border-radius: 5px;
+max-width: 10%;
+max-height: 10%;
 
+}
+
+#mainImg{
+  max-width: 80%;
+}
 /* //////////////////////////////////////////////////////////////////
 /* //////////////////////////////////////////////////////////////////
 /* //////////////////////////////////////////////////////////////////
@@ -1284,3 +1276,10 @@ Grid Container
 /* //////////////////////////////////////////////////////////////////
 /* //////////////////////////////////////////////////////////////////
 /* //////////////////////////////////////////////////////////////////*/
+
+.styleSelect{
+  border-radius: 30px;
+  margin: 0;
+  width: 4vw
+}
+
