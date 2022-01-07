@@ -27,18 +27,23 @@ export default function Modal({ open, children, onClose }) {
 
   return ReactDom.createPortal(
     <>
-      <div style={OVERLAY_STYLES} />
-
-      <div style={MODAL_STYLES}>
-
-        <button
-        onClick={onClose}>
-          Close Modal
-          </button>
-
-        {children}
-      </div>
+<div class="modal-box">
+  <h2 style={{color: 'aqua'}}>Confirm Selections</h2>
+  {children}
+  <form>
+    <a
+    href="#"
+    onClick={onClose}>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      AddToCart
+    </a>
+  </form>
+</div>
     </>,
     document.getElementById('addToCartModal')
   )
 }
+

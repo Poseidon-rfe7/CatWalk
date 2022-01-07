@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import ExpandedViewModal from './ExpandedViewModal.jsx';
 
 const ImageGallery = (props) => {
 
@@ -6,6 +7,7 @@ const ImageGallery = (props) => {
   const [thumbnails, setThumbnails] = useState([]);
   const [mainID, setMainID] = useState('mainImg');
   const [proxyID, setProxyID] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
    useEffect(() => {
     if (props.currentPhotos) {
@@ -39,14 +41,23 @@ const ImageGallery = (props) => {
           </li>
         })}
       </ul>
+
       <div>
-          <figcaption className={'styleCaption'}>{props.styleName}</figcaption>
+        <figcaption className={'styleCaption'}>{props.styleName}</figcaption>
         <figure className={'galleryFigure'}>
           <img
-          src={url}
-          id={mainID}
+            src={url}
+            id={mainID}
+            onClick={setIsOpen}
           />
         </figure>
+        <ExpandedViewModal open={isOpen} onClose={() => setIsOpen(false)}>
+          <h3 className={'modalConfirmation'}>
+          <img
+            src={url}
+          />
+            </h3>
+        </ExpandedViewModal>
       </div>
 
 

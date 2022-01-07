@@ -29,23 +29,14 @@ const StyleSelector = (props) => {
 
     <div className='style-selector-container'>
 
-      <div>
-        <figure className={'galleryFigure'}>
-          <img
-          src={url}
-          id={selected}
-          />
-          <figcaption className={'styleCaption'}>{props.styleName}</figcaption>
-        </figure>
-      </div>
+        <h1>Select a Style!</h1>
 
-
-      <ul className={'gallery_thumbnailsUl'}>
+      <ul className={'style_thumbnailsUl'}>
         {props.styles.map((style, i) => {
           return <li key={`${i}  ${style}`}>
             <img
             src={style.photos[0].thumbnail_url}
-            className={'galleryThumbnail styleSelect'}
+            className={'styleThumbnail styleSelect'}
             id={JSON.stringify(style)}
             onClick={(e) => setProxyID(e.target.id)}/>
           </li>
@@ -53,7 +44,6 @@ const StyleSelector = (props) => {
       </ul>
 
 
-      <h2>Select a Style!</h2>
     </div>
 
   )

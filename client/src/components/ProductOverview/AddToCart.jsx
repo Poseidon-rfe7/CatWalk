@@ -42,7 +42,11 @@ const AddToCart = (props) => {
         </NavBar>
 
         <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-          {`Confirm your size:${selection}, your style: ${props.style.name} and the price: ${props.style.original_price}` }
+          <h3 className={'modalConfirmation'}>
+            <p>{`Your size: ${selection}`}</p>
+            <p>{`Your Style: ${props.style.name}`}</p>
+            <p>{`The Price: ${props.style.original_price}`}</p>
+            </h3>
         </Modal>
 
 

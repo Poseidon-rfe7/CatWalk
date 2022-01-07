@@ -1075,9 +1075,7 @@ form textarea {
 /* <nav> */
 .navbar {
   height: var(--nav-size);
-  background-color: var(--bg);
   padding: 0 1rem;
-  border-bottom: var(--border);
 }
 
 /* <ul> */
@@ -1286,13 +1284,14 @@ Grid Container
   margin: 0 ;
 }
 .galleryFigure img {
-
+  border-radius: 10%;
   display: inline;
   min-width: 20%;
   max-width:80%;
   width: 400px;
   margin: 0;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .gallery_thumbnailsUl {
@@ -1310,8 +1309,14 @@ Grid Container
 }
 
 .gallery_thumbnailsUl li img {
+  background-color: rgb(73, 53, 110);
+  border-radius: 50%;
+  padding: 5px;
+  margin: 2px;
+  align-items: center;
+  justify-content: center;
   display: inline-block;
-  max-width: 100%;
+  max-width: 99%;
   min-width: 20%;
 }
 
@@ -1338,3 +1343,202 @@ max-height: 10%;
   width: 4vw
 }
 
+.styleCaption{
+  font-size: 30px;
+  font-style: italic;
+  color: rgb(11, 87, 87);
+}
+
+.style_thumbnailsUl{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.style_thumbnailsUl li{
+  display: inline-block;
+  width: 100px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.style_thumbnailsUl li img{
+  background-color: rgb(70, 7, 70);
+  border-radius: 50%;
+  padding: 5px;
+  margin: 2px;
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+  max-width: 99%;
+  min-width: 20%;
+}
+
+/* //////////////////////////////////////////////////////////////////
+/* //////////////////////////////////////////////////////////////////
+/* //////////////////////////////////////////////////////////////////
+         Add to cart modal
+/* //////////////////////////////////////////////////////////////////
+/* //////////////////////////////////////////////////////////////////
+/* //////////////////////////////////////////////////////////////////*/
+
+.modal-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: black;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.modal-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.modal-box .user-box {
+  position: relative;
+}
+
+.modal-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.modal-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.modal-box .user-box input:focus ~ label,
+.modal-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.modal-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.modal-box a:hover {
+  background: #5909a3;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.modal-box a span {
+  position: absolute;
+  display: block;
+}
+
+.modal-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3507a0);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.modal-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #7d13bb);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.modal-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #8003f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.modal-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #9d09d8);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+.modalConfirmation{
+  font-style: normal;
+  color: white;
+  size: 10px;
+}

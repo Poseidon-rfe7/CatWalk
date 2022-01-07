@@ -7,17 +7,20 @@ const ProductInformation = (props) => {
   return (
 
     <div className='product-information-container'>
-      <div className='product-info-title'>Product Information</div>
+      <div className='product-info-title'>
+        <p className='product-info-name'>{props.currentProduct.name}</p>
+      </div>
 
 
 
-      <p className='product-info-name'>{props.currentProduct.name}</p>
-      <p className='product-info-cat'>{props.currentProduct.category}</p>
-      <div className='product-info-description'>{props.currentProduct.description}</div>
-      <p className='product-info-price'>{props.stylePrice}</p>
       <div className='fivestar-product'>
         <FiveStar rating={props.currentRatings} />
       </div>
+
+      <h2>{props.currentProduct.category}</h2>
+      <div className='product-info-description'>{props.currentProduct.description}</div>
+
+      <h2>{props.stylePrice}</h2>
     </div>
   )
 }
