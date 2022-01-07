@@ -42,7 +42,7 @@ Ratings and Reviews: This module allows viewing and submission of reviews for th
 4. Rating Breakdown
 5. Product Breakdown
 
-![ratingsReviews](https://user-images.githubusercontent.com/86323698/148569622-defec454-672f-4e78-a270-19ee1f2101f4.gif)
+![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
 
 ## Links
 
