@@ -135,8 +135,8 @@ class AddAReview extends React.Component {
       characteristics: this.state.characteristics,
     }
 
-    let radios = document.getElementsByClassName('characteristic-radios')
-    let inputs = document.getElementsByTagName('input')
+    let radios = document.getElementsByClassName('characteristic-radios');
+    let inputs = document.getElementsByTagName('input');
     let checked = 0;
     for (var i = 0; i < inputs.length; i++) {
       if(inputs[i].checked) {
@@ -147,7 +147,11 @@ class AddAReview extends React.Component {
     if (!this.state.summaryValid || !this.state.bodyValid || !this.state.nicknameValid || !this.state.emailValid || !this.state.rating || checked !== radios.length + 1) {
       alert('missing required')
     } else {
+      // this.formModalCloseClickHandler();
       this.resetForm();
+      let modal = document.getElementById('modal-form');
+      modal.classList.remove('modalOn-form')
+      modal.classList.add('modalOff-form')
 
       axios.post(`api/reviews`, params)
       .then((result) => {

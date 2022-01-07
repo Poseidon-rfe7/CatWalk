@@ -22,7 +22,7 @@ class IndividualReviewHelpfulness extends React.Component {
   render() {
     return (
       <div className='helpful-container'>
-        <p id={this.props.review.review_id} onClick={this.clickHandler} >Helpful? <span className='helpful'>Yes ({this.props.review.helpfulness})</span></p> <span> &nbsp;| Report</span>
+        <p id={this.props.review.review_id} onClick={this.clickHandler} >Helpful? <span className='helpful'>Yes ({this.props.review.helpfulness})</span></p> <span> &nbsp;| <span className='helpful'>Report</span></span>
       </div>
     )
   }
