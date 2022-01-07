@@ -532,6 +532,7 @@ td {
 
 .individual-review-main-container {
   border-bottom: 1px #ccc solid;
+  background-color: #f5f5f5;
 }
 
 .individual-review-recommend-main-container {
@@ -571,7 +572,7 @@ td {
 }
 
 .response-container {
-  background-color: #ebebeb !important;
+  background-color: #d3d3d3 !important;
   padding-top: 3px;
   padding-bottom: 3px;
 }
