@@ -478,6 +478,10 @@ td {
   margin-left: 10px;
 }
 
+.thumbnail-container img {
+  border-radius: 3px;
+}
+
 .thumbnail-container img:hover {
   opacity: 0.7;
 }
