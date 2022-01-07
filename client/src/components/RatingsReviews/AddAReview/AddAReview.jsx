@@ -21,8 +21,8 @@ class AddAReview extends React.Component {
       bodyValid: false,
       nicknameValid: false,
       emailValid: false,
-      uploads: []
-
+      uploads: [],
+      minimum: 'Minimum required characters left: 50'
     }
     this.starClickHandler = this.starClickHandler.bind(this);
     this.starMouseEnter = this.starMouseEnter.bind(this);
@@ -40,7 +40,7 @@ class AddAReview extends React.Component {
     this.resetForm = this.resetForm.bind(this);
     this.radioTracker = this.radioTracker.bind(this);
     this.getFile = this.getFile.bind(this);
-
+    this.minimumCharacterChangehandler = this.minimumCharacterChangehandler.bind(this)
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -88,6 +88,7 @@ class AddAReview extends React.Component {
     } else {
       this.setState({body: event.target.value, bodyValid: true})
     }
+    this.minimumCharacterChangehandler(text.length)
   }
 
   nicknameChangeHandler(event) {
@@ -119,6 +120,15 @@ class AddAReview extends React.Component {
   radioTracker(characteristic) {
     let current = this.state.radios
     this.setState({radios: {...current, [characteristic]: false}})
+  }
+
+  minimumCharacterChangehandler(chars) {
+    let currentLength = chars;
+    if (50 - currentLength <= 0) {
+      this.setState({minimum: 'Minimum reached'})
+    } else {
+      this.setState({minimum: `Minimum required characters left: ${50 - currentLength}`})
+    }
   }
 
   submitClickHandler(event) {
@@ -314,7 +324,7 @@ class AddAReview extends React.Component {
               <div className='row-inner-container'>
                 <label htmlFor="review-summary" className='row-inner-elements'>*Your Review</label>
                 <textarea name="review-summary" placeholder="Why did you like the product or not?" rows="6" minLength="50" maxLength="1000" value={this.state.body} onChange={this.bodyChangeHandler} />
-                <p className='row-inner-elements'>Minimum required characters left: {50 - this.state.body.length <= 0 ? 0 : 50 - this.state.body.length}</p>
+                <p className='row-inner-elements'>{this.state.minimum}</p>
               </div>
             </div>
           </div>
