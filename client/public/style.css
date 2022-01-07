@@ -921,6 +921,34 @@ progress {
   padding: 10px;
 }
 
+/* Modals */
+.askQuestion-form {
+  margin: auto;
+  width: 550px;
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+.username-email {
+  margin: 10px 0;
+}
+
+.username {
+  margin-left: 20px;
+}
+
+.qa-textarea {
+  margin-top: 5px;
+  width: 92%;
+  height: 75px;
+}
+
+.modal-button {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
 /*
 ///////////////////
  Products Overview
