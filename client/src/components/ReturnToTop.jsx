@@ -7,8 +7,9 @@ const ReturnToTop = () => {
       <i
         className=" returnToTop fas fa-cat"
         onClick={() => {
-          document.getElementById("app").scrollIntoView();
-        }}
+          window.scrollTo({top: 0, behavior: 'smooth'})
+
+      }}
       />
     </div>
   );

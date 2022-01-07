@@ -16,9 +16,11 @@
   margin-bottom: 40px;
   color: white;
   max-height: 4.8vw;
+  min-height: 3vh;
   /* align-items: flex-end; */
 }
 .menu-cat{
+  min-width: 20vw;
   font-size: 4vw;
 
 }
@@ -55,7 +57,7 @@ body {
  }
  .menu-link:hover{
    color: red;
-   font-size: 3vw;
+   transform: translateY(10%);
  }
 
 
@@ -78,8 +80,7 @@ body {
    transform: scaleX(-1);
  }
  #return-button:pointer{
-   cursor: url("http://clipart-library.com/images/rTnrpap6c.png"), auto;
-
+   cursor: url("http://clipart-library.com/images/rTnrpap6c.png"), alias;
  }
 
 /*STARS*/
