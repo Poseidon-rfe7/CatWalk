@@ -361,7 +361,7 @@ td {
   display: grid;
   grid-template-columns: 1fr 3fr;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   /* overflow: hidden; */
   font-family: Helvetica, sans-serif;
   font-size: 12px;

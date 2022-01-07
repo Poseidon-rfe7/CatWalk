@@ -313,7 +313,8 @@ class AddAReview extends React.Component {
             <div className="col-26">
               <div className='row-inner-container'>
                 <label htmlFor="review-summary" className='row-inner-elements'>*Your Review</label>
-                <textarea name="review-summary" placeholder="Why did you like the product or not?" rows="6" minLength="50" maxLength="1000" value={this.state.body} onChange={this.bodyChangeHandler} className='row-inner-elements'/>
+                <textarea name="review-summary" placeholder="Why did you like the product or not?" rows="6" minLength="50" maxLength="1000" value={this.state.body} onChange={this.bodyChangeHandler} />
+                <p className='row-inner-elements'>Minimum required characters left: {50 - this.state.body.length <= 0 ? 0 : 50 - this.state.body.length}</p>
               </div>
             </div>
           </div>
