@@ -126,6 +126,8 @@ hr {
 
 /* contains both card containers */
 .related-products-container {
+  margin-top: 10%;
+  margin-bottom: 10%;
   position: relative;
   width: 100%;
   padding: 0;
@@ -190,11 +192,14 @@ hr {
   height: 310px;
   width: 200px;
   margin-bottom: 5px;
+  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8), -12px 0 8px -4px rgba(6, 20, 36, 0.8);
 }
 
 .deactive {
   margin-right: -80px;
   height: 290;
+  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8), -12px 0 8px -4px rgba(6, 20, 36, 0.8);
+
 }
 
 .product-card-contents,
@@ -335,6 +340,7 @@ td {
 
 #child-ratings-reviews {
   /* width: fit-content; */
+  margin-top:15%;
 }
 
 #ratings-reviews-main-container {
@@ -938,6 +944,7 @@ form textarea {
   margin: 15px auto 50px 80px;
   font-family: Helvetica, sans-serif;
   font-size: 15px;
+
 }
 
 .qa-helpful {
@@ -1185,33 +1192,34 @@ Grid Container
 }
 
 .product-info-price {
-  font-size: 2vw;
+  font-size: 1.5vw;
+  margin: 0;
 }
 .product-info-description {
   font-weight: 900;
-  font-size: 2vw;
-  padding: 1vw;
+  font-size: 1.2vw;
+
 }
 .product-info-name {
   margin: 5px;
   font-weight: 900;
-  font-size: 4vw;
+  font-size: 2vw;
   padding: 1vw;
 }
 
 .product-info-title {
   margin: 5px;
-  font-size: 1.2vw;
+  font-size: 1vw;
 }
 
 .product-info-cat {
   margin: 0;
-  font-size: 1.2vw;
+  font-size: 1vw;
 }
 
 .product-info-title {
-  margin: 5px;
-  font-size: 1.2vw;
+
+  font-size: 1vw;
 }
 .fivestar-product {
   margin-bottom: px;
@@ -1227,7 +1235,7 @@ Grid Container
 
 .image-gallery-container {
   display: grid;
-  grid-template-columns:  20% 80% ;
+  grid-template-columns:  20%  70% ;
   align-items: center;
 }
 .galleryFigure {
@@ -1238,39 +1246,40 @@ Grid Container
 
   display: inline;
   min-width: 20%;
-  max-width:90%;
+  max-width:80%;
+  width: 400px;
   margin: 0;
   margin-top: 10px;
 }
-.gallery_thumbnailsUl {
 
-  max-width: 80%;
+.gallery_thumbnailsUl {
   list-style: none;
   margin-top: 10px;
   padding: 0;
 }
-.gallery_thumbnailsUl li {
 
+.gallery_thumbnailsUl li {
   display: inline-block;
-  width: 7vw;
+  width: 4vw;
   margin-left: 15px;
   margin-top: 5px;
   cursor: pointer;
 }
+
 .gallery_thumbnailsUl li img {
   display: inline-block;
   max-width: 100%;
   min-width: 20%;
 }
+
 .galleryStyle{
 border-radius: 5px;
 max-width: 10%;
 max-height: 10%;
-
 }
 
 #mainImg{
-  max-width: 80%;
+  max-width: 50%;
 }
 /* //////////////////////////////////////////////////////////////////
 /* //////////////////////////////////////////////////////////////////

@@ -35,7 +35,12 @@ YourOutfits: A similar component to Related items. This section is in carousel f
 
 Questions and Answers:
 
-Ratings and Reviews:
+Ratings and Reviews: This module allows viewing and submission of reviews for the product selected.  The functionality contained within this module can be divided into several pieces:
+1. Write new review
+2. Reviews List
+3. Sorting 
+4. Rating Breakdown
+5. Product Breakdown
 
 ![ratingsReviews](https://user-images.githubusercontent.com/86323698/148569622-defec454-672f-4e78-a270-19ee1f2101f4.gif)
 
