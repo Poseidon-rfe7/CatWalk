@@ -6,6 +6,7 @@ function DropdownMenu (props) {
   const [activeMenu, setActiveMenu] = useState('Size');
   const [sku, setSku] = useState({});
   const [quantity, setQuantity] = useState([]);
+  const [proxy, setProxy] = useState(0)
 
 
   useEffect(() => {
@@ -21,13 +22,20 @@ function DropdownMenu (props) {
 
   }, [sku])
 
+  useEffect(() => {
+    if (activeMenu !== 'Size') {
+      props.setIsOpen(true)
+      props.setQTY(proxy)
+    }
+  }, [proxy])
+
 
 
   // Another Component
   function DropdownItem(props) {
     return (
       <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
-        <span className="icon-button" onClick={() => props.cSku?setSku(props.cSku):props.setIsOpen(true)}> {props.children} </span>
+        <span className="icon-button" onClick={() => props.cSku?setSku(props.cSku):setProxy(props.children)}>{props.children}</span>
       </a>
     );
   }
@@ -68,7 +76,7 @@ function DropdownMenu (props) {
         <div className="menu">
 
           {quantity.map((quantity) => {
-            return <DropdownItem key={quantity + 1} setIsOpen={props.setIsOpen} goToMenu='size'> {quantity} </DropdownItem>
+            return <DropdownItem key={quantity + 1} setIsOpen={props.setIsOpen} goToMenu='size'>{quantity}</DropdownItem>
           })}
 
         </div>

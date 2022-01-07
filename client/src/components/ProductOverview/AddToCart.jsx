@@ -12,6 +12,7 @@ const AddToCart = (props) => {
   const [available, setAvailable] = useState([]);
   const [selection, setSelection] = useState('Select Size');
   const [isOpen, setIsOpen] = useState(false);
+  const [qty, setQTY] = useState(0);
 
   useEffect(() => {
     if (props.skus) {
@@ -36,6 +37,7 @@ const AddToCart = (props) => {
             setSelection={setSelection}
             selection={selection}
             setIsOpen={setIsOpen}
+            setQTY={setQTY}
             >
             </DropdownMenu>
           </NavForm>
@@ -45,6 +47,7 @@ const AddToCart = (props) => {
           <h3 className={'modalConfirmation'}>
             <p>{`Your size: ${selection}`}</p>
             <p>{`Your Style: ${props.style.name}`}</p>
+            <p>{`Quantity: ${qty}`}</p>
             <p>{`The Price: ${props.style.original_price}`}</p>
             </h3>
         </Modal>
