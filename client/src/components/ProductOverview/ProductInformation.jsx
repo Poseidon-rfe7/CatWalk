@@ -38,16 +38,16 @@ const ProductInformation = (props) => {
 
       <h2>{props.stylePrice}</h2>
 
-      <div class="social-btns">
+      <div className="social-btns">
         <h3>{`Share on social media`}</h3>
-        <button class="btn_social"
+        <button className="btn_social"
         role="button"
         href="#"
         onClick={faceHandler}>
           Meta
         </button>
 
-        <button class="btn_social"
+        <button className="btn_social"
         href="#"
         role="button"
         onClick={twitterHandler}>
