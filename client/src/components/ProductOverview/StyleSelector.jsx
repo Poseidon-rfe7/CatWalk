@@ -19,10 +19,7 @@ const StyleSelector = (props) => {
 
   useEffect(() => {
     if (proxyID) {
-  //    console.log(proxyID, typeof proxyID)
-  debugger
       let newStyle = JSON.parse(proxyID);
-  //    console.log(newStyle);
       props.setStyle(newStyle);
     }
   }, [proxyID])
