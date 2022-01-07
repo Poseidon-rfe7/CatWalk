@@ -50,7 +50,7 @@ const AddToCart = (props) => {
         </Modal>
 
 
-      Add To Cart!
+      <h2>Add To Cart!</h2>
     </div>
   )
 }

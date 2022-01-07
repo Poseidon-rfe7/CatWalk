@@ -21,15 +21,6 @@ function DropdownMenu (props) {
 
   }, [sku])
 
- const handleClick = () => {
-
-   setSku(props.cSku)
-   props.setSelect(props.cSku.size)
-
-  };
-
-
-  console.log (props.available, quantity, sku)
 
 
   // Another Component
