@@ -126,6 +126,8 @@ hr {
 
 /* contains both card containers */
 .related-products-container {
+  margin-top: 10%;
+  margin-bottom: 10%;
   position: relative;
   width: 100%;
   padding: 0;
@@ -335,6 +337,7 @@ td {
 
 #child-ratings-reviews {
   /* width: fit-content; */
+  margin-top:15%;
 }
 
 #ratings-reviews-main-container {
@@ -937,6 +940,7 @@ form textarea {
   margin: 15px auto 50px 80px;
   font-family: Helvetica, sans-serif;
   font-size: 15px;
+
 }
 
 .qa-helpful {
