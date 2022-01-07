@@ -11,15 +11,13 @@ class QuestionsAnswers extends React.Component {
       currentProduct: { id: 0 },
       allQuestions: ['placeholder'],
       renderedQuestions: [],
-      count: 1,
       questionsToRender: 2,
-      showHideMoreQuestions: true,
-      showHideAskQuestion: false,
-      showHideAddAnswer: false
+      showHideMoreQuestions: true
     };
 
     this.handleMoreQuestionsClick = this.handleMoreQuestionsClick.bind(this);
     this.handleAddQuestionClick = this.handleAddQuestionClick.bind(this);
+    this.renderMoreQuestions = this.renderMoreQuestions.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -44,28 +42,55 @@ class QuestionsAnswers extends React.Component {
     return null;
   };
 
+  // getQuestions() {
+  //   axios.get(`/api/qa/questions/?product_id=${this.state.currentProduct.id}&count=${this.state.count}`)
+  //     .then((response) => {
+  //       this.setState({ renderedQuestions: response.data.results });
+  //       return response.data.results[response.data.results.length -1]
+  //     })
+  //     .then((lastQuestion) => {
+  //       if (this.state.renderedQuestions.length !== this.state.questionsToRender) {
+  //         if (this.state.count > 5 && this.state.renderedQuestions.length <= 1){
+  //           return
+  //         }
+  //         let newCount = this.state.count + 1;
+  //         this.setState({count: newCount});
+  //         this.getQuestions();
+  //       }
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+
   getQuestions() {
-    axios.get(`/api/qa/questions/?product_id=${this.state.currentProduct.id}&count=${this.state.count}`)
+    axios.get(`/api/qa/questions/?product_id=${this.state.currentProduct.id}&count=500`)
       .then((response) => {
-        this.setState({ renderedQuestions: response.data.results });
-        return response.data.results[response.data.results.length -1]
+        this.setState({ allQuestions: response.data.results });
+        console.log(this.state.allQuestions);
       })
-      .then((lastQuestion) => {
-        if (this.state.renderedQuestions.length !== this.state.questionsToRender) {
-          if (this.state.count > 5 && this.state.renderedQuestions.length <= 1){
-            return
-          }
-          let newCount = this.state.count + 1;
-          this.setState({count: newCount});
-          this.getQuestions();
-        }
-      })
+      .then(() => this.renderMoreQuestions())
       .catch(err => console.log(err));
   };
 
+  renderMoreQuestions() {
+    let tempQuestionHolder = [];
+
+    for (let i = 0; i < this.state.questionsToRender; i++) {
+      tempQuestionHolder.push(this.state.allQuestions[i]);
+    }
+
+    this.setState({renderedQuestions: tempQuestionHolder})
+  }
+
   handleMoreQuestionsClick() {
-    let newQuestionsAmount = this.state.questionsToRender + 2;
+    let newQuestionsAmount;
+    if (this.state.allQuestions.length - this.state.renderedQuestions.length > 1) {
+      newQuestionsAmount = this.state.questionsToRender + 2;
+    } else if (this.state.allQuestions.length - this.state.renderedQuestions.length === 1) {
+      newQuestionsAmount = this.state.questionsToRender + 1;
+      this.setState({showHideMoreQuestions: false});
+    }
     this.setState({questionsToRender: newQuestionsAmount});
+    this.renderMoreQuestions();
   }
 
   handleAddQuestionClick() {

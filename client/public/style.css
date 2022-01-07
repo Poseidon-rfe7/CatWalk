@@ -842,7 +842,7 @@ progress {
   margin: 15px auto 50px 80px;
   font-family:  Helvetica, sans-serif;
   font-size: 15px;
-
+  overflow: hidden;
 }
 
 .qa-helpful {
@@ -897,6 +897,11 @@ progress {
   float: right;
 }
 
+#qa-list {
+  max-height: 800px;
+  overflow-y: scroll;
+}
+
 /* buttons */
 .qa-button:hover {
   cursor: pointer;
@@ -921,6 +926,10 @@ progress {
   padding: 10px;
 }
 
+.load-answers {
+  font-size: 10px;
+}
+
 /* Modals */
 .askQuestion-form {
   margin: auto;
@@ -931,11 +940,13 @@ progress {
 }
 
 .username-email {
-  margin: 10px 0;
+  margin-top: 10px;
 }
 
-.username {
-  margin-left: 20px;
+.form-subtext {
+  margin-top: 3px;
+  font-size: 10px;
+  color: red;
 }
 
 .qa-textarea {

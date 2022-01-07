@@ -13,6 +13,7 @@ class Question extends React.Component {
     }
 
     source = axios.CancelToken.source();
+    this.handleIsHelpfulClick = this.handleIsHelpfulClick.bind(this);
   }
 
   componentDidMount() {
@@ -43,6 +44,15 @@ class Question extends React.Component {
     this.setState({count: this.state.count + 2});
   }
 
+  handleIsHelpfulClick() {
+    axios.put(`/api/qa/questions/${this.props.question.question_id}/helpful`)
+      .then(() => {
+        document.getElementById('question-helpful').disabled = true;
+        console.log('It worked!')
+      })
+      .catch(err => console.log(err));
+  }
+
   componentWillUnmount() {
     if (source) {
       source.cancel("call canceled");
@@ -57,13 +67,13 @@ class Question extends React.Component {
           Q: {this.props.question.question_body}
           <span className='qa-helpful q-helpful'>
             Helpful?
-            <button className='qa-button helpful-button'>Yes ({this.props.question.question_helpfulness})</button>
+            <button id='question-helpful' className='qa-button helpful-button' onClick={this.handleIsHelpfulClick}>Yes ({this.props.question.question_helpfulness})</button>
             |
             <button className='qa-button helpful-button'> Add Answer</button>
           </span>
         </div>
         {this.state.answers.length > 0 && <AnswersList answers={this.state.answers} />}
-        <button className='qa-button' onClick={this.loadMoreAnswers.bind(this)}>Load More Answers</button>
+        <button className='qa-button load-answers' onClick={this.loadMoreAnswers.bind(this)}>Load More Answers</button>
       </div>
     )
   }
