@@ -40,21 +40,18 @@ const ProductInformation = (props) => {
 
       <div class="social-btns">
         <h3>{`Share on social media`}</h3>
-        <button class="btn facebook"
+        <button class="btn_social"
+        role="button"
         href="#"
         onClick={faceHandler}>
           Meta
-          <i class="fa fa-facebook">
-          </i>
         </button>
 
-        <button class="btn twitter"
+        <button class="btn_social"
         href="#"
+        role="button"
         onClick={twitterHandler}>
           Twitter
-          <i class="fa fa-twitter">
-
-          </i>
         </button>
 
       </div>
