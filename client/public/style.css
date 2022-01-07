@@ -353,10 +353,6 @@ td {
   margin: 0 auto;
 }
 
-#ratings-reviews-title {
-  /* background-color: #5f3dc4; */
-}
-
 #ratings-reviews-container {
   display: grid;
   grid-template-columns: 1fr 3fr;
