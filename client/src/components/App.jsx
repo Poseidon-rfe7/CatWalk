@@ -5,7 +5,7 @@ import RatingsReviews from "./RatingsReviews/RatingsReviews.jsx";
 import RelatedProducts from "./RelatedProducts/RelatedProducts.jsx";
 import FiveStar from "./FiveStar.jsx";
 import MenuBar from "./MenuBar.jsx";
-import ReturnToTop from "./returnToTop.jsx";
+import ReturnToTop from "./ReturnToTop.jsx";
 import FooterBar from "./FooterBar.jsx";
 import ls from "local-storage";
 

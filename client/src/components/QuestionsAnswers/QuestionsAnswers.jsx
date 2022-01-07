@@ -9,9 +9,9 @@ class QuestionsAnswers extends React.Component {
     super(props)
     this.state = {
       currentProduct: { id: 0 },
-      allQuestions: ['placeholder'],
+      allQuestions: [],
       renderedQuestions: [],
-      questionsToRender: 2,
+      questionsToRender: 0,
       showHideMoreQuestions: true
     };
 
@@ -22,10 +22,15 @@ class QuestionsAnswers extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     let sameProduct = prevState.currentProduct.id === this.state.currentProduct.id;
-    let sameNumOfQuestions = prevState.questionsToRender === this.state.questionsToRender;
 
     if (!sameProduct) {
-      this.setState({count: 1});
+      this.setState({
+        currentProduct: {id: 0},
+        allQuestions: [],
+        renderedQuestions: [],
+        questionsToRender: 0,
+        showHideMoreQuestions: true
+      })
       this.getQuestions();
     }
   };
@@ -44,7 +49,7 @@ class QuestionsAnswers extends React.Component {
       .then((response) => {
         this.setState({ allQuestions: response.data.results });
       })
-      .then(() => this.renderMoreQuestions())
+      .then(() => this.handleMoreQuestionsClick())
       .catch(err => console.log(err));
   };
 
@@ -60,9 +65,12 @@ class QuestionsAnswers extends React.Component {
 
   handleMoreQuestionsClick() {
     let newQuestionsAmount;
-    if (this.state.allQuestions.length - this.state.renderedQuestions.length > 1) {
+    if (this.state.allQuestions.length === 0) {
+      this.setState({showHideMoreQuestions: false});
+      return;
+    } else if (this.state.allQuestions.length - this.state.renderedQuestions.length > 1) {
       newQuestionsAmount = this.state.questionsToRender + 2;
-    } else if (this.state.allQuestions.length - this.state.renderedQuestions.length <= 1) {
+    } else if (this.state.allQuestions.length - this.state.renderedQuestions.length === 1) {
       newQuestionsAmount = this.state.questionsToRender + 1;
       this.setState({showHideMoreQuestions: false});
     }
