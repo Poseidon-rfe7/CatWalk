@@ -4,6 +4,7 @@ import RelatedProductsCard from "./RelatedProductsCard.jsx";
 const RelatedProductsCards = (props) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const activeSlideRef = useRef(null);
+  const containerRef = useRef(null)
   const [hideLeft, setHideLeft] = useState(true);
   const [hideRight, setHideRight] = useState(false);
 
@@ -21,11 +22,13 @@ const RelatedProductsCards = (props) => {
     }
 
     if (activeSlide === 0) {
+      containerRef.current.scrollLeft = 0
       setHideLeft(true);
     } else {
       setHideLeft(false);
     }
     if (activeSlide === props.relatedProducts.length - 1) {
+      containerRef.current.scrollLeft = containerRef.current.scrollWidth
       setHideRight(true);
     } else {
       setHideRight(false);
@@ -54,7 +57,7 @@ const RelatedProductsCards = (props) => {
         )}
       </div>
 
-      <div id="cardDeck" className="related-card-deck">
+      <div id="cardDeck" className="related-card-deck" ref={containerRef}>
         {props.relatedProducts.map((item, i) => {
           const active = i === activeSlide;
           return (

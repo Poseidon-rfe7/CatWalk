@@ -20,6 +20,8 @@
   "homepage": "https://github.com/Poseidon-rfe7/CatWalk#readme",
   "dependencies": {
     "axios": "^0.24.0",
+    "compression": "^1.7.4",
+    "compression-webpack-plugin": "^9.2.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "local-storage": "^2.0.0",

@@ -78,7 +78,8 @@ class QuestionsAnswers extends React.Component {
 
   render() {
     return (
-      <div id="qa-link" className='questions-answers'>
+      <div className='questions-answers module-parent'>
+
         <Search />
         <QuestionsList questions={this.state.renderedQuestions} productName={this.state.currentProduct.name}/>
         <AskQuestionsModal currentProduct={this.state.currentProduct}/>

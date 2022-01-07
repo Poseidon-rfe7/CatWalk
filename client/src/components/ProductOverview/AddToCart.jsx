@@ -23,8 +23,6 @@ const AddToCart = (props) => {
     }
   }, [props.skus])
 
-  console.log(props.style)
-
   return (
 
 

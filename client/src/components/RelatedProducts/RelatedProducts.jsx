@@ -47,7 +47,7 @@ const RelatedProducts = (props) => {
   };
 
   return (
-    <div id="relatedProducts-link" className="related-products-container">
+    <div id="relatedProducts-link" className="related-products-container module-parent">
       <div className="relatedproducts-title">Related Products</div>
       <RelatedProductsCards
         modalhandler={starHandler}
