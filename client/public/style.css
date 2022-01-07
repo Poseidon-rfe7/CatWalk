@@ -1047,9 +1047,7 @@ form textarea {
 /* <nav> */
 .navbar {
   height: var(--nav-size);
-  background-color: var(--bg);
   padding: 0 1rem;
-  border-bottom: var(--border);
 }
 
 /* <ul> */
@@ -1249,6 +1247,12 @@ Grid Container
 /* //////////////////////////////////////////////////////////////////
 /* //////////////////////////////////////////////////////////////////*/
 
+.styleCaption{
+  font-style: oblique;
+  font-size: 30px;
+  color: #311357;
+}
+
 .galleryFigure{
   max-width: 800px;
   margin: 0 auto 40px;
@@ -1266,12 +1270,17 @@ Grid Container
 }
 .gallery_thumbnailsUl li{
   display: inline-block;
-  border: 1px solid aqua;
   width: 100px;
   margin: 0 5px;
   cursor: pointer;
 }
 .gallery_thumbnailsUl li img{
+  background-color: rgb(6, 70, 70);
+  border-radius: 50%;
+  padding: 5px;
+  margin: 2px;
+  align-items: center;
+  justify-content: center;
   display: inline-block;
   max-width: 99%;
   min-width: 20%;
@@ -1284,3 +1293,26 @@ Grid Container
 /* //////////////////////////////////////////////////////////////////
 /* //////////////////////////////////////////////////////////////////
 /* //////////////////////////////////////////////////////////////////*/
+
+.style_thumbnailsUl{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.style_thumbnailsUl li{
+  display: inline-block;
+  width: 100px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.style_thumbnailsUl li img{
+  background-color: rgb(58, 7, 58);
+  border-radius: 50%;
+  padding: 5px;
+  margin: 2px;
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+  max-width: 99%;
+  min-width: 20%;
+}
