@@ -42,16 +42,13 @@ Ratings and Reviews:
 
 https://github.com/Poseidon-rfe7/CatWalk
 
-https://github.com/Poseidon-rfe7/CatWalk/blob/main/ScreenShots/productoverview.png?raw=true
 
-https://github.com/Poseidon-rfe7/CatWalk/blob/main/ScreenShots/relateditems1.png?raw=true
+## Screenshots
 
-https://github.com/Poseidon-rfe7/CatWalk/blob/main/ScreenShots/relateditems2.png?raw=true
-
-https://github.com/Poseidon-rfe7/CatWalk/blob/main/ScreenShots/qa1.png?raw=true
-
-https://github.com/Poseidon-rfe7/CatWalk/blob/main/ScreenShots/qa2.png?raw=true
-
-https://github.com/Poseidon-rfe7/CatWalk/blob/main/ScreenShots/review1.png?raw=true
-
-https://github.com/Poseidon-rfe7/CatWalk/blob/main/ScreenShots/review2.png?raw=true
+![productoverview](https://user-images.githubusercontent.com/89159410/148569194-52928a5b-9f18-4cf4-a068-563d84f9e2cc.png)
+![relateditems1](https://user-images.githubusercontent.com/89159410/148569198-e2c67488-d4d7-47a0-8b0d-75a0ed5232ff.png)
+![relateditems2](https://user-images.githubusercontent.com/89159410/148569199-eaed03f0-a090-4690-b555-5c5c504519e3.png)
+![qa1](https://user-images.githubusercontent.com/89159410/148569202-2cdb08db-c40f-401b-9e95-d34a61c126fa.png)
+![qa2](https://user-images.githubusercontent.com/89159410/148569203-6136aecb-7746-4602-9632-38764a0e0407.png)
+![review1](https://user-images.githubusercontent.com/89159410/148569205-76245335-848c-4f4d-b81a-f786d57afccb.png)
+![review2](https://user-images.githubusercontent.com/89159410/148569208-2036a1f2-3da7-4653-b25f-d4de803e2cae.png)
