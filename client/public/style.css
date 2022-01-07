@@ -1284,7 +1284,7 @@ Grid Container
   margin: 0 ;
 }
 .galleryFigure img {
-  border-radius: 10%;
+  border-radius: 10px;
   display: inline;
   min-width: 20%;
   max-width:80%;
@@ -1292,6 +1292,7 @@ Grid Container
   margin: 0;
   margin-top: 10px;
   cursor: pointer;
+  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8), -12px 0 8px -4px rgba(6, 20, 36, 0.8);
 }
 
 .gallery_thumbnailsUl {
@@ -1306,11 +1307,11 @@ Grid Container
   margin-left: 15px;
   margin-top: 5px;
   cursor: pointer;
+  
 }
 
 .gallery_thumbnailsUl li img {
-  background-color: rgb(73, 53, 110);
-  border-radius: 50%;
+  border-radius: 10px;
   padding: 5px;
   margin: 2px;
   align-items: center;
@@ -1346,7 +1347,7 @@ max-height: 10%;
 .styleCaption{
   font-size: 30px;
   font-style: italic;
-  color: rgb(11, 87, 87);
+
 }
 
 .style_thumbnailsUl{
@@ -1361,8 +1362,8 @@ max-height: 10%;
   cursor: pointer;
 }
 .style_thumbnailsUl li img{
-  background-color: rgb(70, 7, 70);
-  border-radius: 50%;
+
+  border-radius: 10px;
   padding: 5px;
   margin: 2px;
   align-items: center;
