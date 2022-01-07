@@ -192,11 +192,14 @@ hr {
   height: 310px;
   width: 200px;
   margin-bottom: 5px;
+  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8), -12px 0 8px -4px rgba(6, 20, 36, 0.8);
 }
 
 .deactive {
   margin-right: -80px;
   height: 290;
+  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8), -12px 0 8px -4px rgba(6, 20, 36, 0.8);
+
 }
 
 .product-card-contents,
