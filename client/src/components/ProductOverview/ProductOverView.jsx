@@ -12,9 +12,9 @@ const ProductsOverview = (props) => {
 
   useEffect(() => {
     if (props.currentStyles.results) {
-      setStyles(props.currentStyles.results);
-      setStyle(props.currentStyles.results[0]);
-      setSkus(props.currentStyles.results[0].skus);
+      setStyles(props.currentStyles.results); // Set array of styles
+      setStyle(props.currentStyles.results[0]); // Set currently selected style
+      setSkus(props.currentStyles.results[0].skus); // Set currently selected style's skus
     }
   }, [props.currentStyles]);
 
@@ -22,7 +22,11 @@ const ProductsOverview = (props) => {
     <div id="productOverview-link" className="products-overview-container module-parent">
       <Grid  >
         <div className="image-and-thumbnails" >
-          <ImageGallery styles={styles} currentPhotos={style.photos} />
+          <ImageGallery
+          styles={styles}
+          currentPhotos={style.photos}
+          styleName={style.name}
+          />
         </div>
 
         <div className="info-and-style" key={2}>
@@ -31,12 +35,18 @@ const ProductsOverview = (props) => {
             currentRatings={props.currentRatings}
             stylePrice={style.original_price}
           />
+
           <StyleSelector
+            currentPhotos={style.photos}
             styles={styles}
-            //  changeStyle={changeStyle}
+            setStyle={setStyle}
+            styleName={style.name}
           />
 
-          <AddToCart skus={skus} style={style}></AddToCart>
+          <AddToCart
+          skus={skus}
+          style={style}>
+          </AddToCart>
         </div>
       </Grid>
     </div>
