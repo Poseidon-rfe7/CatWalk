@@ -1,26 +1,11 @@
 # CatWalk
-> Additional information or tagline
+> frontend redesign for a web based clothing store
 
-A brief description of your project, what it is used for and how does life get
-awesome when someone starts to use it.
-
-## Installing / Getting started
-
-A quick introduction of the minimal setup you need to get a hello world up &
-running.
-
-```shell
-packagemanager install awesome-project
-awesome-project start
-awesome-project "Do something!"  # prints "Nah."
-```
-
-Here you should say what actually happens when you execute the code above.
+Project Catwalk was designed with the user experience in mind to make shopping for your favorite style simple, fun, and interactive while maintaining providing enough information about the products to allow users to make reasonable decisions about what they will buy.
 
 ### Initial Configuration
-
-Some projects require initial configuration (e.g. access tokens or keys, `npm i`).
-This is the section where you would document those requirements.
+With the project cloned down to your local machine, you must run npm i to install all dependencies.
+To make api calls you need a github authenticated token stored in a .env file in the root of the project, inside the .env you will need to store the token as the value of GITHUB_API_KEY="token here"
 
 ## Developing
 
@@ -28,52 +13,30 @@ Here's a brief intro about what a developer must do in order to start developing
 the project further:
 
 ```shell
-git clone https://github.com/your/awesome-project.git
-cd awesome-project/
-packagemanager install
+git clone https://github.com/Poseidon-rfe7/CatWalk
+cd into root of project
+load into your favorite ide
 ```
-
-And state what happens step-by-step.
 
 ### Building
-
-If your project needs some additional steps for the developer to build the
-project after some code changes, state them here:
-
-```shell
-./configure
-make
-make install
 ```
-
-Here again you should state what actually happens when the code above gets
-executed.
+after any changes you must run `npm run react-dev`
+```
+this will compile and build the code
 
 ## Features
 
-What's all the bells and whistles this project can perform?
-* What's the main functionality
-* You can also do another thing
-* If you get really randy, you can even do this
+Product overview component: where you can view your currently selected item of choice, see all of its optional styles, photos of each style, information on the product as well as a quick rating and the price as well as a selection for sizes and the ability to add the selected item with your configuration to the cart.
 
-## Configuration
+Related Items component: See all the items that are related to the currently viewed product in a carousel of cards containing a picture of the item and some information. Each card also includes an action button that a user can click in order to compare the current item to the particular related item which will prompt a modal to come into focus listing shared or non-shared features and comparing the price.
 
-Here you should write what are all of the configurations a user can enter when
-using the project.
+YourOutfits: A similar component to Related items. This section is in carousel format containing a single card by default which will allow you to click on it at any time to add the currently selected product into a list called Your Outfits, to store choices and build up a wardrobe or wish list. These cards can also be removed by clicking the action buttons on the top right of the card.
+
+Questions and Answers:
+
+Ratings and Reviews:
 
 
 ## Links
 
-Even though this information can be found inside the project on machine-readable
-format like in a .json file, it's good to include a summary of most useful
-links to humans using your project. You can include links like:
-
-- Project homepage: https://your.github.com/awesome-project/
-- Repository: https://github.com/your/awesome-project/
-- Issue tracker: https://github.com/your/awesome-project/issues
-  - In case of sensitive bugs like security vulnerabilities, please contact
-    my@email.com directly instead of using issue tracker. We value your effort
-    to improve the security and privacy of this project!
-- Related projects:
-  - Your other project: https://github.com/your/other-project/
-  - Someone else's project: https://github.com/someones/awesome-project/
+https://github.com/Poseidon-rfe7/CatWalk
