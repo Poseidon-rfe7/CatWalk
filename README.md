@@ -69,7 +69,7 @@ https://github.com/Poseidon-rfe7/CatWalk
 
 👤 **Cory Zauss**
 
-
+- LinkedIn: [@CoryZauss](https://www.linkedin.com/in/cory-zauss-98243b21a/)
 - Github: [@Coryzauss](https://github.com/CoryZauss)
 
 👤 **Jared Maldonado**
