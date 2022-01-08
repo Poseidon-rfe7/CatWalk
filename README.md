@@ -55,7 +55,7 @@ This module allows viewing and submission of reviews for the product selected. T
 3. Sorting
 4. Rating Breakdown
 5. Product Breakdown
-6. 
+
 ![reviews](https://user-images.githubusercontent.com/86323698/148654604-4c303e29-4775-4ef1-b77c-4d7b6398e506.gif)
 
 ## Links
