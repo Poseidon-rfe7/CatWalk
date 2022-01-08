@@ -3,7 +3,7 @@ import RelatedProductsCards from "./RelatedProductsCards.jsx";
 import YourOutfitCards from "./YourOutfitCards.jsx";
 import CompareModal from "./CompareModal.jsx";
 
-const RelatedProducts = (props) => {
+const RelatedProducts = ({relatedProductStyles, changeProducts, currentProduct, relatedProducts, relatedProductsIds, relatedratings, currentproductstyles }) => {
   const [defaultPhotos, setDefaultPhotos] = useState({});
   const [photosLoaded, setPhotosLoaded] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -11,8 +11,8 @@ const RelatedProducts = (props) => {
 
   useEffect(() => {
     let photos = {};
-    if (props.relatedProductStyles.length > 0) {
-      props.relatedProductStyles.forEach((product) => {
+    if (relatedProductStyles.length > 0) {
+      relatedProductStyles.forEach((product) => {
         photos[product.product_id] = product.results[0].photos[0].url;
         product.results.forEach((style, i) => {
           if (style["default?"] === true) {
@@ -30,11 +30,11 @@ const RelatedProducts = (props) => {
       setDefaultPhotos(photos);
       setPhotosLoaded(true);
     }
-  }, [props.relatedProductStyles]);
+  }, [relatedProductStyles]);
 
-  const changeProducts = (e) => {
+  const passToChangeProducts = (e) => {
     var id = e.target.getAttribute("serial");
-    props.changeProducts(id);
+    changeProducts(id);
   };
 
   const starHandler = (current, related) => {
@@ -51,14 +51,14 @@ const RelatedProducts = (props) => {
       <div className="relatedproducts-title">Related Products</div>
       <RelatedProductsCards
         modalhandler={starHandler}
-        currentProduct={props.currentProduct}
-        relatedProducts={props.relatedProducts}
-        relatedProductStyles={props.relatedProductStyles}
-        relatedProductsIds={props.relatedProductsIds}
-        relatedratings={props.relatedratings}
+        currentProduct={currentProduct}
+        relatedProducts={relatedProducts}
+        relatedProductStyles={relatedProductStyles}
+        relatedProductsIds={relatedProductsIds}
+        relatedratings={relatedratings}
         photosLoaded={photosLoaded}
         relatedProductsPhotos={defaultPhotos}
-        changeProducts={changeProducts}
+        changeProducts={passToChangeProducts}
       />
 
       <CompareModal
@@ -69,8 +69,8 @@ const RelatedProducts = (props) => {
 
       <div className="youroutfit-title">Your Outfit</div>
       <YourOutfitCards
-        currentproductstyles={props.currentproductstyles}
-        currentproduct={props.currentProduct}
+        currentproductstyles={currentproductstyles}
+        currentproduct={currentProduct}
       />
     </div>
   );

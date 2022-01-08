@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import RelatedProductsCard from "./RelatedProductsCard.jsx";
 
-const RelatedProductsCards = (props) => {
+const RelatedProductsCards = ({relatedProducts, modalhandler, currentProduct, relatedProductStyles, relatedProductsIds, relatedratings, photosLoaded, relatedProductsPhotos, changeProducts}) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const activeSlideRef = useRef(null);
   const containerRef = useRef(null)
@@ -10,7 +10,7 @@ const RelatedProductsCards = (props) => {
 
   useEffect(() => {
     setActiveSlide(0);
-  }, [props.relatedProducts]);
+  }, [relatedProducts]);
 
   useEffect(() => {
     if (activeSlideRef.current) {
@@ -27,7 +27,7 @@ const RelatedProductsCards = (props) => {
     } else {
       setHideLeft(false);
     }
-    if (activeSlide === props.relatedProducts.length - 1) {
+    if (activeSlide === relatedProducts.length - 1) {
       containerRef.current.scrollLeft = containerRef.current.scrollWidth
       setHideRight(true);
     } else {
@@ -41,7 +41,7 @@ const RelatedProductsCards = (props) => {
   const starHandler = (e) => {
     var id = e.target.getAttribute("serial");
     var slot = e.target.getAttribute("slot");
-    props.modalhandler(props.currentProduct, props.relatedProducts[slot]);
+    modalhandler(currentProduct, relatedProducts[slot]);
   };
 
   return (
@@ -58,7 +58,7 @@ const RelatedProductsCards = (props) => {
       </div>
 
       <div id="cardDeck" className="related-card-deck" ref={containerRef}>
-        {props.relatedProducts.map((item, i) => {
+        {relatedProducts.map((item, i) => {
           const active = i === activeSlide;
           return (
             <div
@@ -73,11 +73,11 @@ const RelatedProductsCards = (props) => {
                 serial={item.id}
                 slot={i}
                 active={i === activeSlide ? true : false}
-                photo={props.relatedProductsPhotos[item.id]}
-                loaded={props.photosLoaded}
+                photo={relatedProductsPhotos[item.id]}
+                loaded={photosLoaded}
                 starhandler={starHandler}
-                rating={props.relatedratings[item.id]}
-                changeproduct={props.changeProducts}
+                rating={relatedratings[item.id]}
+                changeproduct={changeProducts}
               />
             </div>
           );

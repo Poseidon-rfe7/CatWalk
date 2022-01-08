@@ -1,14 +1,14 @@
 import React from "react";
 
-const OutfitCard = (props) => {
+const OutfitCard = ({id, trigger, active, photo, name, category}) => {
   const outfitStorage = window.localStorage;
 
   const removeFromOutfits = () => {
     var parsed = JSON.parse(outfitStorage.getItem("yourOutfits"));
-    console.log(parsed, props.id);
-    delete parsed[props.id];
+    console.log(parsed, id);
+    delete parsed[id];
     outfitStorage.setItem("yourOutfits", JSON.stringify(parsed));
-    props.trigger();
+    trigger();
   };
 
   return (
@@ -16,9 +16,9 @@ const OutfitCard = (props) => {
       <div className="product-image">
         <img
           className={`fit-picture ${
-            props.active ? "active-pic" : "deactive-pic"
+            active ? "active-pic" : "deactive-pic"
           }`}
-          src={props.photo}
+          src={photo}
           alt="product image"
         />
       </div>
@@ -30,9 +30,9 @@ const OutfitCard = (props) => {
       />
 
       <div className="product-info">
-        {props.name}
+        {name}
         <br />
-        <div className="style-tag">style: {props.category}</div>
+        <div className="style-tag">style: {category}</div>
       </div>
     </div>
   );

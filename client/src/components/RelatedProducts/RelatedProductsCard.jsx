@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import FiveStar from "../FiveStar.jsx";
 
-const RelatedProductsCard = (props) => (
+const RelatedProductsCard = ({serial, changeproduct, loaded, photo, active, starhandler, slot, category, name, rating}) => (
   <div className="product-card-contents">
     <div
       className="product-image"
-      serial={props.serial}
-      onClick={props.changeproduct}
+      serial={serial}
+      onClick={changeproduct}
     >
-      {props.loaded ? (
+      {loaded ? (
         <img
           className={`fit-picture ${
-            props.active ? "active-pic" : "deactive-pic"
+            active ? "active-pic" : "deactive-pic"
           }`}
-          src={props.photo}
+          src={photo}
           alt="product image"
-          serial={props.serial}
-          onClick={props.changeproduct}
+          serial={serial}
+          onClick={changeproduct}
         />
       ) : (
         <div>Loading...</div>
@@ -26,21 +26,21 @@ const RelatedProductsCard = (props) => (
     <i
       id="related-action"
       className="related-action far fa-star"
-      onClick={props.starhandler}
-      serial={props.serial}
-      slot={props.slot}
+      onClick={starhandler}
+      serial={serial}
+      slot={slot}
     />
 
     <div
       className="product-info"
-      serial={props.serial}
-      onClick={props.changeproduct}
+      serial={serial}
+      onClick={changeproduct}
     >
-      {props.name}
+      {name}
       <br />
-      <div className="style-tag">style: {props.category}</div>
+      <div className="style-tag">style: {category}</div>
       <div className="card-5star">
-        <FiveStar rating={props.rating} />
+        <FiveStar rating={rating} />
       </div>
     </div>
   </div>
