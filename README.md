@@ -18,6 +18,14 @@ cd into root of project
 load into your favorite ide
 ```
 
+```shell
+git clone https://github.com/Poseidon-rfe7/CatWalk
+cd CatWalk
+npm i
+npm run react-dev
+npm start
+```
+
 ### Building
 ```
 after any changes you must run `npm run react-dev`
