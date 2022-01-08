@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function StarRating(props) {
   return (
@@ -17,19 +17,24 @@ function StarRating(props) {
             />
             <div>
               <span
-              className='star-rating-icon'
-                style={{color: ratingValue <= (props.hover || props.rating) ? '#ffc107' : '#ccc'}}
+                className='star-rating-icon'
+                style={{
+                  color:
+                    ratingValue <= (props.hover || props.rating)
+                      ? "#ffc107"
+                      : "#ccc",
+                }}
                 onMouseEnter={() => props.starMouseEnter(ratingValue)}
                 onMouseLeave={props.starMouseLeave}
-              ><i className="fas fa-star"></i></span>
+              >
+                <i className='fas fa-star'></i>
+              </span>
             </div>
           </label>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 
 export default StarRating;
-
-
