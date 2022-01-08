@@ -1,5 +1,5 @@
-import React from "react";
-import IndividualReviewTile from "./IndividualReviewTile.jsx";
+import React from 'react';
+import IndividualReviewTile from './IndividualReviewTile.jsx';
 
 function ReviewList(props) {
   let filteredReviews;

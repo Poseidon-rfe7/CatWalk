@@ -1,6 +1,6 @@
-import React from "react";
-import FiveStar from "../FiveStar.jsx";
-import Progressbar from "./Progressbar.jsx";
+import React from 'react';
+import FiveStar from '../FiveStar.jsx';
+import Progressbar from './Progressbar.jsx';
 
 class RatingsBreakdown extends React.Component {
   constructor(props) {
@@ -47,11 +47,11 @@ class RatingsBreakdown extends React.Component {
     let ratingsArray = Object.values(this.props.meta.ratings);
     ratingsArray.forEach((el) => (total += Number(el)));
 
-    let fiveStars = Number(this.props.meta.ratings["5"]) || 0;
-    let fourStars = Number(this.props.meta.ratings["4"]) || 0;
-    let threeStars = Number(this.props.meta.ratings["3"]) || 0;
-    let twoStars = Number(this.props.meta.ratings["2"]) || 0;
-    let oneStars = Number(this.props.meta.ratings["1"]) || 0;
+    let fiveStars = Number(this.props.meta.ratings['5']) || 0;
+    let fourStars = Number(this.props.meta.ratings['4']) || 0;
+    let threeStars = Number(this.props.meta.ratings['3']) || 0;
+    let twoStars = Number(this.props.meta.ratings['2']) || 0;
+    let oneStars = Number(this.props.meta.ratings['1']) || 0;
     let weightedAverage =
       (5 * fiveStars +
         4 * fourStars +
@@ -104,14 +104,14 @@ class RatingsBreakdown extends React.Component {
           </p>
           <Progressbar
             bgcolor='rgb(22 208 83)'
-            min={this.state.ratings["5"] || 0}
+            min={this.state.ratings['5'] || 0}
             max={this.state.totalRatings}
             height={10}
             width={70}
             showBar='true'
           />
           <p className='star-progress-bar-container-total-ratings'>
-            {this.state.ratings["5"] || 0}
+            {this.state.ratings['5'] || 0}
           </p>
         </div>
         <div className='star-progress-bar-container'>
@@ -123,14 +123,14 @@ class RatingsBreakdown extends React.Component {
           </p>
           <Progressbar
             bgcolor='rgb(22 208 83)'
-            min={this.state.ratings["4"] || 0}
+            min={this.state.ratings['4'] || 0}
             max={this.state.totalRatings}
             height={10}
             width={70}
             showBar='true'
           />
           <p className='star-progress-bar-container-total-ratings'>
-            {this.state.ratings["4"] || 0}
+            {this.state.ratings['4'] || 0}
           </p>
         </div>
         <div className='star-progress-bar-container'>
@@ -142,14 +142,14 @@ class RatingsBreakdown extends React.Component {
           </p>
           <Progressbar
             bgcolor='rgb(22 208 83)'
-            min={this.state.ratings["3"] || 0}
+            min={this.state.ratings['3'] || 0}
             max={this.state.totalRatings}
             height={10}
             width={70}
             showBar='true'
           />
           <p className='star-progress-bar-container-total-ratings'>
-            {this.state.ratings["3"] || 0}
+            {this.state.ratings['3'] || 0}
           </p>
         </div>
         <div className='star-progress-bar-container'>
@@ -161,14 +161,14 @@ class RatingsBreakdown extends React.Component {
           </p>
           <Progressbar
             bgcolor='rgb(22 208 83)'
-            min={this.state.ratings["2"] || 0}
+            min={this.state.ratings['2'] || 0}
             max={this.state.totalRatings}
             height={10}
             width={70}
             showBar='true'
           />
           <p className='star-progress-bar-container-total-ratings'>
-            {this.state.ratings["2"] || 0}
+            {this.state.ratings['2'] || 0}
           </p>
         </div>
         <div className='star-progress-bar-container'>
@@ -180,14 +180,14 @@ class RatingsBreakdown extends React.Component {
           </p>
           <Progressbar
             bgcolor='rgb(22 208 83)'
-            min={this.state.ratings["1"] || 0}
+            min={this.state.ratings['1'] || 0}
             max={this.state.totalRatings}
             height={10}
             width={70}
             showBar='true'
           />
           <p className='star-progress-bar-container-total-ratings'>
-            {this.state.ratings["1"] || 0}
+            {this.state.ratings['1'] || 0}
           </p>
         </div>
       </div>

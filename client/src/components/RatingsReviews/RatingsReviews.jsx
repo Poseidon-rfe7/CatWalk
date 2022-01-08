@@ -1,12 +1,12 @@
-import React from "react";
-import ReviewList from "./ReviewList.jsx";
-import IndividualReviewThumbnailModal from "./IndividualReviewThumbnailModal.jsx";
-import SortOptions from "./SortOptions.jsx";
-import ProductBreakdown from "./ProductBreakdown.jsx";
-import RatingsBreakdown from "./RatingsBreakdown.jsx";
-import AddAReview from "./AddAReview/AddAReview.jsx";
+import React from 'react';
+import ReviewList from './ReviewList.jsx';
+import IndividualReviewThumbnailModal from './IndividualReviewThumbnailModal.jsx';
+import SortOptions from './SortOptions.jsx';
+import ProductBreakdown from './ProductBreakdown.jsx';
+import RatingsBreakdown from './RatingsBreakdown.jsx';
+import AddAReview from './AddAReview/AddAReview.jsx';
 
-import axios from "axios";
+import axios from 'axios';
 
 class RatingsReviews extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class RatingsReviews extends React.Component {
     this.state = {
       currentProduct: { id: 0 },
       reviewCount: 3,
-      currentSort: "relevance",
+      currentSort: 'relevance',
       allProductReviews: [],
       allProductReviewsMeta: [],
       allProductNewestReviews: [],
@@ -22,7 +22,7 @@ class RatingsReviews extends React.Component {
       allProductRelevantReviews: [],
       currentReviews: [],
       modifiedReviews: [],
-      moreReviewsButtonStatus: "showEl",
+      moreReviewsButtonStatus: 'showEl',
       filters: [],
     };
     this.sortChangeHandler = this.sortChangeHandler.bind(this);
@@ -64,19 +64,19 @@ class RatingsReviews extends React.Component {
 
   getAllProductReviewsMeta() {
     axios
-      .get("/api/reviews/meta", {
+      .get('/api/reviews/meta', {
         params: { product_id: this.state.currentProduct.id },
       })
       .then((result) => this.setState({ allProductReviewsMeta: result.data }))
-      .catch((err) => console.log("Error:", err));
+      .catch((err) => console.log('Error:', err));
   }
 
   getAllProductNewestReviews(count, isHelpful) {
     axios
-      .get("/api/reviews/", {
+      .get('/api/reviews/', {
         params: {
           product_id: this.state.currentProduct.id,
-          sort: "newest",
+          sort: 'newest',
           count: count,
         },
       })
@@ -87,7 +87,7 @@ class RatingsReviews extends React.Component {
         ) {
           this.setState({
             modifiedReviews: result.data.results,
-            moreReviewsButtonStatus: "hideEl",
+            moreReviewsButtonStatus: 'hideEl',
           });
         } else {
           this.setState({
@@ -98,15 +98,15 @@ class RatingsReviews extends React.Component {
           });
         }
       })
-      .catch((err) => console.log("Error:", err));
+      .catch((err) => console.log('Error:', err));
   }
 
   getAllProductHelpfulReviews(count, isHelpful) {
     axios
-      .get("/api/reviews/", {
+      .get('/api/reviews/', {
         params: {
           product_id: this.state.currentProduct.id,
-          sort: "helpful",
+          sort: 'helpful',
           count: count,
         },
       })
@@ -117,7 +117,7 @@ class RatingsReviews extends React.Component {
         ) {
           this.setState({
             modifiedReviews: result.data.results,
-            moreReviewsButtonStatus: "hideEl",
+            moreReviewsButtonStatus: 'hideEl',
           });
         } else {
           this.setState({
@@ -128,15 +128,15 @@ class RatingsReviews extends React.Component {
           });
         }
       })
-      .catch((err) => console.log("Error:", err));
+      .catch((err) => console.log('Error:', err));
   }
 
   getAllProductRelevantReviews(count, isHelpful) {
     axios
-      .get("/api/reviews/", {
+      .get('/api/reviews/', {
         params: {
           product_id: this.state.currentProduct.id,
-          sort: "relevant",
+          sort: 'relevant',
           count: count,
         },
       })
@@ -148,7 +148,7 @@ class RatingsReviews extends React.Component {
         ) {
           this.setState({
             modifiedReviews: result.data.results,
-            moreReviewsButtonStatus: "hideEl",
+            moreReviewsButtonStatus: 'hideEl',
           });
         } else {
           this.setState({
@@ -160,15 +160,15 @@ class RatingsReviews extends React.Component {
         }
       })
 
-      .catch((err) => console.log("Error:", err));
+      .catch((err) => console.log('Error:', err));
   }
 
   getInitialAllProductRelevantReviews(count) {
     axios
-      .get("/api/reviews/", {
+      .get('/api/reviews/', {
         params: {
           product_id: this.state.currentProduct.id,
-          sort: "relevant",
+          sort: 'relevant',
           count: count,
         },
       })
@@ -181,31 +181,31 @@ class RatingsReviews extends React.Component {
           filters: [],
         })
       )
-      .catch((err) => console.log("Error:", err));
+      .catch((err) => console.log('Error:', err));
   }
 
   sortChangeHandler(event) {
     let text = event.target.options[event.target.selectedIndex].text;
     let currentReviewLength = this.state.modifiedReviews.length;
     return new Promise((resolve, reject) => {
-      this.setState({ reviewCount: 3, moreReviewsButtonStatus: "showEl" });
+      this.setState({ reviewCount: 3, moreReviewsButtonStatus: 'showEl' });
       resolve();
     })
       .then(() => {
-        if (text === "relevance") {
+        if (text === 'relevance') {
           this.getAllProductRelevantReviews(this.state.reviewCount);
-        } else if (text === "helpful") {
+        } else if (text === 'helpful') {
           this.getAllProductHelpfulReviews(this.state.reviewCount);
         } else {
           this.getAllProductNewestReviews(this.state.reviewCount);
         }
       })
       .then(() => {
-        if (text === "relevance") {
+        if (text === 'relevance') {
           this.setState({
             modifiedReviews: this.state.allProductRelevantReviews,
           });
-        } else if (text === "helpful") {
+        } else if (text === 'helpful') {
           this.setState({
             modifiedReviews: this.state.allProductHelpfulReviews,
           });
@@ -225,9 +225,9 @@ class RatingsReviews extends React.Component {
       resolve();
     })
       .then(() => {
-        if (this.state.currentSort === "relevance") {
+        if (this.state.currentSort === 'relevance') {
           this.getAllProductRelevantReviews(newCount);
-        } else if (this.state.currentSort === "helpful") {
+        } else if (this.state.currentSort === 'helpful') {
           this.getAllProductHelpfulReviews(newCount);
         } else {
           this.getAllProductNewestReviews(newCount);
@@ -240,11 +240,11 @@ class RatingsReviews extends React.Component {
   }
 
   helpfulClickHandler(event) {
-    let reviewId = event.target.closest("p").getAttribute("id");
+    let reviewId = event.target.closest('p').getAttribute('id');
     axios.put(`api/reviews/${reviewId}/helpful`).then((result) => {
-      if (this.state.currentSort === "relevance") {
+      if (this.state.currentSort === 'relevance') {
         this.getAllProductRelevantReviews(this.state.reviewCount, true);
-      } else if (this.state.currentSort === "helpful") {
+      } else if (this.state.currentSort === 'helpful') {
         this.getAllProductHelpfulReviews(this.state.reviewCount, true);
       } else {
         this.getAllProductNewestReviews(this.state.reviewCount, true);
@@ -253,9 +253,9 @@ class RatingsReviews extends React.Component {
   }
 
   addReviewClickHandler(event) {
-    let modal = document.getElementById("modal-form");
-    modal.classList.remove("modalOff-form");
-    modal.classList.add("modalOn-form");
+    let modal = document.getElementById('modal-form');
+    modal.classList.remove('modalOff-form');
+    modal.classList.add('modalOn-form');
   }
 
   starFilterClickHandler(event) {
@@ -303,7 +303,7 @@ class RatingsReviews extends React.Component {
             <div id='ratings-reviews-list-items'>
               <div
                 className={
-                  this.state.modifiedReviews.length !== 0 ? "showEl" : "hideEl"
+                  this.state.modifiedReviews.length !== 0 ? 'showEl' : 'hideEl'
                 }
               >
                 <SortOptions sortChangeHandler={this.sortChangeHandler} />

@@ -1,7 +1,7 @@
-import React from "react";
-import StarRating from "./StarRating.jsx";
-import Characteristics from "./Characteristics.jsx";
-import axios from "axios";
+import React from 'react';
+import StarRating from './StarRating.jsx';
+import Characteristics from './Characteristics.jsx';
+import axios from 'axios';
 
 class AddAReview extends React.Component {
   constructor(props) {
@@ -12,17 +12,17 @@ class AddAReview extends React.Component {
       hover: null,
       recommend: null,
       characteristics: {},
-      summary: "",
-      body: "",
-      nickname: "",
-      email: "",
+      summary: '',
+      body: '',
+      nickname: '',
+      email: '',
       photos: [],
       summaryValid: false,
       bodyValid: false,
       nicknameValid: false,
       emailValid: false,
       uploads: [],
-      minimum: "Minimum required characters left: 50",
+      minimum: 'Minimum required characters left: 50',
     };
     this.starClickHandler = this.starClickHandler.bind(this);
     this.starMouseEnter = this.starMouseEnter.bind(this);
@@ -116,9 +116,9 @@ class AddAReview extends React.Component {
   }
 
   characteristicClickHandler(event) {
-    let name = event.target.getAttribute("name");
-    let id = event.target.getAttribute("charid");
-    let rating = event.target.getAttribute("rating");
+    let name = event.target.getAttribute('name');
+    let id = event.target.getAttribute('charid');
+    let rating = event.target.getAttribute('rating');
     let current = this.state.characteristics;
     this.setState({ characteristics: { ...current, [id]: Number(rating) } });
   }
@@ -131,7 +131,7 @@ class AddAReview extends React.Component {
   minimumCharacterChangehandler(chars) {
     let currentLength = chars;
     if (50 - currentLength <= 0) {
-      this.setState({ minimum: "Minimum reached" });
+      this.setState({ minimum: 'Minimum reached' });
     } else {
       this.setState({
         minimum: `Minimum required characters left: ${50 - currentLength}`,
@@ -153,8 +153,8 @@ class AddAReview extends React.Component {
       characteristics: this.state.characteristics,
     };
 
-    let radios = document.getElementsByClassName("characteristic-radios");
-    let inputs = document.getElementsByTagName("input");
+    let radios = document.getElementsByClassName('characteristic-radios');
+    let inputs = document.getElementsByTagName('input');
     let checked = 0;
     for (var i = 0; i < inputs.length; i++) {
       if (inputs[i].checked) {
@@ -170,24 +170,24 @@ class AddAReview extends React.Component {
       !this.state.rating ||
       checked !== radios.length + 1
     ) {
-      alert("missing required");
+      alert('missing required');
     } else {
       // this.formModalCloseClickHandler();
       this.resetForm();
-      let modal = document.getElementById("modal-form");
-      modal.classList.remove("modalOn-form");
-      modal.classList.add("modalOff-form");
+      let modal = document.getElementById('modal-form');
+      modal.classList.remove('modalOn-form');
+      modal.classList.add('modalOff-form');
 
       axios
         .post(`api/reviews`, params)
         .then((result) => {
-          console.log(">>>>good", result);
-          if (this.props.currentSort === "relevance") {
+          console.log('>>>>good', result);
+          if (this.props.currentSort === 'relevance') {
             this.props.getAllProductRelevantReviews(
               this.props.reviewCount,
               true
             );
-          } else if (this.props.currentSort === "helpful") {
+          } else if (this.props.currentSort === 'helpful') {
             this.props.getAllProductHelpfulReviews(
               this.props.reviewCount,
               true
@@ -197,7 +197,7 @@ class AddAReview extends React.Component {
           }
         })
         .catch((result) => {
-          console.log(">>>bad", result);
+          console.log('>>>bad', result);
         });
     }
   }
@@ -224,36 +224,36 @@ class AddAReview extends React.Component {
   }
 
   getFile() {
-    document.getElementById("file-input").click();
+    document.getElementById('file-input').click();
   }
 
   formModalCloseClickHandler(event) {
     event.preventDefault();
     this.resetForm();
-    let modal = document.getElementById("modal-form");
-    modal.classList.remove("modalOn-form");
-    modal.classList.add("modalOff-form");
+    let modal = document.getElementById('modal-form');
+    modal.classList.remove('modalOn-form');
+    modal.classList.add('modalOff-form');
   }
 
   resetForm() {
     var a = [];
-    a = document.getElementsByTagName("input");
+    a = document.getElementsByTagName('input');
     for (var b = 0; b < a.length; b++) {
-      if (a[b].type === "radio") {
+      if (a[b].type === 'radio') {
         a[b].checked = false;
       }
     }
 
     this.setState({
-      currentProduct: { id: 0, name: "" },
+      currentProduct: { id: 0, name: '' },
       rating: null,
       hover: null,
       recommend: null,
       characteristics: {},
-      summary: "",
-      body: "",
-      nickname: "",
-      email: "",
+      summary: '',
+      body: '',
+      nickname: '',
+      email: '',
       photos: [],
     });
   }
@@ -314,7 +314,7 @@ class AddAReview extends React.Component {
                               value='yes'
                               onClick={this.yesRadioClickHandler}
                               className='row-inner-elements'
-                            />{" "}
+                            />{' '}
                             <span>Yes</span>
                           </div>
                           <div className='radio-input-container'>
@@ -324,7 +324,7 @@ class AddAReview extends React.Component {
                               value='no'
                               onClick={this.noRadioClickHandler}
                               className='row-inner-elements'
-                            />{" "}
+                            />{' '}
                             <span>No</span>
                           </div>
                         </div>
@@ -376,7 +376,7 @@ class AddAReview extends React.Component {
                         className='shrink-left row-inner-elements input-tag'
                         minLength='1'
                         maxLength='60'
-                        value={this.state.nickname || ""}
+                        value={this.state.nickname || ''}
                         onChange={this.nicknameChangeHandler}
                       />
                     </div>
@@ -441,7 +441,7 @@ class AddAReview extends React.Component {
                   accept='image/png, image/jpeg'
                   onChange={this.onImageChange}
                 />
-                <div>{this.state.uploads.join(", ") || ""}</div>
+                <div>{this.state.uploads.join(', ') || ''}</div>
               </div>
             </div>
 

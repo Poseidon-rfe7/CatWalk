@@ -1,5 +1,5 @@
-import React from "react";
-import IndividualReviewThumbnailModal from "./IndividualReviewThumbnailModal.jsx";
+import React from 'react';
+import IndividualReviewThumbnailModal from './IndividualReviewThumbnailModal.jsx';
 
 function IndividualReviewThumbnails(props) {
   return (
@@ -8,7 +8,7 @@ function IndividualReviewThumbnails(props) {
         return (
           <div key={props.reviewId + index}>
             <img
-              src={photo.url || ""}
+              src={photo.url || ''}
               width='50'
               onClick={props.modalClickHandler}
             />

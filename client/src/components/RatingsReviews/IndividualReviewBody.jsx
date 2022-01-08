@@ -1,5 +1,5 @@
-import React from "react";
-import IndividualReviewThumbnails from "./IndividualReviewThumbnails.jsx";
+import React from 'react';
+import IndividualReviewThumbnails from './IndividualReviewThumbnails.jsx';
 
 class IndividualReviewBody extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class IndividualReviewBody extends React.Component {
       isLong: false,
       photos: props.photos,
       reviewId: props.reviewId,
-      show: "Show more",
+      show: 'Show more',
       body: props.body.substring(0, 250),
     };
     this.showMoreClickHandler = this.showMoreClickHandler.bind(this);
@@ -23,26 +23,26 @@ class IndividualReviewBody extends React.Component {
     event.preventDefault();
     if (this.state.isLong) {
       this.state.isLong = !this.state.isLong;
-      this.setState({ body: this.state.firstChars, show: "Show more" });
+      this.setState({ body: this.state.firstChars, show: 'Show more' });
     } else {
       this.state.isLong = !this.state.isLong;
-      this.setState({ body: this.state.currentBody, show: "Show less" });
+      this.setState({ body: this.state.currentBody, show: 'Show less' });
     }
   }
 
   modalCloseClickHandler(event) {
-    let modal = document.getElementById("modal");
-    modal.classList.remove("modalOn");
-    modal.classList.add("modalOff");
+    let modal = document.getElementById('modal');
+    modal.classList.remove('modalOn');
+    modal.classList.add('modalOff');
   }
 
   modalClickHandler(event) {
-    let url = event.target.getAttribute("src");
-    let modal = document.getElementById("modal");
-    let modalImage = document.getElementById("modal-image");
+    let url = event.target.getAttribute('src');
+    let modal = document.getElementById('modal');
+    let modalImage = document.getElementById('modal-image');
     modalImage.src = url;
-    modal.classList.remove("modalOff");
-    modal.classList.add("modalOn");
+    modal.classList.remove('modalOff');
+    modal.classList.add('modalOn');
   }
 
   render() {
@@ -58,7 +58,7 @@ class IndividualReviewBody extends React.Component {
         <a
           href='#'
           onClick={this.showMoreClickHandler}
-          className={this.state.lastChars === "" ? "hideEl" : "showEl"}
+          className={this.state.lastChars === '' ? 'hideEl' : 'showEl'}
         >
           {this.state.show}
         </a>

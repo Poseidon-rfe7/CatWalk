@@ -1,5 +1,5 @@
-import React from "react";
-import ls from "local-storage";
+import React from 'react';
+import ls from 'local-storage';
 
 class IndividualReviewHelpfulness extends React.Component {
   constructor(props) {
@@ -12,22 +12,22 @@ class IndividualReviewHelpfulness extends React.Component {
   }
 
   clickHandler(event) {
-    let markedReviews = ls.get("markedReviews") || [];
+    let markedReviews = ls.get('markedReviews') || [];
     if (!markedReviews.includes(this.props.review.review_id)) {
       this.props.helpfulClickHandler(event);
     }
-    ls.set("markedReviews", [...markedReviews, this.props.review.review_id]);
+    ls.set('markedReviews', [...markedReviews, this.props.review.review_id]);
   }
 
   render() {
     return (
       <div className='helpful-container'>
         <p id={this.props.review.review_id} onClick={this.clickHandler}>
-          Helpful?{" "}
+          Helpful?{' '}
           <span className='helpful'>Yes ({this.props.review.helpfulness})</span>
-        </p>{" "}
+        </p>{' '}
         <span>
-          {" "}
+          {' '}
           &nbsp;| <span className='helpful'>Report</span>
         </span>
       </div>
