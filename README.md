@@ -122,3 +122,25 @@ This module allows viewing and submission of reviews for the product selected. T
 ## Links
 
 https://github.com/Poseidon-rfe7/CatWalk
+
+## Authors
+
+👤 **Itahand Naizir**
+
+- Twitter: [@username](https://twitter.com/username)
+- Github: [@username](https://github.com/username)
+
+👤 **Corey Zauss**
+
+- Twitter: [@username](https://twitter.com/username)
+- Github: [@username](https://github.com/username)
+
+👤 **Jared Maldonado**
+
+- Twitter: [@username](https://twitter.com/username)
+- Github: [@username](https://github.com/username)
+
+👤 **Allen Alejandro**
+
+- Twitter: [@username](https://twitter.com/username)
+- Github: [@username](https://github.com/username)
