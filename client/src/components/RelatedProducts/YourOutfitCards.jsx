@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import AddToOutfit from "./AddToOutfit.jsx";
 import OutfitCard from "./OutfitCard.jsx";
 
-const YourOutfitCards = (props) => {
+const YourOutfitCards = ({currentproduct, currentproductstyles}) => {
   const [parseStorage, setParseStorage] = useState([]);
   const [updateCards, setUpdateCards] = useState(false);
   const [trigger, setTrigger] = useState(0);
@@ -72,8 +72,8 @@ const YourOutfitCards = (props) => {
       <div id="youroutfitdeck" className="your-outfit-deck">
         <div className="your-outfit-card">
           <AddToOutfit
-            currentproduct={props.currentproduct}
-            currentproductstyles={props.currentproductstyles}
+            currentproduct={currentproduct}
+            currentproductstyles={currentproductstyles}
             trigger={triggerRender}
           />
         </div>

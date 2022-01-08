@@ -4,6 +4,7 @@
 
 Project Catwalk was designed with the user experience in mind to make shopping for your favorite style simple, fun, and interactive while maintaining providing enough information about the products to allow users to make reasonable decisions about what they will buy.
 
+<<<<<<< HEAD
 ### Initial Configuration
 
 With the project cloned down to your local machine, you must run npm i to install all dependencies.
@@ -19,6 +20,9 @@ git clone https://github.com/Poseidon-rfe7/CatWalk
 cd into root of project
 load into your favorite ide
 ```
+=======
+## Install
+>>>>>>> 720c0cdc9519f87f34491b56aa2d46063ccccab9
 
 ```shell
 git clone https://github.com/Poseidon-rfe7/CatWalk
@@ -28,6 +32,7 @@ npm run react-dev
 npm start
 ```
 
+<<<<<<< HEAD
 ### Building
 
 ```
@@ -35,21 +40,47 @@ after any changes you must run `npm run react-dev`
 ```
 
 this will compile and build the code
+=======
+## Configuration
+
+Create a .env file in the root of the project
+
+```shell
+GITHUB_API_KEY="token_here"
+```
+>>>>>>> 720c0cdc9519f87f34491b56aa2d46063ccccab9
 
 ## Features
 
 Menu and home button: We include a menubar at the top with quick links to the specific modules as well as a button at the bottom right present at all times that will bring you back to the top of the app.
 
-Product overview component: where you can view your currently selected item of choice, see all of its optional styles, photos of each style, information on the product as well as a quick rating and the price as well as a selection for sizes and the ability to add the selected item with your configuration to the cart.
+### Product Overview Widget:
+Where you can view your currently selected item of choice, see all of its optional styles, photos of each style, information on the product as well as a quick rating and the price as well as a selection for sizes and the ability to add the selected item with your configuration to the cart.
 
-Related Items component: See all the items that are related to the currently viewed product in a carousel of cards containing a picture of the item and some information. Each card also includes an action button that a user can click in order to compare the current item to the particular related item which will prompt a modal to come into focus listing shared or non-shared features and comparing the price.
+![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
 
-YourOutfits: A similar component to Related items. This section is in carousel format containing a single card by default which will allow you to click on it at any time to add the currently selected product into a list called Your Outfits, to store choices and build up a wardrobe or wish list. These cards can also be removed by clicking the action buttons on the top right of the card.
+### Related Items Widget
+See all the items that are related to the currently viewed product in a carousel of cards containing a picture of the item and some information. Each card also includes an action button that a user can click in order to compare the current item to the particular related item which will prompt a modal to come into focus listing shared or non-shared features and comparing the price.
 
-Questions and Answers:
+![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
 
+### Your Outfits Widget:
+A similar widget to Related items. This section is in carousel format containing a single card by default which will allow you to click on it at any time to add the currently selected product into a list called Your Outfits, to store choices and build up a wardrobe or wish list. These cards can also be removed by clicking the action buttons on the top right of the card.
+
+![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
+
+### Questions and Answers:
+
+![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
+
+### Ratings and Reviews:
+This module allows viewing and submission of reviews for the product selected. The functionality contained within this module can be divided into several pieces:
+
+<<<<<<< HEAD
 Ratings and Reviews: This module allows viewing and submission of reviews for the product selected. The functionality contained within this module can be divided into several pieces:
 
+=======
+>>>>>>> 720c0cdc9519f87f34491b56aa2d46063ccccab9
 1. Write new review
 2. Reviews List
 3. Sorting
@@ -62,6 +93,32 @@ Ratings and Reviews: This module allows viewing and submission of reviews for th
 
 https://github.com/Poseidon-rfe7/CatWalk
 
+<<<<<<< HEAD
+=======
+## Authors
+
+👤 **Itahand Naizir**
+
+- Twitter: [@username](https://twitter.com/username)
+- Github: [@username](https://github.com/username)
+
+👤 **Cory Zauss**
+
+- LinkedIn: [@CoryZauss](https://www.linkedin.com/in/cory-zauss-98243b21a/)
+- Github: [@Coryzauss](https://github.com/CoryZauss)
+
+👤 **Jared Maldonado**
+
+- Twitter: [@username](https://twitter.com/username)
+- Github: [@username](https://github.com/username)
+
+👤 **Allen Alejandro**
+
+- LinkedIn: [@allen-alejandro](https://www.linkedin.com/in/allen-alejandro/)
+- Github: [@allen-alejandro](https://github.com/allen-alejandro)
+
+
+>>>>>>> 720c0cdc9519f87f34491b56aa2d46063ccccab9
 ## Screenshots
 
 ![productoverview](https://user-images.githubusercontent.com/89159410/148569194-52928a5b-9f18-4cf4-a068-563d84f9e2cc.png)

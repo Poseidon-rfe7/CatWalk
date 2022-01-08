@@ -6,10 +6,6 @@ const CompareModal = ({ show, closemodal, compareinfo }) => {
     { name: "item2", category: "category", default_price: 0 },
   ]);
   const [compareFeatures, setCompareFeatures] = useState([]);
-  // create an object for each that has the feature name as the key and the values to be listed for that column as the values
-  //dynamicly render the columns with key and current[key], etc or if that value is not there use ''
-  // [ {characteristic: {c: 'feature', r: 'feature'} },
-  //  { char2: c: 'whatever' r: ''} ]
 
   useEffect(() => {
     if (compareinfo.length > 0) {

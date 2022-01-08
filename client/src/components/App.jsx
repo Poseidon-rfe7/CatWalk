@@ -33,10 +33,10 @@ class App extends React.Component {
       this.handleChangeCurrentProduct.bind(this);
     this.getRating = this.getRating.bind(this);
     this.getRelatedRatings = this.getRelatedRatings.bind(this);
-    this.recordClicks = this.recordClicks.bind(this);
+    //this.recordClicks = this.recordClicks.bind(this);
   }
 
-  recordClicks(e) {
+  //recordClicks(e) {
     // var events = ls.get("logEvents") || [];
     // var clickEvent = {};
     // clickEvent.element = e.target;
@@ -60,7 +60,7 @@ class App extends React.Component {
     // clickEvent.module = logModule;
     // events.push(clickEvent);
     // ls("logEvents", events);
-  }
+  //}
 
   async handleChangeCurrentProduct(id) {
     try {

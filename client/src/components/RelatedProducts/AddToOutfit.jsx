@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const AddToOutfit = (props) => {
+const AddToOutfit = ({currentproductstyles, currentproduct, trigger }) => {
   const [currentPhoto, setCurrentPhoto] = useState("");
 
   useEffect(() => {
-    if (props.currentproductstyles.results) {
-      const styles = props.currentproductstyles.results;
+    if (currentproductstyles.results) {
+      const styles = currentproductstyles.results;
       for (var i = 0; i < styles.length; i++) {
         if (styles[i]["default?"] === true) {
           setCurrentPhoto(styles[i].photos[0].url);
@@ -14,7 +14,7 @@ const AddToOutfit = (props) => {
       }
       setCurrentPhoto(styles[0].photos[0].url);
     }
-  }, [props.currentproductstyles]);
+  }, [currentproductstyles]);
 
   const addToOutfits = () => {
     var currentStored = window.localStorage.getItem("yourOutfits");
@@ -25,15 +25,15 @@ const AddToOutfit = (props) => {
 
     var toStore = {
       url: currentPhoto || "https://i.pinimg.com/originals/74/5c/e5/745ce5086456b8d2520a32ec6fca9888.jpg",
-      name: props.currentproduct.name,
-      category: props.currentproduct.category,
-      id: props.currentproduct.id,
+      name: currentproduct.name,
+      category: currentproduct.category,
+      id: currentproduct.id,
     };
 
-    currentStored[props.currentproduct.id] = toStore;
+    currentStored[currentproduct.id] = toStore;
 
     window.localStorage.setItem("yourOutfits", JSON.stringify(currentStored));
-    props.trigger();
+    trigger();
   };
 
   return (
