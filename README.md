@@ -14,12 +14,6 @@ the project further:
 
 ```shell
 git clone https://github.com/Poseidon-rfe7/CatWalk
-cd into root of project
-load into your favorite ide
-```
-
-```shell
-git clone https://github.com/Poseidon-rfe7/CatWalk
 cd CatWalk
 npm i
 npm run react-dev
@@ -46,7 +40,7 @@ Questions and Answers:
 Ratings and Reviews: This module allows viewing and submission of reviews for the product selected.  The functionality contained within this module can be divided into several pieces:
 1. Write new review
 2. Reviews List
-3. Sorting 
+3. Sorting
 4. Rating Breakdown
 5. Product Breakdown
 
