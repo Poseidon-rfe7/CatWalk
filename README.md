@@ -30,23 +30,21 @@ Menu and home button: We include a menubar at the top with quick links to the sp
 
 Where you can view your currently selected item of choice, see all of its optional styles, photos of each style, information on the product as well as a quick rating and the price as well as a selection for sizes and the ability to add the selected item with your configuration to the cart.
 
-![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
+![product_overview](https://user-images.githubusercontent.com/86323698/148654546-a46c9a53-4237-49a9-bbdc-feb6f3382aa8.gif)
 
 ### Related Items Widget
 
 See all the items that are related to the currently viewed product in a carousel of cards containing a picture of the item and some information. Each card also includes an action button that a user can click in order to compare the current item to the particular related item which will prompt a modal to come into focus listing shared or non-shared features and comparing the price.
 
-![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
-
 ### Your Outfits Widget:
 
 A similar widget to Related items. This section is in carousel format containing a single card by default which will allow you to click on it at any time to add the currently selected product into a list called Your Outfits, to store choices and build up a wardrobe or wish list. These cards can also be removed by clicking the action buttons on the top right of the card.
 
-![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
+![related_products](https://user-images.githubusercontent.com/86323698/148654571-64fcfbc3-cece-482c-9ce5-577ce61386aa.gif)
 
 ### Questions and Answers:
 
-![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
+![questions_answers](https://user-images.githubusercontent.com/86323698/148654591-e228e16f-abf5-4a4f-9952-be05c29aad66.gif)
 
 ### Ratings and Reviews:
 
@@ -57,8 +55,8 @@ This module allows viewing and submission of reviews for the product selected. T
 3. Sorting
 4. Rating Breakdown
 5. Product Breakdown
-
-![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
+6. 
+![reviews](https://user-images.githubusercontent.com/86323698/148654604-4c303e29-4775-4ef1-b77c-4d7b6398e506.gif)
 
 ## Links
 
