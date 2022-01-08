@@ -27,16 +27,19 @@ GITHUB_API_KEY="token_here"
 Menu and home button: We include a menubar at the top with quick links to the specific modules as well as a button at the bottom right present at all times that will bring you back to the top of the app.
 
 ### Product Overview Widget:
+
 Where you can view your currently selected item of choice, see all of its optional styles, photos of each style, information on the product as well as a quick rating and the price as well as a selection for sizes and the ability to add the selected item with your configuration to the cart.
 
 ![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
 
 ### Related Items Widget
+
 See all the items that are related to the currently viewed product in a carousel of cards containing a picture of the item and some information. Each card also includes an action button that a user can click in order to compare the current item to the particular related item which will prompt a modal to come into focus listing shared or non-shared features and comparing the price.
 
 ![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
 
 ### Your Outfits Widget:
+
 A similar widget to Related items. This section is in carousel format containing a single card by default which will allow you to click on it at any time to add the currently selected product into a list called Your Outfits, to store choices and build up a wardrobe or wish list. These cards can also be removed by clicking the action buttons on the top right of the card.
 
 ![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
@@ -46,6 +49,7 @@ A similar widget to Related items. This section is in carousel format containing
 ![ratings_reviews](https://user-images.githubusercontent.com/86323698/148602527-c9cddc20-5012-47e3-88ab-6a55d8a7a584.gif)
 
 ### Ratings and Reviews:
+
 This module allows viewing and submission of reviews for the product selected. The functionality contained within this module can be divided into several pieces:
 
 1. Write new review
@@ -81,7 +85,6 @@ https://github.com/Poseidon-rfe7/CatWalk
 
 - LinkedIn: [@allen-alejandro](https://www.linkedin.com/in/allen-alejandro/)
 - Github: [@allen-alejandro](https://github.com/allen-alejandro)
-
 
 ## Screenshots
 

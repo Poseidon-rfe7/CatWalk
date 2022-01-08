@@ -192,14 +192,15 @@ hr {
   height: 310px;
   width: 200px;
   margin-bottom: 5px;
-  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8), -12px 0 8px -4px rgba(6, 20, 36, 0.8);
+  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8),
+    -12px 0 8px -4px rgba(6, 20, 36, 0.8);
 }
 
 .deactive {
   margin-right: -80px;
   height: 290;
-  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8), -12px 0 8px -4px rgba(6, 20, 36, 0.8);
-
+  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8),
+    -12px 0 8px -4px rgba(6, 20, 36, 0.8);
 }
 
 .product-card-contents,
@@ -340,7 +341,7 @@ td {
 
 #child-ratings-reviews {
   /* width: fit-content; */
-  margin-top:15%;
+  margin-top: 15%;
 }
 
 #ratings-reviews-main-container {
@@ -730,7 +731,7 @@ progress {
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+  background-color: rgb(0 0 0 / 43%);
 }
 
 .modalOn-form {
@@ -1235,7 +1236,6 @@ Grid Container
 .product-info-description {
   font-weight: 900;
   font-size: 1.2vw;
-
 }
 .product-info-name {
   margin: 5px;
@@ -1255,7 +1255,6 @@ Grid Container
 }
 
 .product-info-title {
-
   font-size: 1vw;
 }
 .fivestar-product {
@@ -1272,30 +1271,29 @@ Grid Container
 
 .image-gallery-container {
   display: grid;
-  grid-template-columns:  20%  70% ;
+  grid-template-columns: 20% 70%;
   align-items: center;
 }
 .galleryFigure {
-
-  margin: 0 ;
+  margin: 0;
 }
 .galleryFigure img {
   border-radius: 10px;
   display: inline;
   min-width: 20%;
-  max-width:80%;
+  max-width: 80%;
   width: 400px;
   margin: 0;
   margin-top: 10px;
   cursor: pointer;
-  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8), -12px 0 8px -4px rgba(6, 20, 36, 0.8);
+  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8),
+    -12px 0 8px -4px rgba(6, 20, 36, 0.8);
 }
 
 .gallery_thumbnailsUl {
   list-style: none;
   margin-top: 10px;
   padding: 0;
-
 }
 
 .gallery_thumbnailsUl li {
@@ -1304,8 +1302,6 @@ Grid Container
   margin-left: 15px;
   margin-top: 5px;
   cursor: pointer;
-
-
 }
 
 .gallery_thumbnailsUl li img {
@@ -1317,18 +1313,17 @@ Grid Container
   display: inline-block;
   max-width: 99%;
   min-width: 20%;
-  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8), -12px 0 8px -4px rgba(6, 20, 36, 0.8);
-
+  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8),
+    -12px 0 8px -4px rgba(6, 20, 36, 0.8);
 }
 
-.galleryStyle{
-border-radius: 5px;
-max-width: 10%;
-max-height: 10%;
-
+.galleryStyle {
+  border-radius: 5px;
+  max-width: 10%;
+  max-height: 10%;
 }
 
-#mainImg{
+#mainImg {
   max-width: 50%;
 }
 /* //////////////////////////////////////////////////////////////////
@@ -1339,30 +1334,29 @@ max-height: 10%;
 /* //////////////////////////////////////////////////////////////////
 /* //////////////////////////////////////////////////////////////////*/
 
-.styleSelect{
+.styleSelect {
   border-radius: 30px;
   margin: 0;
-  width: 4vw
+  width: 4vw;
 }
 
-.styleCaption{
+.styleCaption {
   font-size: 30px;
   font-style: italic;
-
 }
 
-.style_thumbnailsUl{
+.style_thumbnailsUl {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.style_thumbnailsUl li{
+.style_thumbnailsUl li {
   display: inline-block;
   width: 100px;
   margin: 0 5px;
   cursor: pointer;
 }
-.style_thumbnailsUl li img{
+.style_thumbnailsUl li img {
   border-radius: 10px;
   padding: 1px;
   margin: 2px;
@@ -1372,7 +1366,8 @@ max-height: 10%;
   max-width: 99%;
   min-width: 20%;
   cursor: pointer;
-  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8), -12px 0 8px -4px rgba(6, 20, 36, 0.8);
+  box-shadow: 12px 0 15px -4px rgba(2, 13, 27, 0.8),
+    -12px 0 8px -4px rgba(6, 20, 36, 0.8);
 }
 
 /* //////////////////////////////////////////////////////////////////
@@ -1392,7 +1387,7 @@ max-height: 10%;
   transform: translate(-50%, -50%);
   background: black;
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
 }
 
@@ -1420,20 +1415,20 @@ max-height: 10%;
 }
 .modal-box .user-box label {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   padding: 10px 0;
   font-size: 16px;
   color: #fff;
   pointer-events: none;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .modal-box .user-box input:focus ~ label,
 .modal-box .user-box input:valid ~ label {
   top: -20px;
   left: 0;
-  color:red;
+  color: red;
   font-size: 12px;
 }
 
@@ -1445,19 +1440,16 @@ max-height: 10%;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
-  transition: .5s;
+  transition: 0.5s;
   margin-top: 40px;
-  letter-spacing: 4px
+  letter-spacing: 4px;
 }
 
 .modal-box a:hover {
   background: black;
   color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 5px red,
-              0 0 25px red,
-              0 0 50px red,
-              0 0 100px red;
+  box-shadow: 0 0 5px red, 0 0 25px red, 0 0 50px red, 0 0 100px red;
 }
 
 .modal-box a span {
@@ -1478,7 +1470,8 @@ max-height: 10%;
   0% {
     left: -100%;
   }
-  50%,100% {
+  50%,
+  100% {
     left: 100%;
   }
 }
@@ -1490,14 +1483,15 @@ max-height: 10%;
   height: 100%;
   background: linear-gradient(180deg, transparent, #7d13bb);
   animation: btn-anim2 1s linear infinite;
-  animation-delay: .25s
+  animation-delay: 0.25s;
 }
 
 @keyframes btn-anim2 {
   0% {
     top: -100%;
   }
-  50%,100% {
+  50%,
+  100% {
     top: 100%;
   }
 }
@@ -1509,14 +1503,15 @@ max-height: 10%;
   height: 2px;
   background: linear-gradient(270deg, transparent, #8003f4);
   animation: btn-anim3 1s linear infinite;
-  animation-delay: .5s
+  animation-delay: 0.5s;
 }
 
 @keyframes btn-anim3 {
   0% {
     right: -100%;
   }
-  50%,100% {
+  50%,
+  100% {
     right: 100%;
   }
 }
@@ -1528,19 +1523,20 @@ max-height: 10%;
   height: 100%;
   background: linear-gradient(360deg, transparent, #9d09d8);
   animation: btn-anim4 1s linear infinite;
-  animation-delay: .75s
+  animation-delay: 0.75s;
 }
 
 @keyframes btn-anim4 {
   0% {
     bottom: -100%;
   }
-  50%,100% {
+  50%,
+  100% {
     bottom: 100%;
   }
 }
 
-.modalConfirmation{
+.modalConfirmation {
   font-style: normal;
   color: white;
   size: 10px;
@@ -1554,29 +1550,29 @@ max-height: 10%;
 /* //////////////////////////////////////////////////////////////////
 /* //////////////////////////////////////////////////////////////////*/
 
-
 .btn_social {
   display: inline-block;
   text-align: center;
   flex-direction: column;
   align-items: center;
   padding: 6px 14px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
   border-radius: 6px;
   border: none;
   cursor: pointer;
   color: #fff;
-  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
-   background-origin: border-box;
-  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  background: linear-gradient(180deg, #4b91f7 0%, #367af6 100%);
+  background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25),
+    inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
 }
 
 .btn_social:focus {
-  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2),
+    0px 0.5px 1.5px rgba(54, 122, 246, 0.25),
+    0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
   outline: 0;
 }
-
-
