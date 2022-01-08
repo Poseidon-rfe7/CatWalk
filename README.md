@@ -79,8 +79,8 @@ https://github.com/Poseidon-rfe7/CatWalk
 
 👤 **Allen Alejandro**
 
-- Twitter: [@username](https://twitter.com/username)
-- Github: [@username](https://github.com/username)
+- LinkedIn: [@allen-alejandro](https://www.linkedin.com/in/allen-alejandro/)
+- Github: [@allen-alejandro](https://github.com/allen-alejandro)
 
 
 ## Screenshots
