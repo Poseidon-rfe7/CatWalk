@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function StarRating(props) {
   return (
@@ -21,8 +21,8 @@ function StarRating(props) {
                 style={{
                   color:
                     ratingValue <= (props.hover || props.rating)
-                      ? "#ffc107"
-                      : "#ccc",
+                      ? '#ffc107'
+                      : '#ccc',
                 }}
                 onMouseEnter={() => props.starMouseEnter(ratingValue)}
                 onMouseLeave={props.starMouseLeave}

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Progressbar = ({
   bgcolor,
@@ -10,31 +10,31 @@ const Progressbar = ({
   showBar,
 }) => {
   let progress = (min / max) * 100;
-  let isIconVisible = showIcon ? "block" : "none";
-  let isBarVisible = showBar ? "block" : "none";
-  let isBgVisible = showIcon ? "whitesmoke" : bgcolor;
-  let isMargin = showIcon ? "10" : "0";
+  let isIconVisible = showIcon ? 'block' : 'none';
+  let isBarVisible = showBar ? 'block' : 'none';
+  let isBgVisible = showIcon ? 'whitesmoke' : bgcolor;
+  let isMargin = showIcon ? '10' : '0';
 
   const Parentdiv = {
     height: height,
     width: `${width}%`,
-    backgroundColor: "whitesmoke",
+    backgroundColor: 'whitesmoke',
     borderRadius: 3,
     margin: 0,
     marginBottom: `${isMargin}px`,
   };
 
   const Childdiv = {
-    height: "100%",
+    height: '100%',
     width: `${progress}%`,
     backgroundColor: isBgVisible,
     borderRadius: 3,
-    textAlign: "right",
+    textAlign: 'right',
     display: isBarVisible,
   };
 
   const progresstext = {
-    color: "black",
+    color: 'black',
     fontWeight: 900,
     display: isIconVisible,
   };

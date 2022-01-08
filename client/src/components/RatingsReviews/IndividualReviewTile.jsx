@@ -1,25 +1,25 @@
-import React from "react";
-import IndividualReviewBody from "./IndividualReviewBody.jsx";
-import IndividualReviewHelpfulness from "./IndividualReviewHelpfulness.jsx";
-import FiveStar from "../FiveStar.jsx";
+import React from 'react';
+import IndividualReviewBody from './IndividualReviewBody.jsx';
+import IndividualReviewHelpfulness from './IndividualReviewHelpfulness.jsx';
+import FiveStar from '../FiveStar.jsx';
 
 function IndividualReviewTile(props) {
   let months = {
-    "01": "January",
-    "02": "February",
-    "03": "March",
-    "04": "April",
-    "05": "May",
-    "06": "June",
-    "07": "July",
-    "08": "August",
-    "09": "September",
-    10: "October",
-    11: "November",
-    12: "December",
+    '01': 'January',
+    '02': 'February',
+    '03': 'March',
+    '04': 'April',
+    '05': 'May',
+    '06': 'June',
+    '07': 'July',
+    '08': 'August',
+    '09': 'September',
+    10: 'October',
+    11: 'November',
+    12: 'December',
   };
 
-  let timeArr = props.review.date.split("T")[0].split("-");
+  let timeArr = props.review.date.split('T')[0].split('-');
   let month = months[timeArr[1]];
   let day = timeArr[2];
   let year = timeArr[0];
@@ -49,14 +49,14 @@ function IndividualReviewTile(props) {
             reviewId={props.review.review_id}
           />
         </div>
-        <div className={props.review.recommend ? "showEl" : "hideEl"}>
+        <div className={props.review.recommend ? 'showEl' : 'hideEl'}>
           <p>
             <span>&#10003;</span> I recommend this product
           </p>
         </div>
         <div
           className={`response-container ${
-            props.review.response ? "showEl" : "hideEl"
+            props.review.response ? 'showEl' : 'hideEl'
           }`}
         >
           <h3 className='response-container-move'>Response from seller:</h3>
