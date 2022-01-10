@@ -1,4 +1,4 @@
-# CatWalk
+# Front-End Capstone: CatWalk
 
 > frontend redesign for a web based clothing store
 
