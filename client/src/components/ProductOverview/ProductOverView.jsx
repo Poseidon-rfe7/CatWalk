@@ -20,6 +20,7 @@ const ProductsOverview = (props) => {
 
   return (
     <div id="productOverview-link" className="products-overview-container module-parent">
+      
       <Grid  >
         <div className="image-and-thumbnails" >
           <ImageGallery
@@ -48,7 +49,9 @@ const ProductsOverview = (props) => {
           style={style}>
           </AddToCart>
         </div>
+
       </Grid>
+
     </div>
   );
 };

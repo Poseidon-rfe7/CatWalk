@@ -1,24 +1,107 @@
 #app {
   margin: 0;
   width: 100vw;
+  position: relative;
+}
+/* wave effect top*/
+.custom-shape-divider-top-1644254482 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  z-index: -1;
 }
 
+.custom-shape-divider-top-1644254482 svg {
+  position: relative;
+  display: block;
+  width: calc(185% + 1.3px);
+  height: 244px;
+}
+
+.custom-shape-divider-top-1644254482 .shape-fill {
+  fill: #000000;
+}
+
+/* wave effect bottom*/
+.custom-shape-divider-bottom-1644253989 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: -1;
+}
+
+/* wave effect products bottom*/
+.custom-shape-divider-bottom-1644255509 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    z-index: -1;
+}
+
+.custom-shape-divider-bottom-1644255509 svg {
+    position: relative;
+    display: block;
+    width: calc(275% + 1.3px);
+    height: 304px;
+}
+
+.custom-shape-divider-bottom-1644255509 .shape-fill {
+    fill: #000000;
+}
+
+/* QA WAVE */
+.custom-shape-divider-top-1644256368 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1644256368 svg {
+    position: relative;
+    display: block;
+    width: calc(150% + 1.3px);
+    height: 160px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1644256368 .shape-fill {
+    fill: #000000;
+}
+
+/* */
+
+/* app menu etc*/
 .app-container {
   margin: 0 auto;
-  width: 85vw;
+  width: 100%;
   margin-bottom: 150px;
 }
+
 .menu-bar {
   display: flex;
   background: black;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
   color: white;
   max-height: 4.8vw;
   min-height: 3vh;
   /* align-items: flex-end; */
 }
 .menu-cat {
-  min-width: 20vw;
+  min-width: 15vw;
   font-size: 4vw;
 }
 
@@ -26,7 +109,6 @@
   display: flex;
   height: 50px;
   margin-bottom: 0;
-  background: linear-gradient(0.25turn, black, black, white);
   align-items: flex-end;
 }
 .tiny-text {
@@ -69,8 +151,8 @@ hr {
   position: fixed;
   bottom: 0;
   right: 0;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  margin-right: 8px;
+  margin-bottom: 10px;
   font-size: 50px;
   transform: scaleX(-1);
 }
@@ -112,6 +194,7 @@ hr {
 .youroutfit-title {
   padding-top: 15px;
   font-size: 20px;
+  margin-left: 30vw;
 }
 
 .style-tag {
@@ -131,6 +214,7 @@ hr {
   position: relative;
   width: 100%;
   padding: 0;
+  overflow: none;
 }
 
 /* main slides container */
@@ -342,6 +426,8 @@ td {
 #child-ratings-reviews {
   /* width: fit-content; */
   margin-top: 15%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 #ratings-reviews-main-container {
@@ -935,14 +1021,15 @@ form textarea {
 }
 
 .reset-margins {
-  margin: 0;
+  margin-left: 10%;
 }
 
 /* ----Custom Styles---- */
 
 .questions-answers {
   width: 700px;
-  margin: 15px auto 50px 80px;
+  margin-left: 10%;
+  margin-right: 10%;
   font-family: Helvetica, sans-serif;
   font-size: 15px;
   overflow: hidden;
@@ -1220,6 +1307,8 @@ Grid Container
   grid-gap: 5px;
   background-color: black;
   padding: 5px;
+  width: 75vw;
+  margin-left: 10vw;
 }
 
 .container > div {
@@ -1227,6 +1316,7 @@ Grid Container
   text-align: center;
   padding: 20px 0;
   font-size: 15px;
+
 }
 
 .product-info-price {

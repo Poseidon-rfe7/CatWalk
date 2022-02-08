@@ -37,29 +37,29 @@ class App extends React.Component {
   }
 
   //recordClicks(e) {
-    // var events = ls.get("logEvents") || [];
-    // var clickEvent = {};
-    // clickEvent.element = e.target;
-    // clickEvent.time = new Date().toString().substring(0, 25);
-    // var mod = e.target.closest(".module-parent");
-    // var logModule;
-    // if (mod !== null) {
-    //   var name = mod.className;
-    //   if (name.includes("questions")) {
-    //     logModule = "Questions and Answers";
-    //   } else if (name.includes("related")) {
-    //     logModule = "Related Products";
-    //   } else if (name.includes("products-overview")) {
-    //     logModule = "Product Overview";
-    //   } else if (name.includes("ratings")) {
-    //     logModule = "Ratings and Reviews";
-    //   } else {
-    //     logModule = "App container";
-    //   }
-    // }
-    // clickEvent.module = logModule;
-    // events.push(clickEvent);
-    // ls("logEvents", events);
+  // var events = ls.get("logEvents") || [];
+  // var clickEvent = {};
+  // clickEvent.element = e.target;
+  // clickEvent.time = new Date().toString().substring(0, 25);
+  // var mod = e.target.closest(".module-parent");
+  // var logModule;
+  // if (mod !== null) {
+  //   var name = mod.className;
+  //   if (name.includes("questions")) {
+  //     logModule = "Questions and Answers";
+  //   } else if (name.includes("related")) {
+  //     logModule = "Related Products";
+  //   } else if (name.includes("products-overview")) {
+  //     logModule = "Product Overview";
+  //   } else if (name.includes("ratings")) {
+  //     logModule = "Ratings and Reviews";
+  //   } else {
+  //     logModule = "App container";
+  //   }
+  // }
+  // clickEvent.module = logModule;
+  // events.push(clickEvent);
+  // ls("logEvents", events);
   //}
 
   async handleChangeCurrentProduct(id) {
@@ -176,6 +176,20 @@ class App extends React.Component {
   render() {
     return (
       <div onClick={this.recordClicks}>
+        <div className="custom-shape-divider-top-1644254482">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+              class="shape-fill"
+            ></path>
+          </svg>
+        </div>
+
         <MenuBar />
         <div className="app-container">
           <ProductsOverview
@@ -202,6 +216,19 @@ class App extends React.Component {
         </div>
         <FooterBar />
         <ReturnToTop />
+        <div className="custom-shape-divider-bottom-1644253989">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+              class="shape-fill"
+            ></path>
+          </svg>
+        </div>
       </div>
     );
   }
