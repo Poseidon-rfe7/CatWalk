@@ -22,6 +22,7 @@ Create a .env file in the root of the project
 GITHUB_API_KEY="token_here"
 ```
 
+
 ## Features
 
 Menu and home button: We include a menubar at the top with quick links to the specific modules as well as a button at the bottom right present at all times that will bring you back to the top of the app.
@@ -30,7 +31,7 @@ Menu and home button: We include a menubar at the top with quick links to the sp
 
 Where you can view your currently selected item of choice, see all of its optional styles, photos of each style, information on the product as well as a quick rating and the price as well as a selection for sizes and the ability to add the selected item with your configuration to the cart.
 
-![product_overview](https://user-images.githubusercontent.com/86323698/148654546-a46c9a53-4237-49a9-bbdc-feb6f3382aa8.gif)
+![product_overview](https://user-images.githubusercontent.com/89159410/153036135-cedb120a-b077-465e-af44-2e07b7e6941d.gif)
 
 ### Related Items Widget
 
@@ -40,7 +41,7 @@ See all the items that are related to the currently viewed product in a carousel
 
 A similar widget to Related items. This section is in carousel format containing a single card by default which will allow you to click on it at any time to add the currently selected product into a list called Your Outfits, to store choices and build up a wardrobe or wish list. These cards can also be removed by clicking the action buttons on the top right of the card.
 
-![related_products](https://user-images.githubusercontent.com/86323698/148654571-64fcfbc3-cece-482c-9ce5-577ce61386aa.gif)
+![related_products](https://user-images.githubusercontent.com/89159410/153036242-4fef8379-61a0-452b-ba04-94f4ff27d7eb.gif)
 
 ### Questions and Answers:
 
