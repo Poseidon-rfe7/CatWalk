@@ -1,8 +1,8 @@
-# Front-End Capstone: CatWalk
+# Front-End Capstone: Timeless
 
 > frontend redesign for a web based clothing store
 
-Project Catwalk was designed with the user experience in mind to make shopping for your favorite style simple, fun, and interactive while maintaining providing enough information about the products to allow users to make reasonable decisions about what they will buy.
+Timeless was designed with the user experience in mind to make shopping for your favorite style simple, fun, and interactive while maintaining providing enough information about the products to allow users to make reasonable decisions about what they will buy.
 
 ## Install
 
