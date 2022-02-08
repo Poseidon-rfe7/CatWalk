@@ -86,16 +86,30 @@ class QuestionsAnswers extends React.Component {
 
   render() {
     return (
-      <div className='questions-answers module-parent'>
-
+      <div className="questions-answers module-parent">
+        
         <Search />
-        <QuestionsList questions={this.state.renderedQuestions} productName={this.state.currentProduct.name}/>
-        <AskQuestionsModal currentProduct={this.state.currentProduct}/>
-        {this.state.showHideMoreQuestions && <button className='qa-button more-questions'
-        onClick={this.handleMoreQuestionsClick}>More Answered Questions</button>}
-        <button className='qa-button more-questions' onClick={this.handleAddQuestionClick}>Add a Question +</button>
+        <QuestionsList
+          questions={this.state.renderedQuestions}
+          productName={this.state.currentProduct.name}
+        />
+        <AskQuestionsModal currentProduct={this.state.currentProduct} />
+        {this.state.showHideMoreQuestions && (
+          <button
+            className="qa-button more-questions"
+            onClick={this.handleMoreQuestionsClick}
+          >
+            More Answered Questions
+          </button>
+        )}
+        <button
+          className="qa-button more-questions"
+          onClick={this.handleAddQuestionClick}
+        >
+          Add a Question +
+        </button>
       </div>
-    )
+    );
   };
 }
 

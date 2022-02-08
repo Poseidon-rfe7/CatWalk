@@ -6,7 +6,7 @@ const MenuBar = () => {
   return (
     <div id="menu-bar" className="menu-bar">
       <p className="whitespace"></p>
-       <h2 id="main-title" className="menu-cat"> CatWalk <i className=" fas fa-cat"></i></h2>
+       <h2 id="main-title" className="menu-cat"> Timeless  <i className=" fas fa-stopwatch"></i></h2>
        <p className="whitespace"></p>
        <p className="whitespace"></p>
        <p className="whitespace"></p>
