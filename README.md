@@ -44,8 +44,7 @@ A similar widget to Related items. This section is in carousel format containing
 
 
 ### Questions and Answers:
-
-![questions_answers](https://user-images.githubusercontent.com/86323698/148654591-e228e16f-abf5-4a4f-9952-be05c29aad66.gif)
+![q_a_widget](https://user-images.githubusercontent.com/86323698/153049326-20dfdcf7-8712-48a6-b0bb-20f02f4ce1ef.gif)
 
 ### Ratings and Reviews:
 
@@ -57,7 +56,7 @@ This module allows viewing and submission of reviews for the product selected. T
 4. Rating Breakdown
 5. Product Breakdown
 
-![reviews](https://user-images.githubusercontent.com/86323698/148654604-4c303e29-4775-4ef1-b77c-4d7b6398e506.gif)
+![ratings_review_widget](https://user-images.githubusercontent.com/86323698/153049407-ff4c8d3b-1590-4e7f-8543-8be72342845d.gif)
 
 ## Links
 
