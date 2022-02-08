@@ -40,7 +40,7 @@ const Progressbar = ({
   };
 
   return (
-    <div style={Parentdiv}>
+    <div style={Parentdiv} data-testid='progressbar'>
       <div style={Childdiv}>
         <span style={progresstext}>&#x25B2;</span>
       </div>
